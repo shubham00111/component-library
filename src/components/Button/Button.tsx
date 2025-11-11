@@ -1,8 +1,12 @@
-import { cn } from "../utils/Util";
+import { cn } from "../../utils/Util";
 
 interface ButtonProps {
   text?: string;
   className?: string;
+  onClick?: () => void;
+  primary?: boolean;
+  label?: string;
+  size?: "small" | "medium" | "large";
 }
 
 const Button = ({ text = "", className = "" }: ButtonProps) => {
