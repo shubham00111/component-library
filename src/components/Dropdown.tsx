@@ -36,9 +36,7 @@ export const DropDownItem = ({
 };
 const Dropdown = ({ options }: DropdownProps) => {
   const [selectedOption, setSelectedOption] = useState(options[0]);
-  const [highlightedIndex, setHighlightedIndex] = useState<OptionItem | null>(
-    options[0]
-  );
+  const [highlightedIndex, setHighlightedIndex] = useState<number>(0);
   const [show, setShow] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -53,15 +51,59 @@ const Dropdown = ({ options }: DropdownProps) => {
       }
     };
 
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!show) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          setShow(true);
+        }
+        return;
+      }
+
+      switch (e.key) {
+        case "ArrowDown":
+          e.preventDefault();
+          setHighlightedIndex((prevIndex) => {
+            const nexIndex = prevIndex + 1;
+            if (nexIndex >= options.length) {
+              return 0;
+            }
+            return nexIndex;
+          });
+          break;
+        case "ArrowUp":
+          e.preventDefault();
+          setHighlightedIndex((prevIndex) => {
+            const newIndex = prevIndex - 1;
+            if (newIndex < 0) {
+              return options.length - 1;
+            }
+            return newIndex;
+          });
+          break;
+        case "Enter":
+          e.preventDefault();
+          const option = options[highlightedIndex];
+          setSelectedOption(option);
+          setShow(false);
+          break;
+        default:
+          break;
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [show, highlightedIndex]);
 
-  const handleChange = (option: OptionItem) => {
+  const handleChange = (option: OptionItem, index: number) => {
     setSelectedOption(() => option);
-    setHighlightedIndex(() => option);
+    setHighlightedIndex(() => index);
     setShow(false);
   };
 
@@ -77,14 +119,14 @@ const Dropdown = ({ options }: DropdownProps) => {
       </div>
       {show && (
         <div className="absolute w-full border border-gray-300 rounded-sm">
-          {options.map((option) => {
+          {options.map((option, index) => {
             return (
               <DropDownItem
                 key={option.value}
-                onClick={() => handleChange(option)}
+                onClick={() => handleChange(option, index)}
                 className={`${
-                  highlightedIndex &&
-                  highlightedIndex.value === option.value &&
+                  options[highlightedIndex] &&
+                  options[highlightedIndex].value === option.value &&
                   "bg-gray-200"
                 }`}
               >
