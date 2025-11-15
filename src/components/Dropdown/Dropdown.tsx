@@ -1,56 +1,14 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { cn } from "../../utils/Util";
-
-interface OptionItem {
-  label: string;
-  value: string;
-  id: string;
-}
-
-interface DropdownContextType {
-  show: boolean;
-  setShow: (show: boolean) => void;
-  selectedOption: OptionItem | null;
-  highlightedIndex: number | null;
-  setHighlightedIndex: (index: number | null) => void;
-  options: OptionItem[];
-  handleChange: (option: OptionItem, index: number) => void;
-  disabled: boolean;
-  placeholder?: string;
-  onChange: (option: OptionItem) => void;
-}
-
-interface DropdownProps {
-  options: OptionItem[];
-  children: ReactNode;
-  disabled?: boolean;
-  placeholder?: string;
-  onChange: (option: OptionItem) => void;
-}
-
-interface TriggerProps {
-  className?: string;
-}
-
-interface MenuProps {
-  children: ReactNode;
-  className?: string;
-}
-
-interface ItemProps {
-  option: OptionItem;
-  index: number;
-  children?: ReactNode;
-  className?: string;
-}
+import type {
+  OptionItem,
+  DropdownContextType,
+  DropdownProps,
+  TriggerProps,
+  MenuProps,
+  ItemProps,
+} from "./types";
 
 const DropdownContext = createContext<DropdownContextType | undefined>(
   undefined
@@ -67,26 +25,27 @@ const useDropdown = () => {
 };
 
 const Trigger = ({ className }: TriggerProps) => {
-  const { show, setShow, selectedOption, disabled, placeholder } =
+  const { show, setShow, selectedOption, disabled, placeholder, options } =
     useDropdown();
+  const isEmpty = options.length === 0;
 
   return (
     <div
       className={cn(
-        "pl-4 pr-1 py-2 rounded-md w-full border border-black flex cursor-pointer gap-3 justify-between",
+        "pl-4 pr-1 py-2 rounded-md min-w-2xs border border-black flex cursor-pointer gap-3 justify-between",
         className,
-        disabled &&
+        (disabled || isEmpty) &&
           "cursor-not-allowed bg-gray-300 border-gray-400 opacity-50 text-gray-500"
       )}
       onClick={() => {
-        if (!disabled) setShow(!show);
+        if (!disabled && !isEmpty) setShow(!show);
       }}
       role="button"
-      aria-disabled={disabled}
-      tabIndex={disabled ? -1 : 0}
+      aria-disabled={disabled || isEmpty}
+      tabIndex={disabled || isEmpty ? -1 : 0}
     >
       {selectedOption == null ? placeholder : selectedOption.label}
-      <span className={cn(disabled && "opacity-50 text-gray-500")}>
+      <span className={cn((disabled || isEmpty) && "opacity-50 text-gray-500")}>
         {show ? <ChevronUp /> : <ChevronDown />}
       </span>
     </div>
@@ -94,9 +53,25 @@ const Trigger = ({ className }: TriggerProps) => {
 };
 
 const Menu = ({ children, className }: MenuProps) => {
-  const { show, disabled } = useDropdown();
+  const { show, disabled, options } = useDropdown();
 
   if (!show || disabled) return null;
+
+  // Show empty state if no options
+  if (options.length === 0) {
+    return (
+      <div
+        className={cn(
+          "absolute w-full border border-gray-300 rounded-sm shadow-lg z-10",
+          className
+        )}
+      >
+        <div className="px-4 py-8 text-center text-gray-500">
+          <p className="text-sm">No options available</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -117,8 +92,9 @@ const Item = ({ option, index, children, className }: ItemProps) => {
   return (
     <div
       className={cn(
-        "hover:bg-gray-200 px-4 py-2 rounded-sm cursor-pointer transition-colors",
-        isHighlighted && "bg-gray-200",
+        "px-4 py-2 rounded-sm cursor-pointer transition-all duration-200 ease-out",
+        "hover:bg-gray-200 hover:scale-[1.02] hover:shadow-sm",
+        isHighlighted && "bg-gray-200 scale-[1.02]",
         className
       )}
       onClick={() => handleChange(option, index)}
@@ -166,7 +142,7 @@ const Dropdown = ({
       if (!show) {
         if (e.key === "Enter") {
           e.preventDefault();
-          setShow(true);
+          setShow(!show);
         }
         return;
       }

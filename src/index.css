@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+
+:root{
+    --color-neutral-800 : black; 
+    --color-neutral-100 : white;
+    
+}
+@layer theme{
+
+}

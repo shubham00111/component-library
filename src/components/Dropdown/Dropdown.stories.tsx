@@ -11,6 +11,9 @@ const meta = {
     disabled: {
       control: { type: "boolean" },
     },
+    placeholder: {
+      control: { type: "text" },
+    },
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof Dropdown>;
@@ -41,10 +44,20 @@ const singleOption = [{ id: "1", label: "Only Option", value: "only" }];
  * Basic Dropdown with default styling
  */
 export const Default: Story = {
-  args: { options: fruitOptions, children: null, disabled: false },
-  render: ({ disabled }) => (
+  args: {
+    options: fruitOptions,
+    children: null,
+    disabled: false,
+    placeholder: "Select a fruit",
+  },
+  render: ({ disabled, placeholder }) => (
     <div className="w-64">
-      <Dropdown options={fruitOptions} disabled={disabled}>
+      <Dropdown
+        options={fruitOptions}
+        disabled={disabled}
+        placeholder={placeholder}
+        onChange={(option) => console.log("Selected:", option)}
+      >
         <Dropdown.Trigger />
         <Dropdown.Menu>
           {fruitOptions.map((option, index) => (
@@ -60,11 +73,15 @@ export const Default: Story = {
  * Dropdown with multiple options - Country selector
  */
 export const CountrySelector: Story = {
-  args: { options: countryOptions, children: null },
-  render: () => (
+  args: {
+    options: countryOptions,
+    children: null,
+    placeholder: "Select a country",
+  },
+  render: ({ placeholder }) => (
     <div className="w-64">
       <label className="block text-sm font-medium mb-2">Select Country</label>
-      <Dropdown options={countryOptions}>
+      <Dropdown options={countryOptions} placeholder={placeholder}>
         <Dropdown.Trigger />
         <Dropdown.Menu>
           {countryOptions.map((option, index) => (
@@ -80,10 +97,10 @@ export const CountrySelector: Story = {
  * Dropdown with custom styling on Trigger
  */
 export const CustomTriggerStyling: Story = {
-  args: { options: fruitOptions, children: null },
-  render: () => (
+  args: { options: fruitOptions, children: null, placeholder: "Pick a fruit" },
+  render: ({ placeholder }) => (
     <div className="w-64">
-      <Dropdown options={fruitOptions}>
+      <Dropdown options={fruitOptions} placeholder={placeholder}>
         <Dropdown.Trigger className="bg-blue-500 text-white border-blue-600" />
         <Dropdown.Menu>
           {fruitOptions.map((option, index) => (
@@ -99,10 +116,14 @@ export const CustomTriggerStyling: Story = {
  * Dropdown with custom styling on Menu
  */
 export const CustomMenuStyling: Story = {
-  args: { options: fruitOptions, children: null },
-  render: () => (
+  args: {
+    options: fruitOptions,
+    children: null,
+    placeholder: "Select a fruit",
+  },
+  render: ({ placeholder }) => (
     <div className="w-64">
-      <Dropdown options={fruitOptions}>
+      <Dropdown options={fruitOptions} placeholder={placeholder}>
         <Dropdown.Trigger />
         <Dropdown.Menu className="bg-gray-50 border-blue-300">
           {fruitOptions.map((option, index) => (
@@ -118,10 +139,14 @@ export const CustomMenuStyling: Story = {
  * Dropdown with custom Item styling
  */
 export const CustomItemStyling: Story = {
-  args: { options: fruitOptions, children: null },
-  render: () => (
+  args: {
+    options: fruitOptions,
+    children: null,
+    placeholder: "Select a fruit",
+  },
+  render: ({ placeholder }) => (
     <div className="w-64">
-      <Dropdown options={fruitOptions}>
+      <Dropdown options={fruitOptions} placeholder={placeholder}>
         <Dropdown.Trigger />
         <Dropdown.Menu>
           {fruitOptions.map((option, index) => (
@@ -142,10 +167,10 @@ export const CustomItemStyling: Story = {
  * Dropdown with single option
  */
 export const SingleOption: Story = {
-  args: { options: singleOption, children: null },
-  render: () => (
+  args: { options: singleOption, children: null, placeholder: "Select option" },
+  render: ({ placeholder }) => (
     <div className="w-64">
-      <Dropdown options={singleOption}>
+      <Dropdown options={singleOption} placeholder={placeholder}>
         <Dropdown.Trigger />
         <Dropdown.Menu>
           {singleOption.map((option, index) => (
@@ -161,8 +186,8 @@ export const SingleOption: Story = {
  * Dropdown with many options
  */
 export const ManyOptions: Story = {
-  args: { options: [], children: null },
-  render: () => {
+  args: { options: [], children: null, placeholder: "Choose an option" },
+  render: ({ placeholder }) => {
     const manyOptions = Array.from({ length: 20 }, (_, i) => ({
       id: String(i + 1),
       label: `Option ${i + 1}`,
@@ -170,7 +195,7 @@ export const ManyOptions: Story = {
     }));
     return (
       <div className="w-64">
-        <Dropdown options={manyOptions}>
+        <Dropdown options={manyOptions} placeholder={placeholder}>
           <Dropdown.Trigger />
           <Dropdown.Menu className="max-h-64 overflow-y-auto">
             {manyOptions.map((option, index) => (
@@ -187,10 +212,19 @@ export const ManyOptions: Story = {
  * Dropdown with custom Item content
  */
 export const CustomItemContent: Story = {
-  args: { options: fruitOptions, children: null },
-  render: () => (
+  args: {
+    options: fruitOptions,
+    children: null,
+    placeholder: "Pick a fruit",
+    disabled: false,
+  },
+  render: ({ placeholder, disabled }) => (
     <div className="w-64">
-      <Dropdown options={fruitOptions}>
+      <Dropdown
+        options={fruitOptions}
+        placeholder={placeholder}
+        disabled={disabled}
+      >
         <Dropdown.Trigger />
         <Dropdown.Menu>
           {fruitOptions.map((option, index) => (
@@ -211,10 +245,19 @@ export const CustomItemContent: Story = {
  * Dropdown with grouped options (demonstrating flexibility)
  */
 export const GroupedOptions: Story = {
-  args: { options: fruitOptions, children: null },
-  render: () => (
+  args: {
+    options: fruitOptions,
+    children: null,
+    placeholder: "Select fruit",
+    disabled: false,
+  },
+  render: ({ placeholder, disabled }) => (
     <div className="w-64">
-      <Dropdown options={fruitOptions}>
+      <Dropdown
+        options={fruitOptions}
+        placeholder={placeholder}
+        disabled={disabled}
+      >
         <Dropdown.Trigger />
         <Dropdown.Menu>
           {/* Group 1 */}
@@ -234,14 +277,23 @@ export const GroupedOptions: Story = {
  * Dropdown with form integration example
  */
 export const WithFormLabel: Story = {
-  args: { options: countryOptions, children: null },
-  render: () => (
+  args: {
+    options: countryOptions,
+    children: null,
+    placeholder: "Select a country",
+    disabled: false,
+  },
+  render: ({ placeholder, disabled }) => (
     <div className="w-64">
       <div className="flex flex-col gap-2">
         <label htmlFor="dropdown" className="text-sm font-semibold">
           Choose your country
         </label>
-        <Dropdown options={countryOptions}>
+        <Dropdown
+          options={countryOptions}
+          placeholder={placeholder}
+          disabled={disabled}
+        >
           <Dropdown.Trigger />
           <Dropdown.Menu>
             {countryOptions.map((option, index) => (
@@ -261,10 +313,19 @@ export const WithFormLabel: Story = {
  * Dark theme Dropdown
  */
 export const DarkTheme: Story = {
-  args: { options: fruitOptions, children: null },
-  render: () => (
+  args: {
+    options: fruitOptions,
+    children: null,
+    placeholder: "Select fruit",
+    disabled: false,
+  },
+  render: ({ placeholder, disabled }) => (
     <div className="w-64 bg-gray-900 p-6 rounded-lg">
-      <Dropdown options={fruitOptions}>
+      <Dropdown
+        options={fruitOptions}
+        placeholder={placeholder}
+        disabled={disabled}
+      >
         <Dropdown.Trigger className="bg-gray-800 border-gray-700 text-white" />
         <Dropdown.Menu className="bg-gray-800 border-gray-600">
           {fruitOptions.map((option, index) => (
@@ -286,8 +347,13 @@ export const DarkTheme: Story = {
  * Use arrow keys to navigate, Enter to select, Escape to close
  */
 export const KeyboardNavigation: Story = {
-  args: { options: fruitOptions, children: null },
-  render: () => (
+  args: {
+    options: fruitOptions,
+    children: null,
+    placeholder: "Use arrow keys",
+    disabled: false,
+  },
+  render: ({ placeholder, disabled }) => (
     <div className="w-64 space-y-4">
       <div className="p-4 bg-blue-50 rounded border border-blue-200">
         <p className="text-sm font-semibold text-blue-900 mb-2">
@@ -312,7 +378,11 @@ export const KeyboardNavigation: Story = {
           </li>
         </ul>
       </div>
-      <Dropdown options={fruitOptions}>
+      <Dropdown
+        options={fruitOptions}
+        placeholder={placeholder}
+        disabled={disabled}
+      >
         <Dropdown.Trigger />
         <Dropdown.Menu>
           {fruitOptions.map((option, index) => (
@@ -328,12 +398,21 @@ export const KeyboardNavigation: Story = {
  * Multiple Dropdowns on Same Page
  */
 export const MultipleDropdowns: Story = {
-  args: { options: fruitOptions, children: null, disabled: false },
-  render: () => (
+  args: {
+    options: fruitOptions,
+    children: null,
+    placeholder: "Select",
+    disabled: false,
+  },
+  render: ({ placeholder, disabled }) => (
     <div className="flex gap-8">
       <div className="w-64">
         <label className="block text-sm font-medium mb-2">Fruits</label>
-        <Dropdown options={fruitOptions}>
+        <Dropdown
+          options={fruitOptions}
+          placeholder={placeholder}
+          disabled={disabled}
+        >
           <Dropdown.Trigger />
           <Dropdown.Menu>
             {fruitOptions.map((option, index) => (
@@ -344,7 +423,11 @@ export const MultipleDropdowns: Story = {
       </div>
       <div className="w-64">
         <label className="block text-sm font-medium mb-2">Countries</label>
-        <Dropdown options={countryOptions}>
+        <Dropdown
+          options={countryOptions}
+          placeholder={placeholder}
+          disabled={disabled}
+        >
           <Dropdown.Trigger />
           <Dropdown.Menu>
             {countryOptions.map((option, index) => (
@@ -361,10 +444,19 @@ export const MultipleDropdowns: Story = {
  * Disabled Dropdown
  */
 export const Disabled: Story = {
-  args: { options: fruitOptions, children: null, disabled: true },
-  render: ({ disabled }) => (
+  args: {
+    options: fruitOptions,
+    children: null,
+    placeholder: "Disabled dropdown",
+    disabled: true,
+  },
+  render: ({ placeholder, disabled }) => (
     <div className="w-64">
-      <Dropdown options={fruitOptions} disabled={disabled}>
+      <Dropdown
+        options={fruitOptions}
+        placeholder={placeholder}
+        disabled={disabled}
+      >
         <Dropdown.Trigger />
         <Dropdown.Menu>
           {fruitOptions.map((option, index) => (

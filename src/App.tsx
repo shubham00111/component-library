@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Dropdown from "./components/Dropdown/Dropdown";
+import Input from "./components/Input/Input";
 const options = [
   { id: "1", label: "Option 1", value: "opt1" },
   { id: "2", label: "Option 2", value: "opt2" },
@@ -7,7 +9,8 @@ const options = [
   { id: "5", label: "Option 5", value: "opt5" },
   { id: "6", label: "Option 6", value: "opt6" },
 ];
-function App() {
+
+const renderDropdown = () => {
   const handleOnChange = (option: {
     id: string;
     label: string;
@@ -29,6 +32,18 @@ function App() {
           ))}
         </Dropdown.Menu>
       </Dropdown>
+    </div>
+  );
+};
+
+const renderInput = () => {
+  return <Input placeholder="write something" />;
+};
+
+function App() {
+  return (
+    <div className="w-full h-screen flex justify-center items-center ">
+      {renderInput()}
     </div>
   );
 }
