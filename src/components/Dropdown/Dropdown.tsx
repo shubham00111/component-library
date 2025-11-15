@@ -18,16 +18,22 @@ interface OptionItem {
 interface DropdownContextType {
   show: boolean;
   setShow: (show: boolean) => void;
-  selectedOption: OptionItem;
-  highlightedIndex: number;
-  setHighlightedIndex: (index: number) => void;
+  selectedOption: OptionItem | null;
+  highlightedIndex: number | null;
+  setHighlightedIndex: (index: number | null) => void;
   options: OptionItem[];
   handleChange: (option: OptionItem, index: number) => void;
+  disabled: boolean;
+  placeholder?: string;
+  onChange: (option: OptionItem) => void;
 }
 
 interface DropdownProps {
   options: OptionItem[];
   children: ReactNode;
+  disabled?: boolean;
+  placeholder?: string;
+  onChange: (option: OptionItem) => void;
 }
 
 interface TriggerProps {
@@ -61,28 +67,36 @@ const useDropdown = () => {
 };
 
 const Trigger = ({ className }: TriggerProps) => {
-  const { show, setShow, selectedOption } = useDropdown();
+  const { show, setShow, selectedOption, disabled, placeholder } =
+    useDropdown();
 
   return (
     <div
       className={cn(
         "pl-4 pr-1 py-2 rounded-md w-full border border-black flex cursor-pointer gap-3 justify-between",
-        className
+        className,
+        disabled &&
+          "cursor-not-allowed bg-gray-300 border-gray-400 opacity-50 text-gray-500"
       )}
-      onClick={() => setShow(!show)}
+      onClick={() => {
+        if (!disabled) setShow(!show);
+      }}
       role="button"
-      tabIndex={0}
+      aria-disabled={disabled}
+      tabIndex={disabled ? -1 : 0}
     >
-      {selectedOption.label}
-      <span>{show ? <ChevronUp /> : <ChevronDown />}</span>
+      {selectedOption == null ? placeholder : selectedOption.label}
+      <span className={cn(disabled && "opacity-50 text-gray-500")}>
+        {show ? <ChevronUp /> : <ChevronDown />}
+      </span>
     </div>
   );
 };
 
 const Menu = ({ children, className }: MenuProps) => {
-  const { show } = useDropdown();
+  const { show, disabled } = useDropdown();
 
-  if (!show) return null;
+  if (!show || disabled) return null;
 
   return (
     <div
@@ -116,9 +130,15 @@ const Item = ({ option, index, children, className }: ItemProps) => {
   );
 };
 
-const Dropdown = ({ options, children }: DropdownProps) => {
-  const [selectedOption, setSelectedOption] = useState(options[0]);
-  const [highlightedIndex, setHighlightedIndex] = useState<number>(0);
+const Dropdown = ({
+  options,
+  children,
+  disabled = false,
+  placeholder = "",
+  onChange = () => {},
+}: DropdownProps) => {
+  const [selectedOption, setSelectedOption] = useState<null | OptionItem>(null);
+  const [highlightedIndex, setHighlightedIndex] = useState<null | number>(null);
   const [show, setShow] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -133,6 +153,16 @@ const Dropdown = ({ options, children }: DropdownProps) => {
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (disabled) {
+        return;
+      }
+      if (
+        dropdownRef.current !== document.activeElement &&
+        !dropdownRef.current?.contains(document.activeElement)
+      ) {
+        return;
+      }
+
       if (!show) {
         if (e.key === "Enter") {
           e.preventDefault();
@@ -145,7 +175,8 @@ const Dropdown = ({ options, children }: DropdownProps) => {
         case "ArrowDown":
           e.preventDefault();
           setHighlightedIndex((prevIndex) => {
-            const nextIndex = prevIndex + 1;
+            const currentIndex = prevIndex ?? -1;
+            const nextIndex = currentIndex + 1;
             if (nextIndex >= options.length) {
               return 0;
             }
@@ -155,7 +186,8 @@ const Dropdown = ({ options, children }: DropdownProps) => {
         case "ArrowUp":
           e.preventDefault();
           setHighlightedIndex((prevIndex) => {
-            const newIndex = prevIndex - 1;
+            const currentIndex = prevIndex ?? 0;
+            const newIndex = currentIndex - 1;
             if (newIndex < 0) {
               return options.length - 1;
             }
@@ -164,9 +196,11 @@ const Dropdown = ({ options, children }: DropdownProps) => {
           break;
         case "Enter":
           e.preventDefault();
-          const option = options[highlightedIndex];
-          setSelectedOption(option);
-          setShow(false);
+          if (highlightedIndex !== null) {
+            const option = options[highlightedIndex];
+            setSelectedOption(option);
+            setShow(false);
+          }
           break;
         case "Escape":
           e.preventDefault();
@@ -184,12 +218,13 @@ const Dropdown = ({ options, children }: DropdownProps) => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [show, highlightedIndex, options]);
+  }, [show, highlightedIndex, options, disabled]);
 
   const handleChange = (option: OptionItem, index: number) => {
     setSelectedOption(option);
     setHighlightedIndex(index);
     setShow(false);
+    if (onChange) onChange(option);
   };
 
   const value: DropdownContextType = {
@@ -200,6 +235,9 @@ const Dropdown = ({ options, children }: DropdownProps) => {
     setHighlightedIndex,
     options,
     handleChange,
+    disabled,
+    placeholder,
+    onChange,
   };
 
   return (

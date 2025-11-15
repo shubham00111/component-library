@@ -8,9 +8,20 @@ const options = [
   { id: "6", label: "Option 6", value: "opt6" },
 ];
 function App() {
+  const handleOnChange = (option: {
+    id: string;
+    label: string;
+    value: string;
+  }) => {
+    console.log("Selected option:", option);
+  };
   return (
     <div className="w-full h-screen flex justify-center items-center ">
-      <Dropdown options={options}>
+      <Dropdown
+        options={options}
+        placeholder="Select an option"
+        onChange={handleOnChange}
+      >
         <Dropdown.Trigger />
         <Dropdown.Menu>
           {options.map((option, index) => (
