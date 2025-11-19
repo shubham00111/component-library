@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Dropdown from "./components/Dropdown/Dropdown";
 import Input from "./components/Input/Input";
+import Modal from "./components/Modal/Modal";
 const options = [
   { id: "1", label: "Option 1", value: "opt1" },
   { id: "2", label: "Option 2", value: "opt2" },
@@ -40,10 +41,32 @@ const renderInput = () => {
   return <Input placeholder="write something" />;
 };
 
+const renderModal = () => {
+  return (
+    <Modal>
+      <Modal.Trigger>
+        <button className="border-2 border-neutral-900">
+          Click me to trigger
+        </button>
+      </Modal.Trigger>
+      <Modal.Overlay>
+        <Modal.Dialog>
+          <Modal.Title>
+            <div>This is the title of the modal</div>
+          </Modal.Title>
+          <Modal.Content>
+            <div>fdlfjalsfljas;lf;lsaj</div>
+          </Modal.Content>
+        </Modal.Dialog>
+      </Modal.Overlay>
+    </Modal>
+  );
+};
+
 function App() {
   return (
     <div className="w-full h-screen flex justify-center items-center ">
-      {renderInput()}
+      {renderModal()}
     </div>
   );
 }
