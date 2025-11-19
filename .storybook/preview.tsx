@@ -1,3 +1,4 @@
+import React from "react";
 import type { Preview } from "@storybook/react-vite";
 import "../src/index.css";
 
@@ -17,6 +18,24 @@ const preview: Preview = {
       test: "todo",
     },
   },
+  decorators: [
+    (Story) => {
+      return (
+        <div
+          style={{
+            width: "1000px",
+            height: "300px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "0 auto",
+          }}
+        >
+          <Story />
+        </div>
+      );
+    },
+  ],
 };
 
 export default preview;
