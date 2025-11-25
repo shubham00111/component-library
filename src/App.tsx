@@ -1,7 +1,15 @@
-import { ConfirmationModal } from "./components/Modal/Modal.examples";
+// import { ConfirmationModal } from "./components/Modal/Modal.examples";
+import Accordion from "./components/Accordion/Accordion";
+import Toast from "./components/Toast/Toast";
 
 function App() {
-  return <ConfirmationModal />;
+  return (
+    <div className="flex h-screen items-center justify-center">
+      <div>
+        <Toast iconType="error">Hi I'am the toast message</Toast>
+      </div>
+    </div>
+  );
 }
 
 export default App;
