@@ -1,11 +1,13 @@
 @import "tailwindcss";
-
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root{
     --color-neutral-800 : black; 
     --color-neutral-100 : white;
     
 }
+
+
 @layer theme{
 
 }

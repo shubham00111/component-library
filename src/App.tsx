@@ -6,7 +6,9 @@ function App() {
   return (
     <div className="flex h-screen items-center justify-center">
       <div>
-        <Toast iconType="error">Hi I'am the toast message</Toast>
+        <Toast timer={3} iconType="error">
+          Hi I'am the toast message
+        </Toast>
       </div>
     </div>
   );
