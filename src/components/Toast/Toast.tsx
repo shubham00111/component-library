@@ -60,7 +60,7 @@ const Toast = ({
   children,
   onClose = () => {},
   position = "bottom-right",
-  timer = 0,
+  timer,
 }: ToastProps) => {
   let Icon = getIconFromIconType(iconType);
   let iconClass = getIconClassfromIconType(iconType);
@@ -71,9 +71,12 @@ const Toast = ({
     second === "right" ? "right-4" : "left-4",
   );
   useEffect(() => {
-    setTimeout(() => {
-      setShow(false);
-    }, timer * 1000);
+    document.documentElement.classList.add("dark");
+    if (timer && Number.isFinite(timer) && timer > 0) {
+      setTimeout(() => {
+        setShow(false);
+      }, timer);
+    }
   }, []);
 
   return (
@@ -84,6 +87,7 @@ const Toast = ({
           positionClasses,
           "min-w-100 rounded-xl border border-neutral-200 p-4 shadow-sm transition-all duration-100 hover:shadow-md",
           "flex items-center gap-2",
+          "dark:bg-dark-bg dark:border-dark-border dark:text-dark-text",
           className,
         )}
       >

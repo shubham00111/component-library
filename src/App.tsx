@@ -1,14 +1,12 @@
 // import { ConfirmationModal } from "./components/Modal/Modal.examples";
-import Accordion from "./components/Accordion/Accordion";
+
 import Toast from "./components/Toast/Toast";
 
 function App() {
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex h-screen items-center justify-center bg-black">
       <div>
-        <Toast timer={3} iconType="error">
-          Hi I'am the toast message
-        </Toast>
+        <Toast iconType="error">Hi I'am the toast message</Toast>
       </div>
     </div>
   );
