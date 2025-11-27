@@ -50,6 +50,7 @@ const getIconClassfromIconType = (iconType: iconType) => {
       className = "bg-blue-100 text-blue-900";
       break;
   }
+
   return className;
 };
 
