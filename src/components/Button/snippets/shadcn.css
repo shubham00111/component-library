@@ -1,0 +1,58 @@
+/* Shadcn-inspired Button — standalone snippet (tokens inlined) */
+
+:root {
+  --shadcn-primary: #18181b;
+  --shadcn-primary-foreground: #fafafa;
+  --shadcn-secondary: #f4f4f5;
+  --shadcn-secondary-foreground: #18181b;
+  --shadcn-accent: #f4f4f5;
+  --shadcn-accent-foreground: #18181b;
+  --shadcn-destructive: #ef4444;
+  --shadcn-destructive-foreground: #fafafa;
+  --shadcn-border: #e4e4e7;
+  --shadcn-foreground: #09090b;
+  --shadcn-ring: #18181b;
+  --shadcn-radius: 6px;
+  --shadcn-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --shadcn-font-size-sm: 0.875rem;
+  --shadcn-font-size-base: 0.9375rem;
+  --shadcn-font-weight-medium: 500;
+}
+
+.shadcn-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: var(--shadcn-font-weight-medium);
+  font-size: var(--shadcn-font-size-base);
+  font-family: system-ui, sans-serif;
+  border-radius: var(--shadcn-radius);
+  border: 1px solid transparent;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 8px 16px;
+  white-space: nowrap;
+  user-select: none;
+  text-decoration: none;
+  background-color: var(--shadcn-primary);
+  color: var(--shadcn-primary-foreground);
+}
+
+.shadcn-button:hover:not(:disabled) { opacity: 0.9; box-shadow: var(--shadcn-shadow); }
+.shadcn-button:focus-visible { outline: 2px solid var(--shadcn-ring); outline-offset: 2px; }
+
+.shadcn-button--primary { background-color: var(--shadcn-primary); color: var(--shadcn-primary-foreground); }
+.shadcn-button--secondary { background-color: var(--shadcn-secondary); color: var(--shadcn-secondary-foreground); }
+.shadcn-button--secondary:hover:not(:disabled) { background-color: var(--shadcn-accent); }
+.shadcn-button--destructive { background-color: var(--shadcn-destructive); color: var(--shadcn-destructive-foreground); }
+.shadcn-button--ghost { background-color: transparent; color: var(--shadcn-foreground); border-color: transparent; }
+.shadcn-button--ghost:hover:not(:disabled) { background-color: var(--shadcn-accent); color: var(--shadcn-accent-foreground); box-shadow: none; }
+.shadcn-button--outline { background-color: transparent; color: var(--shadcn-foreground); border-color: var(--shadcn-border); }
+.shadcn-button--outline:hover:not(:disabled) { background-color: var(--shadcn-accent); }
+
+.shadcn-button--sm { font-size: var(--shadcn-font-size-sm); padding: 6px 12px; border-radius: 4px; }
+.shadcn-button--md { padding: 8px 16px; }
+.shadcn-button--lg { padding: 10px 24px; font-size: 1rem; }
+
+.shadcn-button:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }

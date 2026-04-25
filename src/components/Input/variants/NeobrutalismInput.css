@@ -1,0 +1,64 @@
+@import "../../../tokens/neobrutalism.css";
+
+.nb-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nb-spacing-xs);
+  font-family: system-ui, sans-serif;
+}
+
+.nb-input-label {
+  font-size: var(--nb-font-size-sm);
+  font-weight: var(--nb-font-weight-bold);
+  color: var(--nb-color-text);
+}
+
+.nb-input {
+  padding: var(--nb-spacing-sm) var(--nb-spacing-md);
+  font-size: var(--nb-font-size-base);
+  font-family: inherit;
+  color: var(--nb-color-text);
+  background-color: var(--nb-color-bg);
+  border: var(--nb-border-width-thick) solid var(--nb-color-border);
+  border-radius: var(--nb-border-radius);
+  box-shadow: var(--nb-shadow);
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: var(--nb-transition);
+}
+
+.nb-input::placeholder {
+  color: var(--nb-color-text-muted);
+  opacity: 0.6;
+}
+
+.nb-input:focus {
+  box-shadow: var(--nb-shadow-hover);
+  background-color: var(--nb-color-primary);
+  transform: translate(-1px, -1px);
+}
+
+.nb-input:disabled {
+  background-color: var(--nb-color-disabled-bg);
+  color: var(--nb-color-disabled-text);
+  border-color: var(--nb-color-disabled-text);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.nb-input--error {
+  border-color: var(--nb-color-danger);
+  box-shadow: 4px 4px 0 var(--nb-color-danger);
+}
+
+.nb-input-error {
+  font-size: var(--nb-font-size-sm);
+  color: var(--nb-color-danger);
+  font-weight: var(--nb-font-weight-bold);
+}
+
+.nb-input-helper {
+  font-size: var(--nb-font-size-sm);
+  color: var(--nb-color-text-muted);
+}

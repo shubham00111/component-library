@@ -1,0 +1,64 @@
+import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
+import * as ButtonStories from "./Button.stories";
+import CodeSnippet from "../ui/CodeSnippet";
+
+import nbHtml from "./snippets/neobrutalism.html?raw";
+import nbCss from "./snippets/neobrutalism.css?raw";
+import shadcnHtml from "./snippets/shadcn.html?raw";
+import shadcnCss from "./snippets/shadcn.css?raw";
+import fbHtml from "./snippets/flowbite.html?raw";
+import fbCss from "./snippets/flowbite.css?raw";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+A clickable element that triggers an action. Available in five variants (`primary`, `secondary`, `destructive`, `ghost`, `outline`) and three sizes (`sm`, `md`, `lg`), implemented across three design languages.
+
+All three variants share the same props interface — you can swap `<NeobrutalismButton>` for `<ShadcnButton>` without changing any props.
+
+## All Design Languages
+
+<Canvas of={ButtonStories.CompareAll} />
+
+---
+
+## Neobrutalism
+
+Hard shadows, thick black borders, saturated yellow/lime colors. No smooth transitions — every state change is instant and deliberate.
+
+<Canvas of={ButtonStories.Neobrutalism} />
+
+### Copy Snippet
+
+<CodeSnippet html={nbHtml} css={nbCss} defaultTab="html" title="Neobrutalism Button" />
+
+---
+
+## Shadcn-inspired
+
+Refined neutral palette, soft shadows, 6px radius, tokenized color system. Accessible focus rings, smooth transitions.
+
+<Canvas of={ButtonStories.Shadcn} />
+
+### Copy Snippet
+
+<CodeSnippet html={shadcnHtml} css={shadcnCss} defaultTab="html" title="Shadcn Button" />
+
+---
+
+## Flowbite-inspired
+
+Blue accent (`#1c64f2`), 8px radius, gentle hover transitions, blue focus glow ring.
+
+<Canvas of={ButtonStories.Flowbite} />
+
+### Copy Snippet
+
+<CodeSnippet html={fbHtml} css={fbCss} defaultTab="html" title="Flowbite Button" />
+
+---
+
+## Props
+
+<ArgTypes of={ButtonStories} />

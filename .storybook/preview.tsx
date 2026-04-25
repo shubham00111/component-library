@@ -1,5 +1,9 @@
 import type { Preview } from "@storybook/react-vite";
+import { withThemeByClassName } from "@storybook/addon-themes";
 import "../src/index.css";
+import "../src/tokens/neobrutalism.css";
+import "../src/tokens/shadcn.css";
+import "../src/tokens/flowbite.css";
 
 const preview: Preview = {
   parameters: {
@@ -9,31 +13,33 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-
     a11y: {
-      // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
-      // 'off' - skip a11y checks entirely
       test: "todo",
     },
   },
   decorators: [
-    (Story) => {
-      return (
-        <div
-          style={{
-            width: "1000px",
-            height: "300px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            margin: "0 auto",
-          }}
-        >
-          <Story />
-        </div>
-      );
-    },
+    withThemeByClassName({
+      themes: {
+        light: "",
+        dark: "dark",
+      },
+      defaultTheme: "light",
+    }),
+    (Story) => (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "24px",
+          minHeight: "120px",
+          width: "100%",
+          boxSizing: "border-box",
+        }}
+      >
+        <Story />
+      </div>
+    ),
   ],
 };
 

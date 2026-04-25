@@ -1,0 +1,97 @@
+@import "../../../tokens/neobrutalism.css";
+
+.nb-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--nb-spacing-xs);
+  cursor: pointer;
+  font-weight: var(--nb-font-weight-bold);
+  font-size: var(--nb-font-size-base);
+  font-family: system-ui, sans-serif;
+  border-radius: var(--nb-border-radius);
+  border: var(--nb-border-width-thick) solid var(--nb-color-border);
+  box-shadow: var(--nb-shadow);
+  transition: var(--nb-transition);
+  padding: var(--nb-spacing-sm) var(--nb-spacing-lg);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  background-color: var(--nb-color-primary);
+  color: var(--nb-color-text);
+}
+
+.nb-button:hover:not(:disabled) {
+  box-shadow: var(--nb-shadow-hover);
+  transform: translate(-1px, -1px);
+}
+
+.nb-button:active:not(:disabled) {
+  box-shadow: var(--nb-shadow-active);
+  transform: translate(2px, 2px);
+}
+
+.nb-button:focus-visible {
+  outline: 3px solid var(--nb-color-border);
+  outline-offset: 3px;
+}
+
+/* Variants */
+.nb-button--primary {
+  background-color: var(--nb-color-primary);
+  color: var(--nb-color-text);
+}
+
+.nb-button--secondary {
+  background-color: var(--nb-color-secondary);
+  color: var(--nb-color-text);
+}
+
+.nb-button--destructive {
+  background-color: var(--nb-color-danger);
+  color: #fff;
+}
+
+.nb-button--ghost {
+  background-color: var(--nb-color-bg);
+  box-shadow: var(--nb-shadow-none);
+  border-color: transparent;
+}
+
+.nb-button--ghost:hover:not(:disabled) {
+  background-color: var(--nb-color-primary);
+  box-shadow: var(--nb-shadow);
+  transform: none;
+  border-color: var(--nb-color-border);
+}
+
+.nb-button--outline {
+  background-color: transparent;
+  color: var(--nb-color-text);
+}
+
+/* Sizes */
+.nb-button--sm {
+  font-size: var(--nb-font-size-sm);
+  padding: var(--nb-spacing-xs) var(--nb-spacing-sm);
+}
+
+.nb-button--md {
+  padding: var(--nb-spacing-sm) var(--nb-spacing-lg);
+}
+
+.nb-button--lg {
+  font-size: var(--nb-font-size-lg);
+  padding: var(--nb-spacing-md) var(--nb-spacing-xl);
+}
+
+/* Disabled */
+.nb-button:disabled {
+  background-color: var(--nb-color-disabled-bg);
+  color: var(--nb-color-disabled-text);
+  border-color: var(--nb-color-disabled-text);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.7;
+}

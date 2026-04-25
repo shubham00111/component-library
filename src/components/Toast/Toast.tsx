@@ -1,6 +1,6 @@
 import { BookOpen, Check, Info, X } from "lucide-react";
 import { cn } from "../../utils/Util";
-import { Activity, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 type iconType = "success" | "error" | "warning" | "info";
 type iconPosition = "top-left" | "top-right" | "bottom-left" | "bottom-right";
@@ -72,41 +72,41 @@ const Toast = ({
     second === "right" ? "right-4" : "left-4",
   );
   useEffect(() => {
-    document.documentElement.classList.add("dark");
     if (timer && Number.isFinite(timer) && timer > 0) {
-      setTimeout(() => {
+      const id = setTimeout(() => {
         setShow(false);
       }, timer);
+      return () => clearTimeout(id);
     }
-  }, []);
+  }, [timer]);
+
+  if (!show) return null;
 
   return (
-    <Activity mode={show ? "visible" : "hidden"}>
-      <div
-        className={cn(
-          "fixed z-50",
-          positionClasses,
-          "min-w-100 rounded-xl border border-neutral-200 p-4 shadow-sm transition-all duration-100 hover:shadow-md",
-          "flex items-center gap-2",
-          "dark:bg-dark-bg dark:border-dark-border dark:text-dark-text",
-          className,
-        )}
-      >
-        <div className={cn(iconClass, "shrink-0 rounded-xl p-1")}>
-          <Icon />
-        </div>
-        <div className="ms-3 text-neutral-600">{children}</div>
-        <button
-          className="hover: ms-auto rounded-xl p-1 text-neutral-500 hover:bg-gray-100 hover:text-neutral-600"
-          onClick={() => {
-            setShow(false);
-            if (onClose) onClose();
-          }}
-        >
-          <CloseIcon />
-        </button>
+    <div
+      className={cn(
+        "fixed z-50",
+        positionClasses,
+        "min-w-100 rounded-xl border border-neutral-200 p-4 shadow-sm transition-all duration-100 hover:shadow-md",
+        "flex items-center gap-2",
+        "dark:bg-dark-bg dark:border-dark-border dark:text-dark-text",
+        className,
+      )}
+    >
+      <div className={cn(iconClass, "shrink-0 rounded-xl p-1")}>
+        <Icon />
       </div>
-    </Activity>
+      <div className="ms-3 text-neutral-600">{children}</div>
+      <button
+        className="hover: ms-auto rounded-xl p-1 text-neutral-500 hover:bg-gray-100 hover:text-neutral-600"
+        onClick={() => {
+          setShow(false);
+          if (onClose) onClose();
+        }}
+      >
+        <CloseIcon />
+      </button>
+    </div>
   );
 };
 

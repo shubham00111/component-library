@@ -1,0 +1,43 @@
+/* Flowbite-inspired Design Tokens */
+:root {
+  --fb-color-primary: #1c64f2;
+  --fb-color-primary-hover: #1a56db;
+  --fb-color-primary-active: #1e429f;
+  --fb-color-primary-light: #eff6ff;
+  --fb-color-secondary: #6b7280;
+  --fb-color-secondary-hover: #4b5563;
+  --fb-color-success: #057a55;
+  --fb-color-danger: #e02424;
+  --fb-color-warning: #c27803;
+  --fb-color-bg: #ffffff;
+  --fb-color-surface: #f9fafb;
+  --fb-color-text: #111827;
+  --fb-color-text-secondary: #6b7280;
+  --fb-color-text-disabled: #9ca3af;
+  --fb-color-border: #e5e7eb;
+  --fb-color-border-focus: #1c64f2;
+  --fb-color-disabled-bg: #f3f4f6;
+
+  --fb-border-radius: 8px;
+  --fb-border-width: 1px;
+  --fb-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --fb-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --fb-focus-ring: 0 0 0 3px rgba(28, 100, 242, 0.3);
+  --fb-transition: all 200ms ease-in-out;
+
+  --fb-font-size-sm: 0.875rem;
+  --fb-font-size-base: 0.9375rem;
+  --fb-font-size-lg: 1.125rem;
+  --fb-font-weight-medium: 500;
+}
+
+.dark {
+  --fb-color-bg: #1f2937;
+  --fb-color-surface: #111827;
+  --fb-color-text: #f9fafb;
+  --fb-color-text-secondary: #d1d5db;
+  --fb-color-border: #374151;
+  --fb-color-primary-light: #1e3a5f;
+  --fb-color-disabled-bg: #374151;
+  --fb-color-text-disabled: #6b7280;
+}

@@ -1,0 +1,49 @@
+/* Neobrutalism Design Tokens */
+:root {
+  --nb-color-primary: #facc15;
+  --nb-color-secondary: #a3e635;
+  --nb-color-accent: #f472b6;
+  --nb-color-danger: #ef4444;
+  --nb-color-bg: #ffffff;
+  --nb-color-surface: #fafafa;
+  --nb-color-text: #000000;
+  --nb-color-text-muted: #333333;
+  --nb-color-border: #000000;
+  --nb-color-disabled-bg: #d1d5db;
+  --nb-color-disabled-text: #6b7280;
+
+  --nb-border-width: 2px;
+  --nb-border-width-thick: 3px;
+  --nb-border-radius: 2px;
+  --nb-shadow: 4px 4px 0 #000000;
+  --nb-shadow-hover: 6px 6px 0 #000000;
+  --nb-shadow-active: 2px 2px 0 #000000;
+  --nb-shadow-none: none;
+
+  --nb-font-weight-normal: 500;
+  --nb-font-weight-bold: 800;
+  --nb-spacing-xs: 4px;
+  --nb-spacing-sm: 8px;
+  --nb-spacing-md: 12px;
+  --nb-spacing-lg: 16px;
+  --nb-spacing-xl: 24px;
+
+  --nb-font-size-sm: 0.8125rem;
+  --nb-font-size-base: 0.9375rem;
+  --nb-font-size-lg: 1.125rem;
+
+  --nb-transition: none;
+}
+
+.dark {
+  --nb-color-bg: #1a1a1a;
+  --nb-color-surface: #2a2a2a;
+  --nb-color-text: #f5f5f5;
+  --nb-color-text-muted: #cccccc;
+  --nb-color-border: #f5f5f5;
+  --nb-shadow: 4px 4px 0 #f5f5f5;
+  --nb-shadow-hover: 6px 6px 0 #f5f5f5;
+  --nb-shadow-active: 2px 2px 0 #f5f5f5;
+  --nb-color-disabled-bg: #3a3a3a;
+  --nb-color-disabled-text: #888888;
+}

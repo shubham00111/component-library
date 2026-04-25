@@ -14,12 +14,16 @@ const Tabs = ({
   }
 
   const [activeTab, setActiveTab] = useState<TabItem>(value || defaultValue);
+  const isVertical = orientation === "vertical";
+
   return (
-    <div className="w-full px-4">
+    <div className={cn("w-full px-4", isVertical && "flex gap-0")}>
       <div
         className={cn(
-          "flex items-center border-b text-neutral-500",
-          "border-b-neutral-300 dark:border-b-neutral-700",
+          "flex text-neutral-500",
+          isVertical
+            ? "flex-col border-r border-r-neutral-300 dark:border-r-neutral-700 pr-2"
+            : "flex-row items-center border-b border-b-neutral-300 dark:border-b-neutral-700",
         )}
       >
         {items.map((item: TabItem) => {
@@ -28,10 +32,18 @@ const Tabs = ({
             <div
               key={item.id}
               className={cn(
-                "me-2 cursor-pointer border-b-2 border-b-transparent px-4 pb-2 transition-colors duration-150",
-                "hover:border-b-neutral-500 hover:text-neutral-600",
-                "dark:hover:border-b-neutral-400 dark:hover:text-neutral-300",
-                active && [
+                "cursor-pointer transition-colors duration-150",
+                isVertical
+                  ? "border-r-2 border-r-transparent px-4 py-2 -mr-px"
+                  : "me-2 border-b-2 border-b-transparent px-4 pb-2",
+                isVertical
+                  ? "hover:border-r-neutral-500 hover:text-neutral-600 dark:hover:border-r-neutral-400 dark:hover:text-neutral-300"
+                  : "hover:border-b-neutral-500 hover:text-neutral-600 dark:hover:border-b-neutral-400 dark:hover:text-neutral-300",
+                active && isVertical && [
+                  "border-r-neutral-600 text-neutral-700",
+                  "dark:border-r-neutral-300 dark:text-neutral-100",
+                ],
+                active && !isVertical && [
                   "border-b-neutral-600 text-neutral-700",
                   "dark:border-b-neutral-300 dark:text-neutral-100",
                 ],
@@ -52,7 +64,10 @@ const Tabs = ({
           );
         })}
       </div>
-      <div className="min-h-20 p-4 text-neutral-600 dark:text-neutral-300">
+      <div className={cn(
+        "min-h-20 p-4 text-neutral-600 dark:text-neutral-300",
+        isVertical && "flex-1",
+      )}>
         {activeTab.content}
       </div>
     </div>

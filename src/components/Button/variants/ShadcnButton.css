@@ -1,0 +1,100 @@
+@import "../../../tokens/shadcn.css";
+
+.shadcn-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: var(--shadcn-font-weight-medium);
+  font-size: var(--shadcn-font-size-base);
+  font-family: system-ui, sans-serif;
+  border-radius: var(--shadcn-radius);
+  border: 1px solid transparent;
+  transition: all var(--shadcn-transition);
+  padding: 8px 16px;
+  white-space: nowrap;
+  user-select: none;
+  text-decoration: none;
+  background-color: var(--shadcn-primary);
+  color: var(--shadcn-primary-foreground);
+}
+
+.shadcn-button:hover:not(:disabled) {
+  opacity: 0.9;
+  box-shadow: var(--shadcn-shadow);
+}
+
+.shadcn-button:focus-visible {
+  outline: 2px solid var(--shadcn-ring);
+  outline-offset: 2px;
+}
+
+/* Variants */
+.shadcn-button--primary {
+  background-color: var(--shadcn-primary);
+  color: var(--shadcn-primary-foreground);
+  border-color: transparent;
+}
+
+.shadcn-button--secondary {
+  background-color: var(--shadcn-secondary);
+  color: var(--shadcn-secondary-foreground);
+  border-color: transparent;
+}
+
+.shadcn-button--secondary:hover:not(:disabled) {
+  background-color: var(--shadcn-accent);
+}
+
+.shadcn-button--destructive {
+  background-color: var(--shadcn-destructive);
+  color: var(--shadcn-destructive-foreground);
+  border-color: transparent;
+}
+
+.shadcn-button--ghost {
+  background-color: transparent;
+  color: var(--shadcn-foreground);
+  border-color: transparent;
+}
+
+.shadcn-button--ghost:hover:not(:disabled) {
+  background-color: var(--shadcn-accent);
+  color: var(--shadcn-accent-foreground);
+  box-shadow: none;
+}
+
+.shadcn-button--outline {
+  background-color: transparent;
+  color: var(--shadcn-foreground);
+  border-color: var(--shadcn-border);
+}
+
+.shadcn-button--outline:hover:not(:disabled) {
+  background-color: var(--shadcn-accent);
+  color: var(--shadcn-accent-foreground);
+}
+
+/* Sizes */
+.shadcn-button--sm {
+  font-size: var(--shadcn-font-size-sm);
+  padding: 6px 12px;
+  border-radius: calc(var(--shadcn-radius) - 2px);
+}
+
+.shadcn-button--md {
+  padding: 8px 16px;
+}
+
+.shadcn-button--lg {
+  padding: 10px 24px;
+  font-size: 1rem;
+}
+
+/* Disabled */
+.shadcn-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

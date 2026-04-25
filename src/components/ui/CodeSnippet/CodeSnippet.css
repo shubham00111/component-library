@@ -1,0 +1,89 @@
+.cs-root {
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.8125rem;
+  background: #09090b;
+  color: #e4e4e7;
+  margin: 1rem 0;
+}
+
+.cs-title {
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #a1a1aa;
+  border-bottom: 1px solid #27272a;
+  font-family: system-ui, sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #27272a;
+  background: #111113;
+}
+
+.cs-tabs {
+  display: flex;
+}
+
+.cs-tab {
+  padding: 8px 16px;
+  font-size: 0.8125rem;
+  font-family: system-ui, sans-serif;
+  font-weight: 500;
+  color: #71717a;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.cs-tab:hover {
+  color: #d4d4d8;
+}
+
+.cs-tab--active {
+  color: #fafafa;
+  border-bottom-color: #6366f1;
+}
+
+.cs-copy {
+  margin-right: 12px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-family: system-ui, sans-serif;
+  font-weight: 500;
+  color: #a1a1aa;
+  background: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 150ms ease, background 150ms ease;
+  white-space: nowrap;
+}
+
+.cs-copy:hover {
+  color: #fafafa;
+  background: #3f3f46;
+}
+
+.cs-pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+.cs-code {
+  font-family: inherit;
+  font-size: inherit;
+  color: #e4e4e7;
+  white-space: pre;
+}

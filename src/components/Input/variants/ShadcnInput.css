@@ -1,0 +1,62 @@
+@import "../../../tokens/shadcn.css";
+
+.shadcn-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: system-ui, sans-serif;
+}
+
+.shadcn-input-label {
+  font-size: var(--shadcn-font-size-sm);
+  font-weight: var(--shadcn-font-weight-medium);
+  color: var(--shadcn-foreground);
+}
+
+.shadcn-input {
+  padding: 8px 12px;
+  font-size: var(--shadcn-font-size-base);
+  font-family: inherit;
+  color: var(--shadcn-foreground);
+  background-color: var(--shadcn-background);
+  border: 1px solid var(--shadcn-input);
+  border-radius: var(--shadcn-radius);
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color var(--shadcn-transition), box-shadow var(--shadcn-transition);
+}
+
+.shadcn-input::placeholder {
+  color: var(--shadcn-muted-foreground);
+}
+
+.shadcn-input:focus {
+  border-color: var(--shadcn-ring);
+  box-shadow: 0 0 0 2px var(--shadcn-ring);
+  outline: none;
+}
+
+.shadcn-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--shadcn-muted);
+}
+
+.shadcn-input--error {
+  border-color: var(--shadcn-destructive);
+}
+
+.shadcn-input--error:focus {
+  box-shadow: 0 0 0 2px var(--shadcn-destructive);
+}
+
+.shadcn-input-error {
+  font-size: var(--shadcn-font-size-sm);
+  color: var(--shadcn-destructive);
+}
+
+.shadcn-input-helper {
+  font-size: var(--shadcn-font-size-sm);
+  color: var(--shadcn-muted-foreground);
+}
