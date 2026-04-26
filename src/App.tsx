@@ -67,6 +67,7 @@ const items = [
 ];
 
 const renderTabs = () => {
+  console.log("render tabs");
   return (
     <div className="flex h-screen items-center justify-center dark:bg-black">
       <div className="min-h-100 min-w-200">
