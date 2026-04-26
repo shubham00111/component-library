@@ -14,4 +14,13 @@ export default withNextra({
   experimental: {
     externalDir: true,
   },
+  webpack(config) {
+    // Ensure modules from ../src/ files resolve against docs/node_modules,
+    // since Vercel only installs deps in the docs/ root directory.
+    config.resolve.modules = [
+      path.join(import.meta.dirname, "node_modules"),
+      "node_modules",
+    ];
+    return config;
+  },
 });
