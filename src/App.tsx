@@ -1,8 +1,5 @@
-// import { ConfirmationModal } from "./components/Modal/Modal.examples";
-import { Sun } from "lucide-react";
 import ThemeProvider from "./Provider/ThemeProvider";
 import Tabs from "./components/Tabs/Tabs";
-import useTheme from "./Provider/useTheme";
 
 const items = [
   {
