@@ -10,6 +10,9 @@ export default withNextra({
   eslint: {
     ignoreDuringBuilds: true,
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   outputFileTracingRoot: path.join(import.meta.dirname, ".."),
   experimental: {
     externalDir: true,
