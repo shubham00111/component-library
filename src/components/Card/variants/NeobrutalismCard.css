@@ -1,0 +1,56 @@
+@import "../../../tokens/neobrutalism.css";
+
+.nb-card {
+  background-color: var(--nb-color-bg);
+  border: var(--nb-border-width-thick) solid var(--nb-color-border);
+  border-radius: var(--nb-border-radius);
+  box-shadow: var(--nb-shadow);
+  font-family: system-ui, sans-serif;
+  overflow: hidden;
+  transition: var(--nb-transition);
+}
+
+.nb-card:hover {
+  box-shadow: var(--nb-shadow-hover);
+  transform: translate(-1px, -1px);
+}
+
+.nb-card__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: var(--nb-border-width-thick) solid var(--nb-color-border);
+  display: block;
+}
+
+.nb-card__body {
+  padding: var(--nb-spacing-lg);
+}
+
+.nb-card__title {
+  font-size: 1.125rem;
+  font-weight: var(--nb-font-weight-bold);
+  color: var(--nb-color-text);
+  margin: 0 0 var(--nb-spacing-sm) 0;
+  line-height: 1.3;
+}
+
+.nb-card__description {
+  font-size: var(--nb-font-size-base);
+  color: var(--nb-color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.nb-card__content {
+  padding: 0 var(--nb-spacing-lg) var(--nb-spacing-lg);
+}
+
+.nb-card__footer {
+  padding: var(--nb-spacing-sm) var(--nb-spacing-lg);
+  border-top: var(--nb-border-width-thick) solid var(--nb-color-border);
+  background-color: var(--nb-color-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--nb-spacing-sm);
+}

@@ -1,3 +1,4 @@
+"use client";
 import "./VariantShowcase.css";
 
 export interface VariantItem {

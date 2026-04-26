@@ -1,0 +1,63 @@
+@import "../../../tokens/flowbite.css";
+
+.fb-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: system-ui, sans-serif;
+}
+
+.fb-input-label {
+  font-size: var(--fb-font-size-sm);
+  font-weight: var(--fb-font-weight-medium);
+  color: var(--fb-color-text);
+}
+
+.fb-input {
+  padding: 8px 12px;
+  font-size: var(--fb-font-size-base);
+  font-family: inherit;
+  color: var(--fb-color-text);
+  background-color: var(--fb-color-bg);
+  border: var(--fb-border-width) solid var(--fb-color-border);
+  border-radius: var(--fb-border-radius);
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: var(--fb-shadow);
+  transition: var(--fb-transition);
+}
+
+.fb-input::placeholder {
+  color: var(--fb-color-text-secondary);
+}
+
+.fb-input:focus {
+  border-color: var(--fb-color-border-focus);
+  box-shadow: var(--fb-focus-ring);
+  outline: none;
+}
+
+.fb-input:disabled {
+  background-color: var(--fb-color-disabled-bg);
+  color: var(--fb-color-text-disabled);
+  cursor: not-allowed;
+}
+
+.fb-input--error {
+  border-color: var(--fb-color-danger);
+}
+
+.fb-input--error:focus {
+  box-shadow: 0 0 0 3px rgba(224, 36, 36, 0.3);
+}
+
+.fb-input-error {
+  font-size: var(--fb-font-size-sm);
+  color: var(--fb-color-danger);
+}
+
+.fb-input-helper {
+  font-size: var(--fb-font-size-sm);
+  color: var(--fb-color-text-secondary);
+}

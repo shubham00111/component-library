@@ -1,3 +1,4 @@
+"use client";
 import type { ButtonProps } from "../types";
 import "./NeobrutalismButton.css";
 

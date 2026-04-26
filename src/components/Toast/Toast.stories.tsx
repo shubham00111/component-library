@@ -1,310 +1,123 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import Toast from "./Toast";
-import { Bell } from "lucide-react";
+import { useState } from "react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import NeobrutalismToast from "./variants/NeobrutalismToast";
+import ShadcnToast from "./variants/ShadcnToast";
+import FlowbiteToast from "./variants/FlowbiteToast";
+import VariantShowcase from "../ui/VariantShowcase";
+import CodeSnippet from "../ui/CodeSnippet";
+import type { ToastProps } from "./types";
+
+import nbHtml from "./snippets/neobrutalism.html?raw";
+import nbCss from "./snippets/neobrutalism.css?raw";
+import shadcnHtml from "./snippets/shadcn.html?raw";
+import shadcnCss from "./snippets/shadcn.css?raw";
+import fbHtml from "./snippets/flowbite.html?raw";
+import fbCss from "./snippets/flowbite.css?raw";
 
 const meta = {
   title: "Components/Toast",
-  component: Toast,
-  parameters: {
-    layout: "centered",
-  },
-  tags: ["autodocs"],
+  parameters: { layout: "centered" },
   argTypes: {
-    iconType: {
-      control: "select",
-      options: ["success", "error", "warning", "info"],
-      description: "Type of toast icon to display",
-    },
-    className: {
-      control: "text",
-      description: "Custom CSS classes",
-    },
-    children: {
-      control: "text",
-      description: "Toast message content",
-    },
+    iconType: { control: "select", options: ["success", "error", "warning", "info"] },
+    position: { control: "select", options: ["top-left", "top-right", "bottom-left", "bottom-right"] },
   },
-} satisfies Meta<typeof Toast>;
+} satisfies Meta<ToastProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/**
- * Success Toast - For successful operations
- *
- * Shows a green success icon with a message confirming
- * that an action completed successfully.
- */
-export const Success: Story = {
-  args: {
-    iconType: "success",
-    children: "Your changes have been saved successfully!",
-  },
+const ToastDemo = ({
+  Component,
+}: {
+  Component: React.ComponentType<ToastProps>;
+}) => {
+  const [key, setKey] = useState(0);
+  return (
+    <div style={{ position: "relative", height: 80, display: "flex", alignItems: "center", gap: 8 }}>
+      <button
+        onClick={() => setKey((k) => k + 1)}
+        style={{ padding: "6px 12px", cursor: "pointer" }}
+      >
+        Show toast
+      </button>
+      <Component key={key} iconType="success" position="top-right" timer={3000}>
+        Changes saved successfully!
+      </Component>
+    </div>
+  );
 };
 
-/**
- * Error Toast - For error messages
- *
- * Displays a red error icon with a message indicating
- * that something went wrong.
- */
-export const Error: Story = {
-  args: {
-    iconType: "error",
-    children:
-      "An error occurred while processing your request. Please try again.",
-  },
-};
-
-/**
- * Warning Toast - For warning messages
- *
- * Shows a yellow warning icon with a message alerting
- * the user about something important.
- */
-export const Warning: Story = {
-  args: {
-    iconType: "warning",
-    children: "Please review your input before proceeding.",
-  },
-};
-
-/**
- * Info Toast - For informational messages
- *
- * Displays a blue info icon with general informational
- * content for the user.
- */
-export const Info: Story = {
-  args: {
-    iconType: "info",
-    children: "New features are now available. Check them out!",
-  },
-};
-
-/**
- * Long Message - Toast with longer text content
- *
- * Demonstrates how toast handles longer messages while
- * maintaining its layout and styling.
- */
-export const LongMessage: Story = {
-  args: {
-    iconType: "success",
-    children:
-      "Your file has been successfully uploaded and is now being processed. You will receive a notification once the processing is complete.",
-  },
-};
-
-/**
- * Multiple Toasts - Stack of different toast types
- *
- * Shows how multiple toasts can be displayed together
- * in a typical notification area.
- */
-export const MultipleToasts: Story = {
-  args: { iconType: "success", children: "" },
+export const Neobrutalism: Story = {
   render: () => (
-    <div className="flex w-96 flex-col gap-3">
-      <Toast iconType="success">Profile updated successfully</Toast>
-      <Toast iconType="info">New message from John Doe</Toast>
-      <Toast iconType="warning">Your storage is almost full</Toast>
-      <Toast iconType="error">Failed to upload file. Please try again.</Toast>
+    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+      <ToastDemo Component={NeobrutalismToast} />
+      <CodeSnippet html={nbHtml} css={nbCss} defaultTab="html" title="Neobrutalism — HTML/CSS snippet" />
     </div>
   ),
+  args: {},
 };
 
-/**
- * Custom Close Icon - Toast with custom close button icon
- *
- * Demonstrates how to use a different close icon
- * (like Bell instead of X).
- */
-export const CustomCloseIcon: Story = {
-  args: {
-    iconType: "info",
-    children: "You have a new notification",
-    CloseIcon: Bell,
-  },
-};
-
-/**
- * No Message - Toast with only icon
- *
- * A minimal toast with just an icon and close button,
- * useful for quick visual feedback without text.
- */
-export const NoMessage: Story = {
-  args: {
-    iconType: "success",
-    children: "",
-  },
-};
-
-/**
- * Custom Styling - Toast with custom CSS classes
- *
- * Shows how to apply custom styling to the toast component
- * for different sizes or appearances.
- */
-export const CustomStyling: Story = {
-  args: {
-    iconType: "success",
-    children: "Styled toast message",
-    className: "max-w-sm shadow-lg border-l-4 border-green-500",
-  },
-};
-
-/**
- * Success with Action - Success notification
- *
- * A typical success toast for confirming user actions
- * like form submission or file operations.
- */
-export const SuccessAction: Story = {
-  args: {
-    iconType: "success",
-    children: "✓ File download started. Your file will be ready shortly.",
-  },
-};
-
-/**
- * Error Details - Error toast with specific error message
- *
- * Shows an error toast with detailed error information
- * that helps users understand what went wrong.
- */
-export const ErrorDetails: Story = {
-  args: {
-    iconType: "error",
-    children: "Failed to connect to server. Check your internet connection.",
-  },
-};
-
-/**
- * Warning - Account expiry notification
- *
- * A warning toast informing users about upcoming events
- * or actions they need to take.
- */
-export const WarningExpiry: Story = {
-  args: {
-    iconType: "warning",
-    children:
-      "Your premium subscription expires in 3 days. Renew now to continue.",
-  },
-};
-
-/**
- * Info - Update available
- *
- * An informational toast notifying users about new
- * features or system updates.
- */
-export const InfoUpdate: Story = {
-  args: {
-    iconType: "info",
-    children:
-      "A new version of the app is available. Update now for the latest features.",
-  },
-};
-
-/**
- * Compact Toast - Minimal spacing
- *
- * A more compact variant suitable for dense UIs
- * or when space is limited.
- */
-export const Compact: Story = {
-  args: {
-    iconType: "success",
-    children: "Done",
-    className: "min-w-fit p-2",
-  },
-};
-
-/**
- * Dark Background - Toast on dark background
- *
- * Shows how the toast appears when placed on a
- * dark background (the toast is designed for light backgrounds).
- */
-export const DarkBackground: Story = {
-  args: {
-    iconType: "success",
-    children: "Successfully uploaded to cloud storage",
-  },
+export const Shadcn: Story = {
   render: () => (
-    <div className="rounded-lg bg-gray-900 p-8">
-      <Toast iconType="success">Successfully uploaded to cloud storage</Toast>
+    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+      <ToastDemo Component={ShadcnToast} />
+      <CodeSnippet html={shadcnHtml} css={shadcnCss} defaultTab="html" title="Shadcn — HTML/CSS snippet" />
     </div>
   ),
+  args: {},
 };
 
-/**
- * All Types Comparison - Side by side comparison
- *
- * Shows all four toast types (success, error, warning, info)
- * side by side for easy comparison.
- */
-export const AllTypesComparison: Story = {
-  args: { iconType: "success", children: "" },
+export const Flowbite: Story = {
   render: () => (
-    <div className="w-full space-y-3">
-      <div>
-        <p className="mb-2 text-sm font-semibold text-gray-600">Success</p>
-        <Toast iconType="success">Operation completed successfully</Toast>
-      </div>
-      <div>
-        <p className="mb-2 text-sm font-semibold text-gray-600">Error</p>
-        <Toast iconType="error">An error occurred during processing</Toast>
-      </div>
-      <div>
-        <p className="mb-2 text-sm font-semibold text-gray-600">Warning</p>
-        <Toast iconType="warning">Please verify your input</Toast>
-      </div>
-      <div>
-        <p className="mb-2 text-sm font-semibold text-gray-600">Info</p>
-        <Toast iconType="info">New updates are available</Toast>
-      </div>
+    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+      <ToastDemo Component={FlowbiteToast} />
+      <CodeSnippet html={fbHtml} css={fbCss} defaultTab="html" title="Flowbite — HTML/CSS snippet" />
     </div>
   ),
+  args: {},
 };
 
-/**
- * Interactive - Controlled toast with different states
- *
- * Demonstrates a toast that changes based on user interactions
- * or different application states.
- */
-export const Interactive: Story = {
-  args: {
-    iconType: "info",
-    children: "Click the button above to change the toast state",
-  },
-  render: (args) => (
-    <div className="space-y-4">
-      <div className="flex gap-2">
-        <button
-          onClick={() => console.log("Success clicked")}
-          className="rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600"
-        >
-          Show Success
-        </button>
-        <button
-          onClick={() => console.log("Error clicked")}
-          className="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
-        >
-          Show Error
-        </button>
-        <button
-          onClick={() => console.log("Info clicked")}
-          className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-        >
-          Show Info
-        </button>
-      </div>
-      <Toast {...args} />
-    </div>
+export const CompareAll: Story = {
+  parameters: { layout: "padded" },
+  render: () => (
+    <VariantShowcase
+      title="Toast — all design languages (static preview)"
+      variants={[
+        {
+          label: "Neobrutalism",
+          designLanguage: "neobrutalism",
+          children: (
+            <div style={{ position: "relative", width: 300, height: 60 }}>
+              <NeobrutalismToast iconType="success" position="top-right">
+                Saved!
+              </NeobrutalismToast>
+            </div>
+          ),
+        },
+        {
+          label: "Shadcn",
+          designLanguage: "shadcn",
+          children: (
+            <div style={{ position: "relative", width: 300, height: 60 }}>
+              <ShadcnToast iconType="success" position="top-right">
+                Saved!
+              </ShadcnToast>
+            </div>
+          ),
+        },
+        {
+          label: "Flowbite",
+          designLanguage: "flowbite",
+          children: (
+            <div style={{ position: "relative", width: 300, height: 60 }}>
+              <FlowbiteToast iconType="success" position="top-right">
+                Saved!
+              </FlowbiteToast>
+            </div>
+          ),
+        },
+      ]}
+    />
   ),
+  args: {},
 };

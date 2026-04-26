@@ -1,0 +1,43 @@
+@import "../../../tokens/shadcn.css";
+
+.shadcn-card {
+  background-color: var(--shadcn-background);
+  border: 1px solid var(--shadcn-border);
+  border-radius: var(--shadcn-radius);
+  box-shadow: var(--shadcn-shadow-sm);
+  font-family: system-ui, sans-serif;
+  overflow: hidden;
+  transition: box-shadow var(--shadcn-transition);
+}
+
+.shadcn-card:hover { box-shadow: var(--shadcn-shadow); }
+
+.shadcn-card__image { width:100%; height:180px; object-fit:cover; display:block; }
+
+.shadcn-card__body { padding: 16px; }
+
+.shadcn-card__title {
+  font-size: 1rem;
+  font-weight: var(--shadcn-font-weight-semibold);
+  color: var(--shadcn-foreground);
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+}
+
+.shadcn-card__description {
+  font-size: var(--shadcn-font-size-sm);
+  color: var(--shadcn-muted-foreground);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.shadcn-card__content { padding: 0 16px 16px; color: var(--shadcn-foreground); }
+
+.shadcn-card__footer {
+  padding: 12px 16px;
+  border-top: 1px solid var(--shadcn-border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--shadcn-muted);
+}

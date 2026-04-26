@@ -1,0 +1,21 @@
+@import "../../../tokens/flowbite.css";
+
+.fb-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  font-weight: var(--fb-font-weight-medium);
+  border-radius: 9999px;
+  border: var(--fb-border-width) solid transparent;
+  white-space: nowrap;
+}
+
+.fb-badge--sm { font-size: 0.6875rem; padding: 1px 8px; }
+.fb-badge--md { font-size: var(--fb-font-size-sm); padding: 2px 10px; }
+
+.fb-badge--default     { background-color: var(--fb-color-primary-light); color: var(--fb-color-primary); border-color: #bfdbfe; }
+.fb-badge--success     { background-color: #d1fae5; color: #065f46; }
+.fb-badge--warning     { background-color: #fef3c7; color: #92400e; }
+.fb-badge--destructive { background-color: #fee2e2; color: #991b1b; }
+.fb-badge--outline     { background-color: transparent; color: var(--fb-color-text); border-color: var(--fb-color-border); }

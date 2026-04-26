@@ -1,0 +1,69 @@
+---
+title: Card
+---
+
+import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import { NeobrutalismCard, ShadcnCard, FlowbiteCard } from "@lib/components/Card";
+
+export const snippets = loadSnippets("Card");
+
+# Card
+
+Content container with optional image, title, description, body, and footer slots.
+
+## Design Language Comparison
+
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: (
+        <NeobrutalismCard
+          title="Card Title"
+          description="A short description for this card."
+        />
+      ),
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: (
+        <ShadcnCard
+          title="Card Title"
+          description="A short description for this card."
+        />
+      ),
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: (
+        <FlowbiteCard
+          title="Card Title"
+          description="A short description for this card."
+        />
+      ),
+    },
+  ]}
+/>
+
+## Neobrutalism
+
+Hard offset shadow, thick border, no border-radius.
+
+<SnippetViewer html={snippets.neobrutalism.html} css={snippets.neobrutalism.css} />
+
+## Shadcn-inspired
+
+Soft shadow, 8 px radius, neutral surface.
+
+<SnippetViewer html={snippets.shadcn.html} css={snippets.shadcn.css} />
+
+## Flowbite-inspired
+
+Minimal border, 8 px radius, hover shadow lift.
+
+<SnippetViewer html={snippets.flowbite.html} css={snippets.flowbite.css} />

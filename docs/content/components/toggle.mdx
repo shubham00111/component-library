@@ -1,0 +1,35 @@
+---
+title: Toggle
+---
+
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { NeobrutalismToggle, ShadcnToggle, FlowbiteToggle } from "@lib/components/Toggle";
+
+# Toggle
+
+An accessible switch/toggle with `sm`, `md`, and `lg` sizes. Supports controlled and uncontrolled modes.
+
+## Design Language Comparison
+
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: <NeobrutalismToggle defaultChecked label="Enable notifications" />,
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: <ShadcnToggle defaultChecked label="Enable notifications" />,
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: <FlowbiteToggle defaultChecked label="Enable notifications" />,
+    },
+  ]}
+  layout="column"
+/>
+
+> HTML/CSS snippets for Toggle are coming soon.

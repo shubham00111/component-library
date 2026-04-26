@@ -1,0 +1,22 @@
+@import "../../../tokens/shadcn.css";
+
+.shadcn-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  font-weight: var(--shadcn-font-weight-medium);
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: all var(--shadcn-transition);
+}
+
+.shadcn-badge--sm { font-size: 0.6875rem; padding: 1px 8px; }
+.shadcn-badge--md { font-size: var(--shadcn-font-size-sm); padding: 2px 10px; }
+
+.shadcn-badge--default     { background-color: var(--shadcn-primary); color: var(--shadcn-primary-foreground); }
+.shadcn-badge--success     { background-color: #f0fdf4; color: #16a34a; border-color: #bbf7d0; }
+.shadcn-badge--warning     { background-color: #fffbeb; color: #d97706; border-color: #fde68a; }
+.shadcn-badge--destructive { background-color: var(--shadcn-destructive); color: var(--shadcn-destructive-foreground); }
+.shadcn-badge--outline     { background-color: transparent; color: var(--shadcn-foreground); border-color: var(--shadcn-border); }

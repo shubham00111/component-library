@@ -1,0 +1,22 @@
+@import "../../../tokens/neobrutalism.css";
+
+.nb-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  font-weight: var(--nb-font-weight-bold);
+  border-radius: var(--nb-border-radius);
+  border: var(--nb-border-width) solid var(--nb-color-border);
+  box-shadow: 2px 2px 0 var(--nb-color-border);
+  white-space: nowrap;
+}
+
+.nb-badge--sm { font-size: 0.6875rem; padding: 1px 6px; }
+.nb-badge--md { font-size: var(--nb-font-size-sm); padding: 2px 8px; }
+
+.nb-badge--default     { background-color: var(--nb-color-primary); color: var(--nb-color-text); }
+.nb-badge--success     { background-color: #a3e635; color: var(--nb-color-text); }
+.nb-badge--warning     { background-color: #fbbf24; color: var(--nb-color-text); }
+.nb-badge--destructive { background-color: var(--nb-color-danger); color: #fff; }
+.nb-badge--outline     { background-color: transparent; color: var(--nb-color-text); }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shadcn-inspired Input</title>
+  <link rel="stylesheet" href="shadcn.css" />
+</head>
+<body style="padding: 32px; font-family: system-ui, sans-serif; max-width: 400px;">
+
+  <div class="shadcn-input-wrapper">
+    <label for="input1" class="shadcn-input-label">Email</label>
+    <input id="input1" type="email" class="shadcn-input" placeholder="you@example.com" />
+  </div>
+
+  <br />
+
+  <div class="shadcn-input-wrapper">
+    <label for="input2" class="shadcn-input-label">With error</label>
+    <input id="input2" type="text" class="shadcn-input shadcn-input--error" placeholder="Enter text..." />
+    <span id="input2-error" class="shadcn-input-error" role="alert">This field is required</span>
+  </div>
+
+  <br />
+
+  <div class="shadcn-input-wrapper">
+    <label for="input3" class="shadcn-input-label">Disabled</label>
+    <input id="input3" type="text" class="shadcn-input" placeholder="Disabled" disabled />
+  </div>
+
+</body>
+</html>

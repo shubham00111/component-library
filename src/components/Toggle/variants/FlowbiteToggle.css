@@ -1,0 +1,56 @@
+@import "../../../tokens/flowbite.css";
+
+.fb-toggle-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.fb-toggle-wrapper--disabled { cursor: not-allowed; opacity: 0.65; }
+
+.fb-toggle { position: relative; display: inline-block; flex-shrink: 0; }
+
+.fb-toggle input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.fb-toggle__track {
+  display: block;
+  border-radius: 9999px;
+  background-color: var(--fb-color-border);
+  border: var(--fb-border-width) solid var(--fb-color-border);
+  position: relative;
+  transition: var(--fb-transition);
+}
+
+.fb-toggle--sm .fb-toggle__track { width: 36px; height: 20px; }
+.fb-toggle--md .fb-toggle__track { width: 44px; height: 24px; }
+.fb-toggle--lg .fb-toggle__track { width: 56px; height: 30px; }
+
+.fb-toggle__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: var(--fb-shadow);
+  transition: var(--fb-transition);
+}
+
+.fb-toggle--sm .fb-toggle__thumb { width: 14px; height: 14px; }
+.fb-toggle--md .fb-toggle__thumb { width: 18px; height: 18px; }
+.fb-toggle--lg .fb-toggle__thumb { width: 24px; height: 24px; }
+
+.fb-toggle input:checked ~ .fb-toggle__track { background-color: var(--fb-color-primary); border-color: var(--fb-color-primary); }
+.fb-toggle--sm input:checked ~ .fb-toggle__track .fb-toggle__thumb { transform: translateX(16px); }
+.fb-toggle--md input:checked ~ .fb-toggle__track .fb-toggle__thumb { transform: translateX(20px); }
+.fb-toggle--lg input:checked ~ .fb-toggle__track .fb-toggle__thumb { transform: translateX(26px); }
+
+.fb-toggle input:focus-visible ~ .fb-toggle__track { outline: none; box-shadow: var(--fb-focus-ring); }
+
+.fb-toggle__label {
+  font-size: var(--fb-font-size-sm);
+  font-weight: var(--fb-font-weight-medium);
+  color: var(--fb-color-text);
+  user-select: none;
+}

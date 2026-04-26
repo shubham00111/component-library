@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neobrutalism Input</title>
+  <link rel="stylesheet" href="neobrutalism.css" />
+</head>
+<body style="padding: 32px; font-family: system-ui, sans-serif; max-width: 400px;">
+
+  <div class="nb-input-wrapper">
+    <label for="input1" class="nb-input-label">Label</label>
+    <input id="input1" type="text" class="nb-input" placeholder="Enter text..." />
+  </div>
+
+  <br />
+
+  <div class="nb-input-wrapper">
+    <label for="input2" class="nb-input-label">With error</label>
+    <input id="input2" type="text" class="nb-input nb-input--error" placeholder="Enter text..." value="bad value" />
+    <span id="input2-error" class="nb-input-error" role="alert">This field is required</span>
+  </div>
+
+  <br />
+
+  <div class="nb-input-wrapper">
+    <label for="input3" class="nb-input-label">Disabled</label>
+    <input id="input3" type="text" class="nb-input" placeholder="Disabled" disabled />
+  </div>
+
+</body>
+</html>

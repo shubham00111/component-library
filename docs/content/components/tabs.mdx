@@ -1,0 +1,29 @@
+---
+title: Tabs
+---
+
+import { TabsDemo } from "../../components/TabsDemo";
+
+# Tabs
+
+Horizontal and vertical tab navigation. Supports controlled and uncontrolled modes. Built with Tailwind CSS.
+
+> This component uses a single Tailwind-based implementation. Multi-design-language variants are planned for a future release.
+
+## Preview
+
+<TabsDemo />
+
+## Usage
+
+```tsx
+import { Tabs } from "ui-variants";
+
+const items = [
+  { id: "tab-1", label: "Overview", content: <p>Overview content</p> },
+  { id: "tab-2", label: "Details", content: <p>Details content</p> },
+  { id: "tab-3", label: "Reviews", content: <p>Reviews content</p> },
+];
+
+<Tabs items={items} defaultValue={items[0]} />
+```

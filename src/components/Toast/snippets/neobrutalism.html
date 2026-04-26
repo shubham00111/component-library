@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neobrutalism Toast</title>
+  <link rel="stylesheet" href="neobrutalism.css" />
+</head>
+<body style="padding: 32px; font-family: system-ui, sans-serif; height: 200px;">
+
+  <button onclick="showToast()" style="padding:8px 16px; cursor:pointer;">Show toast</button>
+
+  <div id="toast" class="nb-toast nb-toast--bottom-right" role="status" aria-live="polite" style="display:none;">
+    <div class="nb-toast__icon nb-toast__icon--success">✓</div>
+    <div class="nb-toast__body">Changes saved successfully!</div>
+    <button class="nb-toast__close" aria-label="Close" onclick="hideToast()">✕</button>
+  </div>
+
+  <script>
+    function showToast() {
+      const toast = document.getElementById('toast');
+      toast.style.display = 'flex';
+      setTimeout(hideToast, 3000);
+    }
+    function hideToast() {
+      document.getElementById('toast').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

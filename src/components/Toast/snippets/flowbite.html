@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flowbite Toast</title>
+  <link rel="stylesheet" href="flowbite.css" />
+</head>
+<body style="padding:32px; height:200px;">
+  <button onclick="showToast()" style="padding:8px 16px;cursor:pointer;">Show toast</button>
+  <div id="toast" class="fb-toast fb-toast--bottom-right" role="status" aria-live="polite" style="display:none;">
+    <div class="fb-toast__icon fb-toast__icon--success">✓</div>
+    <div class="fb-toast__body">Changes saved successfully!</div>
+    <button class="fb-toast__close" aria-label="Close" onclick="hideToast()">✕</button>
+  </div>
+  <script>
+    function showToast() { const t=document.getElementById('toast'); t.style.display='flex'; setTimeout(hideToast,3000); }
+    function hideToast() { document.getElementById('toast').style.display='none'; }
+  </script>
+</body>
+</html>

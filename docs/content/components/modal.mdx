@@ -1,0 +1,33 @@
+---
+title: Modal
+---
+
+import { LivePreview } from "../../components/LivePreview";
+import { ModalDemo } from "../../components/ModalDemo";
+
+# Modal
+
+Dialog overlay with `Trigger`, `Overlay`, `Dialog`, `Content`, `Title`, and `Close` sub-components. Built with Tailwind CSS.
+
+> This component uses a single Tailwind-based implementation. Multi-design-language variants are planned for a future release.
+
+## Preview
+
+<ModalDemo />
+
+## Usage
+
+```tsx
+import { Modal } from "ui-variants";
+
+<Modal>
+  <Modal.Trigger>Open dialog</Modal.Trigger>
+  <Modal.Overlay>
+    <Modal.Dialog>
+      <Modal.Title>Dialog title</Modal.Title>
+      <Modal.Content>Content goes here.</Modal.Content>
+      <Modal.Close />
+    </Modal.Dialog>
+  </Modal.Overlay>
+</Modal>
+```

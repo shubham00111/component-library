@@ -1,0 +1,72 @@
+@import "../../../tokens/neobrutalism.css";
+
+.nb-toggle-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nb-spacing-sm);
+  font-family: system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.nb-toggle-wrapper--disabled { cursor: not-allowed; opacity: 0.6; }
+
+.nb-toggle {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.nb-toggle input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.nb-toggle__track {
+  display: block;
+  background-color: var(--nb-color-disabled-bg);
+  border: var(--nb-border-width-thick) solid var(--nb-color-border);
+  border-radius: var(--nb-border-radius);
+  box-shadow: var(--nb-shadow);
+  position: relative;
+  transition: var(--nb-transition);
+}
+
+.nb-toggle--sm .nb-toggle__track { width: 36px; height: 18px; }
+.nb-toggle--md .nb-toggle__track { width: 44px; height: 22px; }
+.nb-toggle--lg .nb-toggle__track { width: 56px; height: 28px; }
+
+.nb-toggle__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background-color: var(--nb-color-border);
+  border: var(--nb-border-width) solid var(--nb-color-border);
+  border-radius: 1px;
+  transition: var(--nb-transition);
+}
+
+.nb-toggle--sm .nb-toggle__thumb { width: 12px; height: 12px; }
+.nb-toggle--md .nb-toggle__thumb { width: 15px; height: 15px; }
+.nb-toggle--lg .nb-toggle__thumb { width: 20px; height: 20px; }
+
+.nb-toggle input:checked ~ .nb-toggle__track {
+  background-color: var(--nb-color-primary);
+}
+
+.nb-toggle--sm input:checked ~ .nb-toggle__track .nb-toggle__thumb { transform: translateX(18px); background-color: var(--nb-color-border); }
+.nb-toggle--md input:checked ~ .nb-toggle__track .nb-toggle__thumb { transform: translateX(22px); background-color: var(--nb-color-border); }
+.nb-toggle--lg input:checked ~ .nb-toggle__track .nb-toggle__thumb { transform: translateX(28px); background-color: var(--nb-color-border); }
+
+.nb-toggle input:focus-visible ~ .nb-toggle__track {
+  outline: 3px solid var(--nb-color-border);
+  outline-offset: 3px;
+}
+
+.nb-toggle__label {
+  font-size: var(--nb-font-size-base);
+  font-weight: var(--nb-font-weight-bold);
+  color: var(--nb-color-text);
+  user-select: none;
+}

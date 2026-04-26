@@ -1,0 +1,56 @@
+@import "../../../tokens/shadcn.css";
+
+.shadcn-toggle-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.shadcn-toggle-wrapper--disabled { cursor: not-allowed; opacity: 0.5; }
+
+.shadcn-toggle { position: relative; display: inline-block; flex-shrink: 0; }
+
+.shadcn-toggle input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.shadcn-toggle__track {
+  display: block;
+  border-radius: 9999px;
+  background-color: var(--shadcn-input);
+  border: 1px solid var(--shadcn-border);
+  position: relative;
+  transition: background-color var(--shadcn-transition);
+}
+
+.shadcn-toggle--sm .shadcn-toggle__track { width: 36px; height: 20px; }
+.shadcn-toggle--md .shadcn-toggle__track { width: 44px; height: 24px; }
+.shadcn-toggle--lg .shadcn-toggle__track { width: 56px; height: 30px; }
+
+.shadcn-toggle__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: var(--shadcn-shadow-sm);
+  transition: transform var(--shadcn-transition), background-color var(--shadcn-transition);
+}
+
+.shadcn-toggle--sm .shadcn-toggle__thumb { width: 14px; height: 14px; }
+.shadcn-toggle--md .shadcn-toggle__thumb { width: 18px; height: 18px; }
+.shadcn-toggle--lg .shadcn-toggle__thumb { width: 24px; height: 24px; }
+
+.shadcn-toggle input:checked ~ .shadcn-toggle__track { background-color: var(--shadcn-primary); border-color: var(--shadcn-primary); }
+.shadcn-toggle--sm input:checked ~ .shadcn-toggle__track .shadcn-toggle__thumb { transform: translateX(16px); }
+.shadcn-toggle--md input:checked ~ .shadcn-toggle__track .shadcn-toggle__thumb { transform: translateX(20px); }
+.shadcn-toggle--lg input:checked ~ .shadcn-toggle__track .shadcn-toggle__thumb { transform: translateX(26px); }
+
+.shadcn-toggle input:focus-visible ~ .shadcn-toggle__track { outline: 2px solid var(--shadcn-ring); outline-offset: 2px; }
+
+.shadcn-toggle__label {
+  font-size: var(--shadcn-font-size-sm);
+  font-weight: var(--shadcn-font-weight-medium);
+  color: var(--shadcn-foreground);
+  user-select: none;
+}

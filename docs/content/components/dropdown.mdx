@@ -1,0 +1,31 @@
+---
+title: Dropdown
+---
+
+import { DropdownDemo } from "../../components/DropdownDemo";
+
+# Dropdown
+
+Select input with keyboard navigation and click-outside dismissal. Built with Tailwind CSS.
+
+> This component uses a single Tailwind-based implementation. Multi-design-language variants are planned for a future release.
+
+## Preview
+
+<DropdownDemo />
+
+## Usage
+
+```tsx
+import { Dropdown } from "ui-variants";
+
+<Dropdown
+  options={[
+    { id: "1", label: "Option 1" },
+    { id: "2", label: "Option 2" },
+    { id: "3", label: "Option 3" },
+  ]}
+  placeholder="Select an option"
+  onChange={(option) => console.log(option)}
+/>
+```

@@ -1,0 +1,54 @@
+---
+title: Button
+---
+
+import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import { NeobrutalismButton, ShadcnButton, FlowbiteButton } from "@lib/components/Button";
+
+export const snippets = loadSnippets("Button");
+
+# Button
+
+A versatile action trigger available in three design languages, each with `primary`, `secondary`, `destructive`, `ghost`, and `outline` variants.
+
+## Design Language Comparison
+
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: <NeobrutalismButton variant="primary">Click me</NeobrutalismButton>,
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: <ShadcnButton variant="primary">Click me</ShadcnButton>,
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: <FlowbiteButton variant="primary">Click me</FlowbiteButton>,
+    },
+  ]}
+/>
+
+## Neobrutalism
+
+Hard black shadow, thick border, saturated yellow primary. Translates on click.
+
+<SnippetViewer html={snippets.neobrutalism.html} css={snippets.neobrutalism.css} />
+
+## Shadcn-inspired
+
+Neutral zinc palette, subtle shadow, 6 px radius, accessible focus ring.
+
+<SnippetViewer html={snippets.shadcn.html} css={snippets.shadcn.css} />
+
+## Flowbite-inspired
+
+Blue `#1c64f2` primary, 8 px radius, smooth hover transition, blue glow on focus.
+
+<SnippetViewer html={snippets.flowbite.html} css={snippets.flowbite.css} />

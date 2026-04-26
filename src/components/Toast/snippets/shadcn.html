@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shadcn Toast</title>
+  <link rel="stylesheet" href="shadcn.css" />
+</head>
+<body style="padding:32px; height:200px;">
+  <button onclick="showToast()" style="padding:8px 16px;cursor:pointer;">Show toast</button>
+  <div id="toast" class="shadcn-toast shadcn-toast--bottom-right" role="status" aria-live="polite" style="display:none;">
+    <div class="shadcn-toast__icon shadcn-toast__icon--success">✓</div>
+    <div class="shadcn-toast__body">Changes saved successfully!</div>
+    <button class="shadcn-toast__close" aria-label="Close" onclick="hideToast()">✕</button>
+  </div>
+  <script>
+    function showToast() { const t=document.getElementById('toast'); t.style.display='flex'; setTimeout(hideToast,3000); }
+    function hideToast() { document.getElementById('toast').style.display='none'; }
+  </script>
+</body>
+</html>

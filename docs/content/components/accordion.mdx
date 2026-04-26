@@ -1,0 +1,28 @@
+---
+title: Accordion
+---
+
+import { AccordionDemo } from "../../components/AccordionDemo";
+
+# Accordion
+
+Collapsible content sections with `Item`, `Title`, and `Description` sub-components. Built with Tailwind CSS.
+
+> This component uses a single Tailwind-based implementation. Multi-design-language variants are planned for a future release.
+
+## Preview
+
+<AccordionDemo />
+
+## Usage
+
+```tsx
+import { Accordion } from "ui-variants";
+
+<Accordion>
+  <Accordion.Item>
+    <Accordion.Title>Question?</Accordion.Title>
+    <Accordion.Description>Answer goes here.</Accordion.Description>
+  </Accordion.Item>
+</Accordion>
+```

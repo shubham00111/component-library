@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import "./CodeSnippet.css";
 
@@ -44,6 +45,7 @@ const CodeSnippet = ({
   const activeContent = contentMap[activeTab] ?? "";
 
   const handleCopy = () => {
+    if (typeof navigator === "undefined" || !navigator.clipboard) return;
     navigator.clipboard.writeText(activeContent).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);

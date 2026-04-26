@@ -1,0 +1,10 @@
+/* Flowbite Badge — standalone snippet */
+:root{--fb-color-primary:#1c64f2;--fb-color-primary-light:#eff6ff;--fb-color-border:#e5e7eb;--fb-color-text:#111827;--fb-border-width:1px;--fb-font-size-sm:0.875rem;--fb-font-weight-medium:500}
+.fb-badge{display:inline-flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif;font-weight:var(--fb-font-weight-medium);border-radius:9999px;border:var(--fb-border-width) solid transparent;white-space:nowrap}
+.fb-badge--sm{font-size:0.6875rem;padding:1px 8px}
+.fb-badge--md{font-size:var(--fb-font-size-sm);padding:2px 10px}
+.fb-badge--default{background:var(--fb-color-primary-light);color:var(--fb-color-primary);border-color:#bfdbfe}
+.fb-badge--success{background:#d1fae5;color:#065f46}
+.fb-badge--warning{background:#fef3c7;color:#92400e}
+.fb-badge--destructive{background:#fee2e2;color:#991b1b}
+.fb-badge--outline{background:transparent;color:var(--fb-color-text);border-color:var(--fb-color-border)}

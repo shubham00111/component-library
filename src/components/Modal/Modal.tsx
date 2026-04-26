@@ -1,3 +1,4 @@
+"use client";
 import { createContext, useContext, useState } from "react";
 import { cn } from "../../utils/Util";
 import { CircleX } from "lucide-react";

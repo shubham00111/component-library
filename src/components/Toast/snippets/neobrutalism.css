@@ -1,0 +1,41 @@
+/* Neobrutalism Toast — standalone snippet (tokens inlined) */
+
+:root {
+  --nb-color-primary: #facc15;
+  --nb-color-bg: #ffffff;
+  --nb-color-text: #000000;
+  --nb-color-text-muted: #333333;
+  --nb-color-border: #000000;
+  --nb-border-width-thick: 3px;
+  --nb-border-width: 2px;
+  --nb-border-radius: 2px;
+  --nb-shadow: 4px 4px 0 #000000;
+  --nb-shadow-hover: 6px 6px 0 #000000;
+  --nb-font-weight-normal: 500;
+  --nb-font-size-base: 0.9375rem;
+}
+
+.nb-toast {
+  position: fixed; z-index: 50;
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px; min-width: 280px; max-width: 420px;
+  background-color: var(--nb-color-bg);
+  border: var(--nb-border-width-thick) solid var(--nb-color-border);
+  border-radius: var(--nb-border-radius);
+  box-shadow: var(--nb-shadow);
+  font-family: system-ui, sans-serif; font-size: var(--nb-font-size-base); color: var(--nb-color-text);
+}
+.nb-toast:hover { box-shadow: var(--nb-shadow-hover); }
+.nb-toast--top-left    { top: 16px;    left: 16px; }
+.nb-toast--top-right   { top: 16px;    right: 16px; }
+.nb-toast--bottom-left { bottom: 16px; left: 16px; }
+.nb-toast--bottom-right{ bottom: 16px; right: 16px; }
+
+.nb-toast__icon { display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:var(--nb-border-radius);border:var(--nb-border-width) solid var(--nb-color-border);flex-shrink:0; }
+.nb-toast__icon--success { background:#bbf7d0;color:#166534; }
+.nb-toast__icon--error   { background:#fee2e2;color:#991b1b; }
+.nb-toast__icon--warning { background:#fef9c3;color:#854d0e; }
+.nb-toast__icon--info    { background:#dbeafe;color:#1e40af; }
+.nb-toast__body { flex:1; }
+.nb-toast__close { display:flex;align-items:center;justify-content:center;padding:4px;border:var(--nb-border-width) solid transparent;border-radius:var(--nb-border-radius);background:transparent;cursor:pointer;color:var(--nb-color-text-muted);flex-shrink:0; }
+.nb-toast__close:hover { background:var(--nb-color-primary);border-color:var(--nb-color-border);color:var(--nb-color-text); }

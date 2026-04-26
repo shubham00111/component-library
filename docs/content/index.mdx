@@ -1,0 +1,63 @@
+---
+title: Introduction
+---
+
+import { ComponentShowcase } from "../components/ComponentShowcase";
+import { NeobrutalismButton, ShadcnButton, FlowbiteButton } from "@lib/components/Button";
+
+# UI Variants
+
+**Every component in every style. Copy the one you want.**
+
+Three distinct design languages — Neobrutalism, Shadcn-inspired, and Flowbite-inspired — implemented consistently across 10 UI components. Each variant ships with standalone HTML + CSS you can paste into any project with no dependencies.
+
+<div style={{ display: "flex", gap: "8px", flexWrap: "wrap", margin: "16px 0 24px" }}>
+  <span className="lang-chip lang-chip--neobrutalism">Neobrutalism</span>
+  <span className="lang-chip lang-chip--shadcn">Shadcn-inspired</span>
+  <span className="lang-chip lang-chip--flowbite">Flowbite-inspired</span>
+</div>
+
+## Live Comparison
+
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: <NeobrutalismButton variant="primary">Get Started</NeobrutalismButton>,
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: <ShadcnButton variant="primary">Get Started</ShadcnButton>,
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: <FlowbiteButton variant="primary">Get Started</FlowbiteButton>,
+    },
+  ]}
+/>
+
+## Components
+
+<div className="component-grid">
+  <a href="/components/button" className="component-card">Button</a>
+  <a href="/components/input" className="component-card">Input</a>
+  <a href="/components/card" className="component-card">Card</a>
+  <a href="/components/badge" className="component-card">Badge</a>
+  <a href="/components/toggle" className="component-card">Toggle</a>
+  <a href="/components/toast" className="component-card">Toast</a>
+  <a href="/components/accordion" className="component-card">Accordion</a>
+  <a href="/components/modal" className="component-card">Modal</a>
+  <a href="/components/dropdown" className="component-card">Dropdown</a>
+  <a href="/components/tabs" className="component-card">Tabs</a>
+</div>
+
+## How It Works
+
+**1. Browse** — Pick a component from the sidebar and see all three design languages side by side.
+
+**2. Preview** — Click the live interactive preview to see states: hover, focus, disabled.
+
+**3. Copy** — Hit "Copy" on the HTML or CSS tab. Paste it into any HTML file — no build tool, no npm install.

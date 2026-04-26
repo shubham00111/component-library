@@ -1,0 +1,48 @@
+---
+title: Toast
+---
+
+import { loadSnippets } from "../../lib/snippets";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import { ToastPreview } from "../../components/ToastPreview";
+import { NeobrutalismToast, ShadcnToast, FlowbiteToast } from "@lib/components/Toast";
+
+export const snippets = loadSnippets("Toast");
+
+# Toast
+
+Fixed-position notification overlay. Variants: `success`, `error`, `warning`, `info`. Auto-dismiss via `timer` (ms).
+
+> Toasts use `position: fixed` and appear at the corner of the viewport in production. The previews below are contained to the card for documentation purposes.
+
+## Preview
+
+<ToastPreview label="Neobrutalism">
+  <NeobrutalismToast iconType="success" position="bottom-right">
+    Changes saved successfully.
+  </NeobrutalismToast>
+</ToastPreview>
+
+<ToastPreview label="Shadcn-inspired">
+  <ShadcnToast iconType="info" position="bottom-right">
+    Your session will expire in 5 minutes.
+  </ShadcnToast>
+</ToastPreview>
+
+<ToastPreview label="Flowbite-inspired">
+  <FlowbiteToast iconType="warning" position="bottom-right">
+    Connection unstable.
+  </FlowbiteToast>
+</ToastPreview>
+
+## Neobrutalism
+
+<SnippetViewer html={snippets.neobrutalism.html} css={snippets.neobrutalism.css} />
+
+## Shadcn-inspired
+
+<SnippetViewer html={snippets.shadcn.html} css={snippets.shadcn.css} />
+
+## Flowbite-inspired
+
+<SnippetViewer html={snippets.flowbite.html} css={snippets.flowbite.css} />

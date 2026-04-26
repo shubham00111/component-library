@@ -1,0 +1,76 @@
+---
+title: Badge
+---
+
+import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import { NeobrutalismBadge, ShadcnBadge, FlowbiteBadge } from "@lib/components/Badge";
+
+export const snippets = loadSnippets("Badge");
+
+# Badge
+
+Small inline label for status, count, or category. Variants: `default`, `success`, `warning`, `destructive`, `outline`.
+
+## Design Language Comparison
+
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: (
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          <NeobrutalismBadge variant="default">Default</NeobrutalismBadge>
+          <NeobrutalismBadge variant="success">Success</NeobrutalismBadge>
+          <NeobrutalismBadge variant="warning">Warning</NeobrutalismBadge>
+          <NeobrutalismBadge variant="destructive">Error</NeobrutalismBadge>
+        </div>
+      ),
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: (
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          <ShadcnBadge variant="default">Default</ShadcnBadge>
+          <ShadcnBadge variant="success">Success</ShadcnBadge>
+          <ShadcnBadge variant="warning">Warning</ShadcnBadge>
+          <ShadcnBadge variant="destructive">Error</ShadcnBadge>
+        </div>
+      ),
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: (
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          <FlowbiteBadge variant="default">Default</FlowbiteBadge>
+          <FlowbiteBadge variant="success">Success</FlowbiteBadge>
+          <FlowbiteBadge variant="warning">Warning</FlowbiteBadge>
+          <FlowbiteBadge variant="destructive">Error</FlowbiteBadge>
+        </div>
+      ),
+    },
+  ]}
+  layout="column"
+/>
+
+## Neobrutalism
+
+Solid fill, hard border, bold uppercase text.
+
+<SnippetViewer html={snippets.neobrutalism.html} css={snippets.neobrutalism.css} />
+
+## Shadcn-inspired
+
+Muted tones, pill shape, lowercase text.
+
+<SnippetViewer html={snippets.shadcn.html} css={snippets.shadcn.css} />
+
+## Flowbite-inspired
+
+Rounded, coloured background per variant.
+
+<SnippetViewer html={snippets.flowbite.html} css={snippets.flowbite.css} />

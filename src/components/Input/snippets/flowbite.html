@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flowbite-inspired Input</title>
+  <link rel="stylesheet" href="flowbite.css" />
+</head>
+<body style="padding: 32px; font-family: system-ui, sans-serif; max-width: 400px;">
+
+  <div class="fb-input-wrapper">
+    <label for="input1" class="fb-input-label">Your name</label>
+    <input id="input1" type="text" class="fb-input" placeholder="John Doe" />
+  </div>
+
+  <br />
+
+  <div class="fb-input-wrapper">
+    <label for="input2" class="fb-input-label">With error</label>
+    <input id="input2" type="text" class="fb-input fb-input--error" placeholder="Enter text..." />
+    <span id="input2-error" class="fb-input-error" role="alert">This field is required</span>
+  </div>
+
+  <br />
+
+  <div class="fb-input-wrapper">
+    <label for="input3" class="fb-input-label">Disabled</label>
+    <input id="input3" type="text" class="fb-input" placeholder="Disabled" disabled />
+  </div>
+
+</body>
+</html>

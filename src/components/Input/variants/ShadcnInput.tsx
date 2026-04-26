@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import type { InputProps } from "../types";
 import "./ShadcnInput.css";

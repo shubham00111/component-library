@@ -1,0 +1,10 @@
+/* Neobrutalism Badge — standalone snippet */
+:root{--nb-color-primary:#facc15;--nb-color-danger:#ef4444;--nb-color-text:#000000;--nb-color-border:#000000;--nb-border-width:2px;--nb-border-radius:2px;--nb-font-weight-bold:800;--nb-font-size-sm:0.8125rem}
+.nb-badge{display:inline-flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif;font-weight:var(--nb-font-weight-bold);border-radius:var(--nb-border-radius);border:var(--nb-border-width) solid var(--nb-color-border);box-shadow:2px 2px 0 var(--nb-color-border);white-space:nowrap}
+.nb-badge--sm{font-size:0.6875rem;padding:1px 6px}
+.nb-badge--md{font-size:var(--nb-font-size-sm);padding:2px 8px}
+.nb-badge--default{background:var(--nb-color-primary);color:var(--nb-color-text)}
+.nb-badge--success{background:#a3e635;color:var(--nb-color-text)}
+.nb-badge--warning{background:#fbbf24;color:var(--nb-color-text)}
+.nb-badge--destructive{background:var(--nb-color-danger);color:#fff}
+.nb-badge--outline{background:transparent;color:var(--nb-color-text)}
