@@ -21,7 +21,14 @@ function readFile(filePath: string): string {
 }
 
 export function loadSnippets(component: string): ComponentSnippets {
-  const base = path.join(process.cwd(), "..", "src", "components", component, "snippets");
+  const base = path.join(
+    process.cwd(),
+    "..",
+    "src",
+    "components",
+    component,
+    "snippets",
+  );
 
   return {
     neobrutalism: {
