@@ -8,6 +8,13 @@ import * as accordionSnippets from "../../src/components/Accordion/snippets";
 import * as modalSnippets from "../../src/components/Modal/snippets";
 import * as dropdownSnippets from "../../src/components/Dropdown/snippets";
 import * as tabsSnippets from "../../src/components/Tabs/snippets";
+import * as checkboxSnippets from "../../src/components/Checkbox/snippets";
+import * as textareaSnippets from "../../src/components/Textarea/snippets";
+import * as radioGroupSnippets from "../../src/components/RadioGroup/snippets";
+import * as breadcrumbSnippets from "../../src/components/Breadcrumb/snippets";
+import * as tooltipSnippets from "../../src/components/Tooltip/snippets";
+import * as popoverSnippets from "../../src/components/Popover/snippets";
+import * as tableSnippets from "../../src/components/Table/snippets";
 
 interface VariantSnippet {
   react: string;
@@ -69,6 +76,41 @@ const snippetMap: Record<string, ComponentSnippets> = {
     neobrutalism: { react: tabsSnippets.neobrutalismJsx },
     shadcn: { react: tabsSnippets.shadcnJsx },
     flowbite: { react: tabsSnippets.flowbiteJsx },
+  },
+  Checkbox: {
+    neobrutalism: { react: checkboxSnippets.neobrutalismJsx },
+    shadcn: { react: checkboxSnippets.shadcnJsx },
+    flowbite: { react: checkboxSnippets.flowbiteJsx },
+  },
+  Textarea: {
+    neobrutalism: { react: textareaSnippets.neobrutalismJsx },
+    shadcn: { react: textareaSnippets.shadcnJsx },
+    flowbite: { react: textareaSnippets.flowbiteJsx },
+  },
+  RadioGroup: {
+    neobrutalism: { react: radioGroupSnippets.neobrutalismJsx },
+    shadcn: { react: radioGroupSnippets.shadcnJsx },
+    flowbite: { react: radioGroupSnippets.flowbiteJsx },
+  },
+  Breadcrumb: {
+    neobrutalism: { react: breadcrumbSnippets.neobrutalismJsx },
+    shadcn: { react: breadcrumbSnippets.shadcnJsx },
+    flowbite: { react: breadcrumbSnippets.flowbiteJsx },
+  },
+  Tooltip: {
+    neobrutalism: { react: tooltipSnippets.neobrutalismJsx },
+    shadcn: { react: tooltipSnippets.shadcnJsx },
+    flowbite: { react: tooltipSnippets.flowbiteJsx },
+  },
+  Popover: {
+    neobrutalism: { react: popoverSnippets.neobrutalismJsx },
+    shadcn: { react: popoverSnippets.shadcnJsx },
+    flowbite: { react: popoverSnippets.flowbiteJsx },
+  },
+  Table: {
+    neobrutalism: { react: tableSnippets.neobrutalismJsx },
+    shadcn: { react: tableSnippets.shadcnJsx },
+    flowbite: { react: tableSnippets.flowbiteJsx },
   },
 };
 

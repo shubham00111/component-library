@@ -6,6 +6,11 @@ import { loadSnippets } from "../../lib/snippets";
 import { ComponentShowcase } from "../../components/ComponentShowcase";
 import { SnippetViewer } from "../../components/SnippetViewer";
 import { NeobrutalismButton, ShadcnButton, FlowbiteButton } from "@lib/components/Button";
+import {
+  NeobrutalismButtonPreview,
+  ShadcnButtonPreview,
+  FlowbiteButtonPreview,
+} from "../../components/ButtonVariants";
 
 export const snippets = loadSnippets("Button");
 
@@ -39,16 +44,16 @@ A versatile action trigger available in three design languages, each with `prima
 
 Hard black shadow, thick border, saturated yellow primary. Translates on click.
 
-<SnippetViewer react={snippets.neobrutalism.react} />
+<SnippetViewer react={snippets.neobrutalism.react} preview={<NeobrutalismButtonPreview />} />
 
 ## Shadcn-inspired
 
 Neutral zinc palette, subtle shadow, 6 px radius, accessible focus ring.
 
-<SnippetViewer react={snippets.shadcn.react} />
+<SnippetViewer react={snippets.shadcn.react} preview={<ShadcnButtonPreview />} />
 
 ## Flowbite-inspired
 
 Blue `#1c64f2` primary, 8 px radius, smooth hover transition, blue glow on focus.
 
-<SnippetViewer react={snippets.flowbite.react} />
+<SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteButtonPreview />} />

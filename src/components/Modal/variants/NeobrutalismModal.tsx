@@ -17,7 +17,7 @@ const Trigger = ({ children }: { children?: React.ReactNode }) => {
   return (
     <button
       onClick={() => setShow(true)}
-      className="px-4 py-2 bg-yellow-400 text-black font-bold border-[3px] border-black shadow-[4px_4px_0_#000] rounded-[2px] hover:shadow-[6px_6px_0_#000] hover:-translate-x-px hover:-translate-y-px transition-all"
+      className="px-4 py-2 bg-yellow-400 text-black font-bold border-[3px] border-black dark:border-white shadow-[4px_4px_0_#000] dark:shadow-[4px_4px_0_rgba(255,255,255,0.3)] rounded-[2px] hover:shadow-[6px_6px_0_#000] dark:hover:shadow-[6px_6px_0_rgba(255,255,255,0.3)] hover:-translate-x-px hover:-translate-y-px transition-all"
     >
       {children ?? "Open Modal"}
     </button>
@@ -29,7 +29,7 @@ const Overlay = ({ children }: { children: React.ReactNode }) => {
   if (!show) return null;
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
       onClick={() => setShow(false)}
     >
       {children}
@@ -39,7 +39,7 @@ const Overlay = ({ children }: { children: React.ReactNode }) => {
 
 const Dialog = ({ children }: { children: React.ReactNode }) => (
   <div
-    className="relative bg-white border-[3px] border-black shadow-[6px_6px_0_#000] rounded-[2px] w-full max-w-md"
+    className="relative bg-white dark:bg-zinc-900 border-[3px] border-black dark:border-white shadow-[6px_6px_0_#000] dark:shadow-[6px_6px_0_rgba(255,255,255,0.3)] rounded-[2px] w-full max-w-md"
     onClick={(e) => e.stopPropagation()}
     role="dialog"
     aria-modal="true"
@@ -49,17 +49,17 @@ const Dialog = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Content = ({ children }: { children: React.ReactNode }) => (
-  <div className="p-6">{children}</div>
+  <div className="p-6 text-black dark:text-white">{children}</div>
 );
 
 const Title = ({ children }: { children: React.ReactNode }) => {
   const { setShow } = useModal();
   return (
-    <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b-[3px] border-black">
-      <h2 className="text-lg font-bold">{children}</h2>
+    <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b-[3px] border-black dark:border-white">
+      <h2 className="text-lg font-bold text-black dark:text-white">{children}</h2>
       <button
         onClick={() => setShow(false)}
-        className="text-black hover:text-yellow-600 transition-colors"
+        className="text-black dark:text-white hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors"
         aria-label="Close modal"
       >
         <CircleX size={22} />
@@ -73,7 +73,7 @@ const Close = ({ children }: { children?: React.ReactNode }) => {
   return (
     <button
       onClick={() => setShow(false)}
-      className="px-4 py-2 bg-white text-black font-bold border-[3px] border-black shadow-[4px_4px_0_#000] rounded-[2px] hover:bg-yellow-400 transition-colors"
+      className="px-4 py-2 bg-white dark:bg-zinc-800 text-black dark:text-white font-bold border-[3px] border-black dark:border-white shadow-[4px_4px_0_#000] dark:shadow-[4px_4px_0_rgba(255,255,255,0.2)] rounded-[2px] hover:bg-yellow-400 dark:hover:bg-yellow-400 dark:hover:text-black transition-colors"
     >
       {children ?? "Close"}
     </button>

@@ -6,6 +6,11 @@ import { loadSnippets } from "../../lib/snippets";
 import { ComponentShowcase } from "../../components/ComponentShowcase";
 import { SnippetViewer } from "../../components/SnippetViewer";
 import { NeobrutalismToggle, ShadcnToggle, FlowbiteToggle } from "@lib/components/Toggle";
+import {
+  NeobrutalismTogglePreview,
+  ShadcnTogglePreview,
+  FlowbiteTogglePreview,
+} from "../../components/ToggleVariants";
 
 export const snippets = loadSnippets("Toggle");
 
@@ -40,16 +45,16 @@ An accessible switch/toggle with `sm`, `md`, and `lg` sizes. Supports controlled
 
 Hard border, square track, yellow active state.
 
-<SnippetViewer react={snippets.neobrutalism.react} />
+<SnippetViewer react={snippets.neobrutalism.react} preview={<NeobrutalismTogglePreview />} />
 
 ## Shadcn-inspired
 
 Pill track, zinc active state, smooth transition.
 
-<SnippetViewer react={snippets.shadcn.react} />
+<SnippetViewer react={snippets.shadcn.react} preview={<ShadcnTogglePreview />} />
 
 ## Flowbite-inspired
 
 Pill track, blue active state, smooth transition.
 
-<SnippetViewer react={snippets.flowbite.react} />
+<SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteTogglePreview />} />

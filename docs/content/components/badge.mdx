@@ -6,6 +6,11 @@ import { loadSnippets } from "../../lib/snippets";
 import { ComponentShowcase } from "../../components/ComponentShowcase";
 import { SnippetViewer } from "../../components/SnippetViewer";
 import { NeobrutalismBadge, ShadcnBadge, FlowbiteBadge } from "@lib/components/Badge";
+import {
+  NeobrutalismBadgePreview,
+  ShadcnBadgePreview,
+  FlowbiteBadgePreview,
+} from "../../components/BadgeVariants";
 
 export const snippets = loadSnippets("Badge");
 
@@ -61,16 +66,16 @@ Small inline label for status, count, or category. Variants: `default`, `success
 
 Solid fill, hard border, bold text with offset shadow.
 
-<SnippetViewer react={snippets.neobrutalism.react} />
+<SnippetViewer react={snippets.neobrutalism.react} preview={<NeobrutalismBadgePreview />} />
 
 ## Shadcn-inspired
 
 Muted tones, pill shape, lowercase text.
 
-<SnippetViewer react={snippets.shadcn.react} />
+<SnippetViewer react={snippets.shadcn.react} preview={<ShadcnBadgePreview />} />
 
 ## Flowbite-inspired
 
 Rounded, coloured background per variant.
 
-<SnippetViewer react={snippets.flowbite.react} />
+<SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteBadgePreview />} />

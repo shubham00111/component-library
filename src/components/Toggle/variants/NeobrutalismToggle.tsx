@@ -65,14 +65,14 @@ const NeobrutalismToggle = ({
         />
         <span
           className={[
-            "block border-[3px] border-black rounded-[2px] shadow-[4px_4px_0_#000] relative",
-            isChecked ? "bg-yellow-400" : "bg-gray-300",
+            "block border-[3px] border-black dark:border-white rounded-[2px] shadow-[4px_4px_0_#000] dark:shadow-[4px_4px_0_rgba(255,255,255,0.3)] relative",
+            isChecked ? "bg-yellow-400" : "bg-gray-300 dark:bg-zinc-700",
             TRACK_SIZE[size],
           ].join(" ")}
         >
           <span
             className={[
-              "absolute top-[2px] left-[2px] bg-black border-[2px] border-black rounded-[1px]",
+              "absolute top-[2px] left-[2px] bg-black dark:bg-white border-[2px] border-black dark:border-white rounded-[1px]",
               isChecked ? THUMB_CHECKED[size] : "",
               THUMB_SIZE[size],
             ]
@@ -82,7 +82,7 @@ const NeobrutalismToggle = ({
         </span>
       </span>
       {label && (
-        <span className="text-[0.9375rem] font-extrabold text-black select-none">{label}</span>
+        <span className="text-[0.9375rem] font-extrabold text-black dark:text-white select-none">{label}</span>
       )}
     </label>
   );

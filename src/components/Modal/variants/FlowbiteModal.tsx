@@ -29,7 +29,7 @@ const Overlay = ({ children }: { children: React.ReactNode }) => {
   if (!show) return null;
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
       onClick={() => setShow(false)}
     >
       {children}
@@ -39,7 +39,7 @@ const Overlay = ({ children }: { children: React.ReactNode }) => {
 
 const Dialog = ({ children }: { children: React.ReactNode }) => (
   <div
-    className="relative bg-white border border-gray-200 rounded-lg shadow-md w-full max-w-md"
+    className="relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-md w-full max-w-md"
     onClick={(e) => e.stopPropagation()}
     role="dialog"
     aria-modal="true"
@@ -49,17 +49,17 @@ const Dialog = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Content = ({ children }: { children: React.ReactNode }) => (
-  <div className="p-6">{children}</div>
+  <div className="p-6 text-gray-700 dark:text-gray-300">{children}</div>
 );
 
 const Title = ({ children }: { children: React.ReactNode }) => {
   const { setShow } = useModal();
   return (
-    <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-200">
-      <h2 className="text-lg font-semibold text-gray-800">{children}</h2>
+    <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-200 dark:border-gray-600">
+      <h2 className="text-lg font-semibold text-gray-800 dark:text-white">{children}</h2>
       <button
         onClick={() => setShow(false)}
-        className="text-gray-400 hover:text-gray-600 transition-colors"
+        className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
         aria-label="Close modal"
       >
         <CircleX size={20} />
@@ -73,7 +73,7 @@ const Close = ({ children }: { children?: React.ReactNode }) => {
   return (
     <button
       onClick={() => setShow(false)}
-      className="px-4 py-2 bg-gray-100 text-gray-700 font-medium rounded-lg text-sm hover:bg-gray-200 transition-colors"
+      className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium rounded-lg text-sm hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
     >
       {children ?? "Close"}
     </button>

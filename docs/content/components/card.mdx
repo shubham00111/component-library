@@ -6,6 +6,11 @@ import { loadSnippets } from "../../lib/snippets";
 import { ComponentShowcase } from "../../components/ComponentShowcase";
 import { SnippetViewer } from "../../components/SnippetViewer";
 import { NeobrutalismCard, ShadcnCard, FlowbiteCard } from "@lib/components/Card";
+import {
+  NeobrutalismCardPreview,
+  ShadcnCardPreview,
+  FlowbiteCardPreview,
+} from "../../components/CardVariants";
 
 export const snippets = loadSnippets("Card");
 
@@ -54,16 +59,16 @@ Content container with optional image, title, description, body, and footer slot
 
 Hard offset shadow, thick border, minimal radius.
 
-<SnippetViewer react={snippets.neobrutalism.react} />
+<SnippetViewer react={snippets.neobrutalism.react} preview={<NeobrutalismCardPreview />} />
 
 ## Shadcn-inspired
 
 Soft shadow, 6 px radius, neutral surface.
 
-<SnippetViewer react={snippets.shadcn.react} />
+<SnippetViewer react={snippets.shadcn.react} preview={<ShadcnCardPreview />} />
 
 ## Flowbite-inspired
 
 Minimal border, 8 px radius, hover shadow lift.
 
-<SnippetViewer react={snippets.flowbite.react} />
+<SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteCardPreview />} />

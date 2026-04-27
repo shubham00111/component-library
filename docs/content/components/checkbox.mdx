@@ -1,0 +1,59 @@
+---
+title: Checkbox
+---
+
+import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import {
+  NeobrutalismCheckboxPreview,
+  ShadcnCheckboxPreview,
+  FlowbiteCheckboxPreview,
+} from "../../components/CheckboxVariants";
+
+export const snippets = loadSnippets("Checkbox");
+
+# Checkbox
+
+Square multi-select input with checked, unchecked, and indeterminate states. Distinct from Toggle — checkboxes are for multi-select lists.
+
+## Design Language Comparison
+
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: <NeobrutalismCheckboxPreview />,
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: <ShadcnCheckboxPreview />,
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: <FlowbiteCheckboxPreview />,
+    },
+  ]}
+  layout="column"
+/>
+
+## Neobrutalism
+
+Thick black border, yellow fill on check, offset shadow, black checkmark.
+
+<SnippetViewer react={snippets.neobrutalism.react} preview={<NeobrutalismCheckboxPreview />} />
+
+## Shadcn-inspired
+
+Zinc border, dark zinc fill, white checkmark, subtle focus ring.
+
+<SnippetViewer react={snippets.shadcn.react} preview={<ShadcnCheckboxPreview />} />
+
+## Flowbite-inspired
+
+Blue fill (`#1c64f2`), `rounded-sm`, white checkmark, smooth transition.
+
+<SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteCheckboxPreview />} />

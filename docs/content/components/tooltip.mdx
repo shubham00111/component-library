@@ -1,0 +1,58 @@
+---
+title: Tooltip
+---
+
+import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import {
+  NeobrutalismTooltipPreview,
+  ShadcnTooltipPreview,
+  FlowbiteTooltipPreview,
+} from "../../components/TooltipVariants";
+
+export const snippets = loadSnippets("Tooltip");
+
+# Tooltip
+
+Helper text shown on hover or focus of a trigger element. Wrap any element with `Tooltip` and pass a `content` string and `placement` (`top` | `bottom` | `left` | `right`).
+
+## Design Language Comparison
+
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: <NeobrutalismTooltipPreview />,
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: <ShadcnTooltipPreview />,
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: <FlowbiteTooltipPreview />,
+    },
+  ]}
+/>
+
+## Neobrutalism
+
+Black background, white bold text, thick border, offset shadow, no radius.
+
+<SnippetViewer react={snippets.neobrutalism.react} preview={<NeobrutalismTooltipPreview />} />
+
+## Shadcn-inspired
+
+Zinc-900 background, white text, 6 px radius, `shadow-md`.
+
+<SnippetViewer react={snippets.shadcn.react} preview={<ShadcnTooltipPreview />} />
+
+## Flowbite-inspired
+
+Gray-800 background, white text, `rounded-lg`, `shadow-lg`.
+
+<SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteTooltipPreview />} />

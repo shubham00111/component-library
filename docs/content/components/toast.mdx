@@ -15,34 +15,14 @@ Fixed-position notification overlay. Variants: `success`, `error`, `warning`, `i
 
 > Toasts use `position: fixed` and appear at the corner of the viewport in production. The previews below are contained to the card for documentation purposes.
 
-## Preview
-
-<ToastPreview label="Neobrutalism">
-  <NeobrutalismToast iconType="success" position="bottom-right">
-    Changes saved successfully.
-  </NeobrutalismToast>
-</ToastPreview>
-
-<ToastPreview label="Shadcn-inspired">
-  <ShadcnToast iconType="info" position="bottom-right">
-    Your session will expire in 5 minutes.
-  </ShadcnToast>
-</ToastPreview>
-
-<ToastPreview label="Flowbite-inspired">
-  <FlowbiteToast iconType="warning" position="bottom-right">
-    Connection unstable.
-  </FlowbiteToast>
-</ToastPreview>
-
 ## Neobrutalism
 
-<SnippetViewer react={snippets.neobrutalism.react} />
+<SnippetViewer react={snippets.neobrutalism.react} preview={<ToastPreview><NeobrutalismToast iconType="success" position="bottom-right">Changes saved successfully.</NeobrutalismToast></ToastPreview>} />
 
 ## Shadcn-inspired
 
-<SnippetViewer react={snippets.shadcn.react} />
+<SnippetViewer react={snippets.shadcn.react} preview={<ToastPreview><ShadcnToast iconType="info" position="bottom-right">Your session will expire in 5 minutes.</ShadcnToast></ToastPreview>} />
 
 ## Flowbite-inspired
 
-<SnippetViewer react={snippets.flowbite.react} />
+<SnippetViewer react={snippets.flowbite.react} preview={<ToastPreview><FlowbiteToast iconType="warning" position="bottom-right">Connection unstable.</FlowbiteToast></ToastPreview>} />

@@ -1,0 +1,58 @@
+---
+title: Textarea
+---
+
+import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import {
+  NeobrutalismTextareaPreview,
+  ShadcnTextareaPreview,
+  FlowbiteTextareaPreview,
+} from "../../components/TextareaVariants";
+
+export const snippets = loadSnippets("Textarea");
+
+# Textarea
+
+Multi-line text input with optional label, helper text, and error state. Mirrors the Input design language per variant.
+
+## Design Language Comparison
+
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: <NeobrutalismTextareaPreview />,
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: <ShadcnTextareaPreview />,
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: <FlowbiteTextareaPreview />,
+    },
+  ]}
+/>
+
+## Neobrutalism
+
+Thick border, flat box shadow, yellow focus highlight — mirrors the Input variant.
+
+<SnippetViewer react={snippets.neobrutalism.react} preview={<NeobrutalismTextareaPreview />} />
+
+## Shadcn-inspired
+
+Zinc border, 6 px radius, ring-offset focus style.
+
+<SnippetViewer react={snippets.shadcn.react} preview={<ShadcnTextareaPreview />} />
+
+## Flowbite-inspired
+
+Blue focus ring, `rounded-lg`, smooth transition.
+
+<SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteTextareaPreview />} />

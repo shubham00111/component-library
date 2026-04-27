@@ -66,7 +66,7 @@ const FlowbiteToggle = ({
         <span
           className={[
             "block rounded-full border relative transition-all duration-200",
-            isChecked ? "bg-[#1c64f2] border-[#1c64f2]" : "bg-gray-200 border-gray-200",
+            isChecked ? "bg-[#1c64f2] border-[#1c64f2]" : "bg-gray-200 dark:bg-gray-700 border-gray-200 dark:border-gray-700",
             TRACK_SIZE[size],
           ].join(" ")}
         >
@@ -82,7 +82,7 @@ const FlowbiteToggle = ({
         </span>
       </span>
       {label && (
-        <span className="text-sm font-medium text-gray-900 select-none">{label}</span>
+        <span className="text-sm font-medium text-gray-900 dark:text-gray-100 select-none">{label}</span>
       )}
     </label>
   );

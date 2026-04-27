@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @source "../../src";
+@variant dark (&:where(.dark, .dark *));
 @import "../../src/tokens/neobrutalism.css";
 @import "../../src/tokens/shadcn.css";
 @import "../../src/tokens/flowbite.css";

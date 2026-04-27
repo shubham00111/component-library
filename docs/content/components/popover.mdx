@@ -1,0 +1,58 @@
+---
+title: Popover
+---
+
+import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import {
+  NeobrutalismPopoverPreview,
+  ShadcnPopoverPreview,
+  FlowbitePopoverPreview,
+} from "../../components/PopoverVariants";
+
+export const snippets = loadSnippets("Popover");
+
+# Popover
+
+Click-toggled floating panel anchored to a trigger button. Compound sub-components: `Popover` + `Popover.Trigger` + `Popover.Content`. Click outside to dismiss.
+
+## Design Language Comparison
+
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: <NeobrutalismPopoverPreview />,
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: <ShadcnPopoverPreview />,
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: <FlowbitePopoverPreview />,
+    },
+  ]}
+/>
+
+## Neobrutalism
+
+White panel, thick black border, flat offset shadow, yellow trigger hover.
+
+<SnippetViewer react={snippets.neobrutalism.react} preview={<NeobrutalismPopoverPreview />} />
+
+## Shadcn-inspired
+
+White panel, zinc border, `shadow-md`, 6 px radius.
+
+<SnippetViewer react={snippets.shadcn.react} preview={<ShadcnPopoverPreview />} />
+
+## Flowbite-inspired
+
+White panel, gray border, `shadow-lg`, `rounded-lg`, blue trigger button.
+
+<SnippetViewer react={snippets.flowbite.react} preview={<FlowbitePopoverPreview />} />

@@ -2,11 +2,11 @@
 import type { BadgeProps } from "../types";
 
 const VARIANT: Record<string, string> = {
-  default:     "bg-zinc-900 text-zinc-50 border-transparent",
-  success:     "bg-green-50 text-green-600 border-green-200",
-  warning:     "bg-amber-50 text-amber-600 border-amber-200",
-  destructive: "bg-red-500 text-zinc-50 border-transparent",
-  outline:     "bg-transparent text-zinc-900 border-zinc-200",
+  default:     "bg-zinc-900 text-zinc-50 border-transparent dark:bg-zinc-50 dark:text-zinc-900",
+  success:     "bg-green-50 text-green-600 border-green-200 dark:bg-green-900/40 dark:text-green-300 dark:border-green-800",
+  warning:     "bg-amber-50 text-amber-600 border-amber-200 dark:bg-amber-900/40 dark:text-amber-300 dark:border-amber-800",
+  destructive: "bg-red-500 text-zinc-50 border-transparent dark:bg-red-600",
+  outline:     "bg-transparent text-zinc-900 border-zinc-200 dark:text-zinc-100 dark:border-zinc-600",
 };
 
 const SIZE: Record<string, string> = {

@@ -1,0 +1,59 @@
+---
+title: Radio Group
+---
+
+import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import {
+  NeobrutalismRadioGroupPreview,
+  ShadcnRadioGroupPreview,
+  FlowbiteRadioGroupPreview,
+} from "../../components/RadioGroupVariants";
+
+export const snippets = loadSnippets("RadioGroup");
+
+# Radio Group
+
+Mutually exclusive option selector. Compound sub-components: `RadioGroup` + `RadioGroup.Item`. Uses React Context for shared selection state.
+
+## Design Language Comparison
+
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: <NeobrutalismRadioGroupPreview />,
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: <ShadcnRadioGroupPreview />,
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: <FlowbiteRadioGroupPreview />,
+    },
+  ]}
+  layout="column"
+/>
+
+## Neobrutalism
+
+Circular thick border, yellow fill, black center dot, bold label.
+
+<SnippetViewer react={snippets.neobrutalism.react} preview={<NeobrutalismRadioGroupPreview />} />
+
+## Shadcn-inspired
+
+Thin zinc circle, dark filled dot, white center, muted label.
+
+<SnippetViewer react={snippets.shadcn.react} preview={<ShadcnRadioGroupPreview />} />
+
+## Flowbite-inspired
+
+Blue filled dot (`#1c64f2`), white center, smooth transition.
+
+<SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteRadioGroupPreview />} />

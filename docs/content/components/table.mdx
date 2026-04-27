@@ -1,0 +1,59 @@
+---
+title: Table
+---
+
+import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import {
+  NeobrutalismTablePreview,
+  ShadcnTablePreview,
+  FlowbiteTablePreview,
+} from "../../components/TableVariants";
+
+export const snippets = loadSnippets("Table");
+
+# Table
+
+Data table with optional column sorting. Pass `columns` (array of `{ key, label, sortable? }`) and `data` (array of row objects). Click a sortable header to toggle ascending/descending.
+
+## Design Language Comparison
+
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: <NeobrutalismTablePreview />,
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: <ShadcnTablePreview />,
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: <FlowbiteTablePreview />,
+    },
+  ]}
+  layout="column"
+/>
+
+## Neobrutalism
+
+Thick black borders on all cells, yellow header, alternating yellow-tinted rows, offset shadow.
+
+<SnippetViewer react={snippets.neobrutalism.react} preview={<NeobrutalismTablePreview />} />
+
+## Shadcn-inspired
+
+Zinc border, `bg-zinc-50` header with uppercase tracking, hover row highlight.
+
+<SnippetViewer react={snippets.shadcn.react} preview={<ShadcnTablePreview />} />
+
+## Flowbite-inspired
+
+Gray border, `bg-gray-50` header, `rounded-lg` outer container, subtle hover transition.
+
+<SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteTablePreview />} />

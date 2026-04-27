@@ -28,5 +28,14 @@ export { default as VariantShowcase } from "./components/ui/VariantShowcase";
 export type { CodeSnippetProps } from "./components/ui/CodeSnippet";
 export type { VariantShowcaseProps, VariantItem } from "./components/ui/VariantShowcase";
 
+// New components
+export * from "./components/Checkbox";
+export * from "./components/Textarea";
+export * from "./components/RadioGroup";
+export * from "./components/Breadcrumb";
+export * from "./components/Tooltip";
+export * from "./components/Popover";
+export * from "./components/Table";
+
 // Hooks
 export * from "./hooks";

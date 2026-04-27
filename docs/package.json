@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@types/react-syntax-highlighter": "^15.5.13",
     "clsx": "^2.1.1",
     "lucide-react": "^0.553.0",
     "next": "^15.0.0",
@@ -16,6 +17,7 @@
     "nextra-theme-docs": "^4.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-syntax-highlighter": "^16.1.1",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.17"
   },

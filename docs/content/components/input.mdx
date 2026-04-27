@@ -6,6 +6,11 @@ import { loadSnippets } from "../../lib/snippets";
 import { ComponentShowcase } from "../../components/ComponentShowcase";
 import { SnippetViewer } from "../../components/SnippetViewer";
 import { NeobrutalismInput, ShadcnInput, FlowbiteInput } from "@lib/components/Input";
+import {
+  NeobrutalismInputPreview,
+  ShadcnInputPreview,
+  FlowbiteInputPreview,
+} from "../../components/InputVariants";
 
 export const snippets = loadSnippets("Input");
 
@@ -39,16 +44,16 @@ Text input field with optional label, helper text, and error state. Supports all
 
 Thick border, flat box shadow, yellow focus highlight.
 
-<SnippetViewer react={snippets.neobrutalism.react} />
+<SnippetViewer react={snippets.neobrutalism.react} preview={<NeobrutalismInputPreview />} />
 
 ## Shadcn-inspired
 
 Zinc border, 6 px radius, ring-offset focus style.
 
-<SnippetViewer react={snippets.shadcn.react} />
+<SnippetViewer react={snippets.shadcn.react} preview={<ShadcnInputPreview />} />
 
 ## Flowbite-inspired
 
 Blue focus ring, 8 px radius, smooth transition.
 
-<SnippetViewer react={snippets.flowbite.react} />
+<SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteInputPreview />} />

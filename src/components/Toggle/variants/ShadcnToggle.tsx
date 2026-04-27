@@ -66,13 +66,15 @@ const ShadcnToggle = ({
         <span
           className={[
             "block rounded-full border relative transition-colors duration-150",
-            isChecked ? "bg-zinc-900 border-zinc-900" : "bg-zinc-200 border-zinc-200",
+            isChecked
+              ? "bg-zinc-900 border-zinc-900 dark:bg-zinc-100 dark:border-zinc-100"
+              : "bg-zinc-200 border-zinc-200 dark:bg-zinc-700 dark:border-zinc-700",
             TRACK_SIZE[size],
           ].join(" ")}
         >
           <span
             className={[
-              "absolute top-[2px] left-[2px] bg-white rounded-full shadow-sm transition-transform duration-150",
+              "absolute top-[2px] left-[2px] bg-white dark:bg-zinc-900 rounded-full shadow-sm transition-transform duration-150",
               isChecked ? THUMB_CHECKED[size] : "",
               THUMB_SIZE[size],
             ]
@@ -82,7 +84,7 @@ const ShadcnToggle = ({
         </span>
       </span>
       {label && (
-        <span className="text-sm font-medium text-zinc-900 select-none">{label}</span>
+        <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100 select-none">{label}</span>
       )}
     </label>
   );

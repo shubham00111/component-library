@@ -6,10 +6,10 @@ import type { ToastProps } from "../types";
 const ICONS = { success: Check, error: X, warning: Info, info: BookOpen };
 
 const ICON_STYLE: Record<string, string> = {
-  success: "bg-green-50 text-green-600",
-  error:   "bg-red-50 text-red-500",
-  warning: "bg-amber-50 text-amber-600",
-  info:    "bg-blue-50 text-blue-600",
+  success: "bg-green-50 text-green-600 dark:bg-green-900/40 dark:text-green-400",
+  error:   "bg-red-50 text-red-500 dark:bg-red-900/40 dark:text-red-400",
+  warning: "bg-amber-50 text-amber-600 dark:bg-amber-900/40 dark:text-amber-400",
+  info:    "bg-blue-50 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400",
 };
 
 const POSITION: Record<string, string> = {
@@ -42,8 +42,8 @@ const ShadcnToast = ({
     <div
       className={[
         "fixed z-50 flex items-center gap-3 py-3 px-4 min-w-[280px] max-w-[420px]",
-        "bg-white border border-zinc-200 rounded-[6px] shadow",
-        "font-sans text-[0.9375rem] text-zinc-900 hover:shadow-md transition-shadow duration-150",
+        "bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-[6px] shadow hover:shadow-md dark:shadow-zinc-900 transition-shadow duration-150",
+        "font-sans text-[0.9375rem] text-zinc-900 dark:text-zinc-100",
         POSITION[position],
         className,
       ]
@@ -60,9 +60,9 @@ const ShadcnToast = ({
       >
         <Icon size={14} />
       </div>
-      <div className="flex-1 text-sm text-zinc-900">{children}</div>
+      <div className="flex-1 text-sm text-zinc-900 dark:text-zinc-100">{children}</div>
       <button
-        className="flex items-center justify-center p-1 border-none rounded-[4px] bg-transparent cursor-pointer text-zinc-500 flex-shrink-0 hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 focus-visible:outline-offset-2"
+        className="flex items-center justify-center p-1 border-none rounded-[4px] bg-transparent cursor-pointer text-zinc-500 dark:text-zinc-400 flex-shrink-0 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 dark:focus-visible:outline-zinc-300 focus-visible:outline-offset-2"
         aria-label="Close notification"
         onClick={() => {
           setShow(false);
