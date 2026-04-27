@@ -1,47 +1,59 @@
-import fs from "fs";
-import path from "path";
+import * as buttonSnippets from "../../src/components/Button/snippets";
+import * as badgeSnippets from "../../src/components/Badge/snippets";
+import * as cardSnippets from "../../src/components/Card/snippets";
+import * as inputSnippets from "../../src/components/Input/snippets";
+import * as toastSnippets from "../../src/components/Toast/snippets";
+import * as toggleSnippets from "../../src/components/Toggle/snippets";
 
-interface SnippetPair {
-  html: string;
-  css: string;
+interface VariantSnippet {
+  react: string;
 }
 
 interface ComponentSnippets {
-  neobrutalism: SnippetPair;
-  shadcn: SnippetPair;
-  flowbite: SnippetPair;
+  neobrutalism: VariantSnippet;
+  shadcn: VariantSnippet;
+  flowbite: VariantSnippet;
 }
 
-function readFile(filePath: string): string {
-  try {
-    return fs.readFileSync(filePath, "utf-8");
-  } catch {
-    return "";
-  }
-}
+const snippetMap: Record<string, ComponentSnippets> = {
+  Button: {
+    neobrutalism: { react: buttonSnippets.neobrutalismJsx },
+    shadcn: { react: buttonSnippets.shadcnJsx },
+    flowbite: { react: buttonSnippets.flowbiteJsx },
+  },
+  Badge: {
+    neobrutalism: { react: badgeSnippets.neobrutalismJsx },
+    shadcn: { react: badgeSnippets.shadcnJsx },
+    flowbite: { react: badgeSnippets.flowbiteJsx },
+  },
+  Card: {
+    neobrutalism: { react: cardSnippets.neobrutalismJsx },
+    shadcn: { react: cardSnippets.shadcnJsx },
+    flowbite: { react: cardSnippets.flowbiteJsx },
+  },
+  Input: {
+    neobrutalism: { react: inputSnippets.neobrutalismJsx },
+    shadcn: { react: inputSnippets.shadcnJsx },
+    flowbite: { react: inputSnippets.flowbiteJsx },
+  },
+  Toast: {
+    neobrutalism: { react: toastSnippets.neobrutalismJsx },
+    shadcn: { react: toastSnippets.shadcnJsx },
+    flowbite: { react: toastSnippets.flowbiteJsx },
+  },
+  Toggle: {
+    neobrutalism: { react: toggleSnippets.neobrutalismJsx },
+    shadcn: { react: toggleSnippets.shadcnJsx },
+    flowbite: { react: toggleSnippets.flowbiteJsx },
+  },
+};
+
+const empty: ComponentSnippets = {
+  neobrutalism: { react: "" },
+  shadcn: { react: "" },
+  flowbite: { react: "" },
+};
 
 export function loadSnippets(component: string): ComponentSnippets {
-  const base = path.join(
-    process.cwd(),
-    "..",
-    "src",
-    "components",
-    component,
-    "snippets",
-  );
-
-  return {
-    neobrutalism: {
-      html: readFile(path.join(base, "neobrutalism.html")),
-      css: readFile(path.join(base, "neobrutalism.css")),
-    },
-    shadcn: {
-      html: readFile(path.join(base, "shadcn.html")),
-      css: readFile(path.join(base, "shadcn.css")),
-    },
-    flowbite: {
-      html: readFile(path.join(base, "flowbite.html")),
-      css: readFile(path.join(base, "flowbite.css")),
-    },
-  };
+  return snippetMap[component] ?? empty;
 }

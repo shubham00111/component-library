@@ -2,8 +2,12 @@
 title: Toggle
 ---
 
+import { loadSnippets } from "../../lib/snippets";
 import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
 import { NeobrutalismToggle, ShadcnToggle, FlowbiteToggle } from "@lib/components/Toggle";
+
+export const snippets = loadSnippets("Toggle");
 
 # Toggle
 
@@ -32,4 +36,20 @@ An accessible switch/toggle with `sm`, `md`, and `lg` sizes. Supports controlled
   layout="column"
 />
 
-> HTML/CSS snippets for Toggle are coming soon.
+## Neobrutalism
+
+Hard border, square track, yellow active state.
+
+<SnippetViewer react={snippets.neobrutalism.react} />
+
+## Shadcn-inspired
+
+Pill track, zinc active state, smooth transition.
+
+<SnippetViewer react={snippets.shadcn.react} />
+
+## Flowbite-inspired
+
+Pill track, blue active state, smooth transition.
+
+<SnippetViewer react={snippets.flowbite.react} />

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source "../../src";
 @import "../../src/tokens/neobrutalism.css";
 @import "../../src/tokens/shadcn.css";
 @import "../../src/tokens/flowbite.css";
