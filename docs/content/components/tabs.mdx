@@ -2,28 +2,58 @@
 title: Tabs
 ---
 
-import { TabsDemo } from "../../components/TabsDemo";
+import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import {
+  NeobrutalismTabsPreview,
+  ShadcnTabsPreview,
+  FlowbiteTabsPreview,
+} from "../../components/TabsVariants";
+
+export const snippets = loadSnippets("Tabs");
 
 # Tabs
 
-Horizontal and vertical tab navigation. Supports controlled and uncontrolled modes. Built with Tailwind CSS.
+Horizontal tab navigation with active underline indicator. Supports `disabled` tabs and `defaultValue`.
 
-> This component uses a single Tailwind-based implementation. Multi-design-language variants are planned for a future release.
+## Design Language Comparison
 
-## Preview
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: <NeobrutalismTabsPreview />,
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: <ShadcnTabsPreview />,
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: <FlowbiteTabsPreview />,
+    },
+  ]}
+  layout="column"
+/>
 
-<TabsDemo />
+## Neobrutalism
 
-## Usage
+Bold borders, yellow active tab with `border-b-white` trick to mask the bottom border.
 
-```tsx
-import { Tabs } from "ui-variants";
+<SnippetViewer react={snippets.neobrutalism.react} />
 
-const items = [
-  { id: "tab-1", label: "Overview", content: <p>Overview content</p> },
-  { id: "tab-2", label: "Details", content: <p>Details content</p> },
-  { id: "tab-3", label: "Reviews", content: <p>Reviews content</p> },
-];
+## Shadcn-inspired
 
-<Tabs items={items} defaultValue={items[0]} />
-```
+Zinc underline, minimal styling, clean transitions.
+
+<SnippetViewer react={snippets.shadcn.react} />
+
+## Flowbite-inspired
+
+Blue `#1c64f2` underline active state, gray inactive text.
+
+<SnippetViewer react={snippets.flowbite.react} />

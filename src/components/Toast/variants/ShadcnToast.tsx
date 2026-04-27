@@ -2,14 +2,21 @@
 import { useEffect, useState } from "react";
 import { BookOpen, Check, Info, X } from "lucide-react";
 import type { ToastProps } from "../types";
-import "./ShadcnToast.css";
 
 const ICONS = { success: Check, error: X, warning: Info, info: BookOpen };
-const ICON_CLASSES = {
-  success: "shadcn-toast__icon--success",
-  error: "shadcn-toast__icon--error",
-  warning: "shadcn-toast__icon--warning",
-  info: "shadcn-toast__icon--info",
+
+const ICON_STYLE: Record<string, string> = {
+  success: "bg-green-50 text-green-600",
+  error:   "bg-red-50 text-red-500",
+  warning: "bg-amber-50 text-amber-600",
+  info:    "bg-blue-50 text-blue-600",
+};
+
+const POSITION: Record<string, string> = {
+  "top-left":     "top-4 left-4",
+  "top-right":    "top-4 right-4",
+  "bottom-left":  "bottom-4 left-4",
+  "bottom-right": "bottom-4 right-4",
 };
 
 const ShadcnToast = ({
@@ -33,18 +40,34 @@ const ShadcnToast = ({
 
   return (
     <div
-      className={["shadcn-toast", `shadcn-toast--${position}`, className].filter(Boolean).join(" ")}
+      className={[
+        "fixed z-50 flex items-center gap-3 py-3 px-4 min-w-[280px] max-w-[420px]",
+        "bg-white border border-zinc-200 rounded-[6px] shadow",
+        "font-sans text-[0.9375rem] text-zinc-900 hover:shadow-md transition-shadow duration-150",
+        POSITION[position],
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
       role="status"
       aria-live="polite"
     >
-      <div className={`shadcn-toast__icon ${ICON_CLASSES[iconType]}`}>
+      <div
+        className={[
+          "flex items-center justify-center w-7 h-7 rounded-full flex-shrink-0",
+          ICON_STYLE[iconType],
+        ].join(" ")}
+      >
         <Icon size={14} />
       </div>
-      <div className="shadcn-toast__body">{children}</div>
+      <div className="flex-1 text-sm text-zinc-900">{children}</div>
       <button
-        className="shadcn-toast__close"
+        className="flex items-center justify-center p-1 border-none rounded-[4px] bg-transparent cursor-pointer text-zinc-500 flex-shrink-0 hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 focus-visible:outline-offset-2"
         aria-label="Close notification"
-        onClick={() => { setShow(false); onClose?.(); }}
+        onClick={() => {
+          setShow(false);
+          onClose?.();
+        }}
       >
         <X size={14} />
       </button>

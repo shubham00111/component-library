@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Dropdown from "./Dropdown";
+import NeobrutalismDropdown from "./variants/NeobrutalismDropdown";
+import ShadcnDropdown from "./variants/ShadcnDropdown";
+import FlowbiteDropdown from "./variants/FlowbiteDropdown";
+import VariantShowcase from "../ui/VariantShowcase";
+import CodeSnippet from "../ui/CodeSnippet";
+import { neobrutalismJsx, shadcnJsx, flowbiteJsx } from "./snippets";
 
 const meta = {
   title: "Components/Dropdown",
@@ -465,5 +471,117 @@ export const Disabled: Story = {
         </Dropdown.Menu>
       </Dropdown>
     </div>
+  ),
+};
+
+const sampleOptions = [
+  { id: "1", label: "Apple", value: "apple" },
+  { id: "2", label: "Banana", value: "banana" },
+  { id: "3", label: "Orange", value: "orange" },
+  { id: "4", label: "Mango", value: "mango" },
+];
+
+export const Neobrutalism: Story = {
+  args: { options: sampleOptions, children: null },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24, width: 260 }}>
+      <NeobrutalismDropdown options={sampleOptions} placeholder="Select a fruit">
+        <NeobrutalismDropdown.Trigger />
+        <NeobrutalismDropdown.Menu>
+          {sampleOptions.map((option, index) => (
+            <NeobrutalismDropdown.Item key={option.id} option={option} index={index} />
+          ))}
+        </NeobrutalismDropdown.Menu>
+      </NeobrutalismDropdown>
+      <CodeSnippet react={neobrutalismJsx} defaultTab="react" title="Neobrutalism — JSX / Tailwind" />
+    </div>
+  ),
+};
+
+export const Shadcn: Story = {
+  args: { options: sampleOptions, children: null },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24, width: 260 }}>
+      <ShadcnDropdown options={sampleOptions} placeholder="Select a fruit">
+        <ShadcnDropdown.Trigger />
+        <ShadcnDropdown.Menu>
+          {sampleOptions.map((option, index) => (
+            <ShadcnDropdown.Item key={option.id} option={option} index={index} />
+          ))}
+        </ShadcnDropdown.Menu>
+      </ShadcnDropdown>
+      <CodeSnippet react={shadcnJsx} defaultTab="react" title="Shadcn — JSX / Tailwind" />
+    </div>
+  ),
+};
+
+export const Flowbite: Story = {
+  args: { options: sampleOptions, children: null },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24, width: 260 }}>
+      <FlowbiteDropdown options={sampleOptions} placeholder="Select a fruit">
+        <FlowbiteDropdown.Trigger />
+        <FlowbiteDropdown.Menu>
+          {sampleOptions.map((option, index) => (
+            <FlowbiteDropdown.Item key={option.id} option={option} index={index} />
+          ))}
+        </FlowbiteDropdown.Menu>
+      </FlowbiteDropdown>
+      <CodeSnippet react={flowbiteJsx} defaultTab="react" title="Flowbite — JSX / Tailwind" />
+    </div>
+  ),
+};
+
+export const CompareAll: Story = {
+  args: { options: sampleOptions, children: null },
+  parameters: { layout: "padded" },
+  render: () => (
+    <VariantShowcase
+      title="Dropdown — all design languages"
+      variants={[
+        {
+          label: "Neobrutalism",
+          designLanguage: "neobrutalism",
+          children: (
+            <NeobrutalismDropdown options={sampleOptions} placeholder="Select a fruit">
+              <NeobrutalismDropdown.Trigger />
+              <NeobrutalismDropdown.Menu>
+                {sampleOptions.map((option, index) => (
+                  <NeobrutalismDropdown.Item key={option.id} option={option} index={index} />
+                ))}
+              </NeobrutalismDropdown.Menu>
+            </NeobrutalismDropdown>
+          ),
+        },
+        {
+          label: "Shadcn",
+          designLanguage: "shadcn",
+          children: (
+            <ShadcnDropdown options={sampleOptions} placeholder="Select a fruit">
+              <ShadcnDropdown.Trigger />
+              <ShadcnDropdown.Menu>
+                {sampleOptions.map((option, index) => (
+                  <ShadcnDropdown.Item key={option.id} option={option} index={index} />
+                ))}
+              </ShadcnDropdown.Menu>
+            </ShadcnDropdown>
+          ),
+        },
+        {
+          label: "Flowbite",
+          designLanguage: "flowbite",
+          children: (
+            <FlowbiteDropdown options={sampleOptions} placeholder="Select a fruit">
+              <FlowbiteDropdown.Trigger />
+              <FlowbiteDropdown.Menu>
+                {sampleOptions.map((option, index) => (
+                  <FlowbiteDropdown.Item key={option.id} option={option} index={index} />
+                ))}
+              </FlowbiteDropdown.Menu>
+            </FlowbiteDropdown>
+          ),
+        },
+      ]}
+    />
   ),
 };

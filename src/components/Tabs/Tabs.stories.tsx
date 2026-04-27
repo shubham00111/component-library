@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "storybook/test";
 import Tabs from "./Tabs";
+import NeobrutalismTabs from "./variants/NeobrutalismTabs";
+import ShadcnTabs from "./variants/ShadcnTabs";
+import FlowbiteTabs from "./variants/FlowbiteTabs";
+import VariantShowcase from "../ui/VariantShowcase";
+import CodeSnippet from "../ui/CodeSnippet";
+import { neobrutalismJsx, shadcnJsx, flowbiteJsx } from "./snippets";
 import type { TabItem } from "./types";
 
 const meta = {
@@ -389,4 +395,68 @@ export const AllDisabled: Story = {
       disabled: true,
     },
   },
+};
+
+const variantTabItems = [
+  { id: "1", label: "Overview", content: <p>Overview content</p> },
+  { id: "2", label: "Features", content: <p>Features content</p> },
+  { id: "3", label: "Docs", content: <p>Documentation content</p> },
+];
+
+export const Neobrutalism: Story = {
+  args: { items: variantTabItems, value: variantTabItems[0] },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24, width: 480 }}>
+      <NeobrutalismTabs items={variantTabItems} />
+      <CodeSnippet react={neobrutalismJsx} defaultTab="react" title="Neobrutalism — JSX / Tailwind" />
+    </div>
+  ),
+};
+
+export const Shadcn: Story = {
+  args: { items: variantTabItems, value: variantTabItems[0] },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24, width: 480 }}>
+      <ShadcnTabs items={variantTabItems} />
+      <CodeSnippet react={shadcnJsx} defaultTab="react" title="Shadcn — JSX / Tailwind" />
+    </div>
+  ),
+};
+
+export const Flowbite: Story = {
+  args: { items: variantTabItems, value: variantTabItems[0] },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24, width: 480 }}>
+      <FlowbiteTabs items={variantTabItems} />
+      <CodeSnippet react={flowbiteJsx} defaultTab="react" title="Flowbite — JSX / Tailwind" />
+    </div>
+  ),
+};
+
+export const CompareAll: Story = {
+  args: { items: variantTabItems, value: variantTabItems[0] },
+  parameters: { layout: "padded" },
+  render: () => (
+    <VariantShowcase
+      title="Tabs — all design languages"
+      layout="column"
+      variants={[
+        {
+          label: "Neobrutalism",
+          designLanguage: "neobrutalism",
+          children: <NeobrutalismTabs items={variantTabItems} />,
+        },
+        {
+          label: "Shadcn",
+          designLanguage: "shadcn",
+          children: <ShadcnTabs items={variantTabItems} />,
+        },
+        {
+          label: "Flowbite",
+          designLanguage: "flowbite",
+          children: <FlowbiteTabs items={variantTabItems} />,
+        },
+      ]}
+    />
+  ),
 };

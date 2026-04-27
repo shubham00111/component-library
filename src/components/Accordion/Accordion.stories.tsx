@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Accordion from "./Accordion";
+import NeobrutalismAccordion from "./variants/NeobrutalismAccordion";
+import ShadcnAccordion from "./variants/ShadcnAccordion";
+import FlowbiteAccordion from "./variants/FlowbiteAccordion";
+import VariantShowcase from "../ui/VariantShowcase";
+import CodeSnippet from "../ui/CodeSnippet";
+import { neobrutalismJsx, shadcnJsx, flowbiteJsx } from "./snippets";
 
 const meta = {
   title: "Components/Accordion",
@@ -234,4 +240,145 @@ export const WithCallback: Story = {
       </Accordion>
     );
   },
+};
+
+export const Neobrutalism: Story = {
+  args: { children: null },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24, width: 360 }}>
+      <NeobrutalismAccordion>
+        <NeobrutalismAccordion.Item defaultOpen>
+          <NeobrutalismAccordion.Title>What is Neobrutalism?</NeobrutalismAccordion.Title>
+          <NeobrutalismAccordion.Description>
+            A bold design language with thick borders, flat shadows, and high contrast.
+          </NeobrutalismAccordion.Description>
+        </NeobrutalismAccordion.Item>
+        <NeobrutalismAccordion.Item>
+          <NeobrutalismAccordion.Title>How does it work?</NeobrutalismAccordion.Title>
+          <NeobrutalismAccordion.Description>
+            Each item manages its own open/close state with React useState.
+          </NeobrutalismAccordion.Description>
+        </NeobrutalismAccordion.Item>
+        <NeobrutalismAccordion.Item disabled>
+          <NeobrutalismAccordion.Title>Disabled Item</NeobrutalismAccordion.Title>
+          <NeobrutalismAccordion.Description>Hidden.</NeobrutalismAccordion.Description>
+        </NeobrutalismAccordion.Item>
+      </NeobrutalismAccordion>
+      <CodeSnippet react={neobrutalismJsx} defaultTab="react" title="Neobrutalism — JSX / Tailwind" />
+    </div>
+  ),
+};
+
+export const Shadcn: Story = {
+  args: { children: null },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24, width: 360 }}>
+      <ShadcnAccordion>
+        <ShadcnAccordion.Item defaultOpen>
+          <ShadcnAccordion.Title>Is it accessible?</ShadcnAccordion.Title>
+          <ShadcnAccordion.Description>
+            Yes. Each button has proper aria-expanded and keyboard support.
+          </ShadcnAccordion.Description>
+        </ShadcnAccordion.Item>
+        <ShadcnAccordion.Item>
+          <ShadcnAccordion.Title>Can I use it in Next.js?</ShadcnAccordion.Title>
+          <ShadcnAccordion.Description>
+            Absolutely. Add "use client" and import directly.
+          </ShadcnAccordion.Description>
+        </ShadcnAccordion.Item>
+        <ShadcnAccordion.Item disabled>
+          <ShadcnAccordion.Title>Disabled Item</ShadcnAccordion.Title>
+          <ShadcnAccordion.Description>Hidden.</ShadcnAccordion.Description>
+        </ShadcnAccordion.Item>
+      </ShadcnAccordion>
+      <CodeSnippet react={shadcnJsx} defaultTab="react" title="Shadcn — JSX / Tailwind" />
+    </div>
+  ),
+};
+
+export const Flowbite: Story = {
+  args: { children: null },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24, width: 360 }}>
+      <FlowbiteAccordion>
+        <FlowbiteAccordion.Item defaultOpen>
+          <FlowbiteAccordion.Title>What is Flowbite?</FlowbiteAccordion.Title>
+          <FlowbiteAccordion.Description>
+            A design system built on Tailwind CSS with clean, accessible UI components.
+          </FlowbiteAccordion.Description>
+        </FlowbiteAccordion.Item>
+        <FlowbiteAccordion.Item>
+          <FlowbiteAccordion.Title>How do I customize it?</FlowbiteAccordion.Title>
+          <FlowbiteAccordion.Description>
+            Override Tailwind classes via className props or extend the component.
+          </FlowbiteAccordion.Description>
+        </FlowbiteAccordion.Item>
+        <FlowbiteAccordion.Item disabled>
+          <FlowbiteAccordion.Title>Disabled Item</FlowbiteAccordion.Title>
+          <FlowbiteAccordion.Description>Hidden.</FlowbiteAccordion.Description>
+        </FlowbiteAccordion.Item>
+      </FlowbiteAccordion>
+      <CodeSnippet react={flowbiteJsx} defaultTab="react" title="Flowbite — JSX / Tailwind" />
+    </div>
+  ),
+};
+
+export const CompareAll: Story = {
+  args: { children: null },
+  parameters: { layout: "padded" },
+  render: () => (
+    <VariantShowcase
+      title="Accordion — all design languages"
+      variants={[
+        {
+          label: "Neobrutalism",
+          designLanguage: "neobrutalism",
+          children: (
+            <NeobrutalismAccordion>
+              <NeobrutalismAccordion.Item defaultOpen>
+                <NeobrutalismAccordion.Title>Bold & Flat</NeobrutalismAccordion.Title>
+                <NeobrutalismAccordion.Description>Thick borders, yellow hover, flat shadow.</NeobrutalismAccordion.Description>
+              </NeobrutalismAccordion.Item>
+              <NeobrutalismAccordion.Item>
+                <NeobrutalismAccordion.Title>Another Item</NeobrutalismAccordion.Title>
+                <NeobrutalismAccordion.Description>Click to expand.</NeobrutalismAccordion.Description>
+              </NeobrutalismAccordion.Item>
+            </NeobrutalismAccordion>
+          ),
+        },
+        {
+          label: "Shadcn",
+          designLanguage: "shadcn",
+          children: (
+            <ShadcnAccordion>
+              <ShadcnAccordion.Item defaultOpen>
+                <ShadcnAccordion.Title>Clean & Minimal</ShadcnAccordion.Title>
+                <ShadcnAccordion.Description>Zinc border, underline hover, soft look.</ShadcnAccordion.Description>
+              </ShadcnAccordion.Item>
+              <ShadcnAccordion.Item>
+                <ShadcnAccordion.Title>Another Item</ShadcnAccordion.Title>
+                <ShadcnAccordion.Description>Click to expand.</ShadcnAccordion.Description>
+              </ShadcnAccordion.Item>
+            </ShadcnAccordion>
+          ),
+        },
+        {
+          label: "Flowbite",
+          designLanguage: "flowbite",
+          children: (
+            <FlowbiteAccordion>
+              <FlowbiteAccordion.Item defaultOpen>
+                <FlowbiteAccordion.Title>Light & Accessible</FlowbiteAccordion.Title>
+                <FlowbiteAccordion.Description>Gray border, soft shadow, gray-50 panel.</FlowbiteAccordion.Description>
+              </FlowbiteAccordion.Item>
+              <FlowbiteAccordion.Item>
+                <FlowbiteAccordion.Title>Another Item</FlowbiteAccordion.Title>
+                <FlowbiteAccordion.Description>Click to expand.</FlowbiteAccordion.Description>
+              </FlowbiteAccordion.Item>
+            </FlowbiteAccordion>
+          ),
+        },
+      ]}
+    />
+  ),
 };

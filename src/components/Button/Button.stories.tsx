@@ -5,13 +5,7 @@ import FlowbiteButton from "./variants/FlowbiteButton";
 import VariantShowcase from "../ui/VariantShowcase";
 import CodeSnippet from "../ui/CodeSnippet";
 import type { ButtonProps } from "./types";
-
-import nbHtml from "./snippets/neobrutalism.html?raw";
-import nbCss from "./snippets/neobrutalism.css?raw";
-import shadcnHtml from "./snippets/shadcn.html?raw";
-import shadcnCss from "./snippets/shadcn.css?raw";
-import fbHtml from "./snippets/flowbite.html?raw";
-import fbCss from "./snippets/flowbite.css?raw";
+import { neobrutalismJsx, shadcnJsx, flowbiteJsx } from "./snippets";
 
 const meta = {
   title: "Components/Button",
@@ -55,7 +49,7 @@ export const Neobrutalism: Story = {
         <NeobrutalismButton {...args} size="lg">Large</NeobrutalismButton>
         <NeobrutalismButton {...args} disabled>Disabled</NeobrutalismButton>
       </div>
-      <CodeSnippet html={nbHtml} css={nbCss} defaultTab="html" title="Neobrutalism — HTML/CSS snippet" />
+      <CodeSnippet react={neobrutalismJsx} defaultTab="react" title="Neobrutalism — JSX / Tailwind" />
     </div>
   ),
   args: {},
@@ -79,7 +73,7 @@ export const Shadcn: Story = {
         <ShadcnButton {...args} size="lg">Large</ShadcnButton>
         <ShadcnButton {...args} disabled>Disabled</ShadcnButton>
       </div>
-      <CodeSnippet html={shadcnHtml} css={shadcnCss} defaultTab="html" title="Shadcn — HTML/CSS snippet" />
+      <CodeSnippet react={shadcnJsx} defaultTab="react" title="Shadcn — JSX / Tailwind" />
     </div>
   ),
   args: {},
@@ -103,7 +97,7 @@ export const Flowbite: Story = {
         <FlowbiteButton {...args} size="lg">Large</FlowbiteButton>
         <FlowbiteButton {...args} disabled>Disabled</FlowbiteButton>
       </div>
-      <CodeSnippet html={fbHtml} css={fbCss} defaultTab="html" title="Flowbite — HTML/CSS snippet" />
+      <CodeSnippet react={flowbiteJsx} defaultTab="react" title="Flowbite — JSX / Tailwind" />
     </div>
   ),
   args: {},

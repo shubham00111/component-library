@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import type { InputProps } from "../types";
-import "./FlowbiteInput.css";
 
 const FlowbiteInput = ({
   value,
@@ -26,9 +25,9 @@ const FlowbiteInput = ({
   const inputId = id ?? (label ? label.toLowerCase().replace(/\s+/g, "-") : undefined);
 
   return (
-    <div className="fb-input-wrapper">
+    <div className="flex flex-col gap-1.5 font-sans">
       {label && (
-        <label htmlFor={inputId} className="fb-input-label">
+        <label htmlFor={inputId} className="text-sm font-medium text-gray-900">
           {label}
         </label>
       )}
@@ -40,22 +39,27 @@ const FlowbiteInput = ({
         disabled={disabled}
         onChange={handleChange}
         aria-invalid={Boolean(error)}
-        aria-describedby={error ? `${inputId}-error` : helperText ? `${inputId}-helper` : undefined}
+        aria-describedby={
+          error ? `${inputId}-error` : helperText ? `${inputId}-helper` : undefined
+        }
         className={[
-          "fb-input",
-          error ? "fb-input--error" : "",
+          "py-2 px-3 text-[0.9375rem] font-sans text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm outline-none w-full transition-all duration-200",
+          "placeholder:text-gray-500",
+          "focus:border-[#1c64f2] focus:shadow-[0_0_0_3px_rgba(28,100,242,0.3)]",
+          "disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed",
+          error ? "border-[#e02424] focus:shadow-[0_0_0_3px_rgba(224,36,36,0.3)]" : "",
           className,
         ]
           .filter(Boolean)
           .join(" ")}
       />
       {error && (
-        <span id={`${inputId}-error`} className="fb-input-error" role="alert">
+        <span id={`${inputId}-error`} className="text-sm text-[#e02424]" role="alert">
           {error}
         </span>
       )}
       {helperText && !error && (
-        <span id={`${inputId}-helper`} className="fb-input-helper">
+        <span id={`${inputId}-helper`} className="text-sm text-gray-500">
           {helperText}
         </span>
       )}

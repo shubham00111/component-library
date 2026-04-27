@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Modal from "./Modal";
+import NeobrutalismModal from "./variants/NeobrutalismModal";
+import ShadcnModal from "./variants/ShadcnModal";
+import FlowbiteModal from "./variants/FlowbiteModal";
+import VariantShowcase from "../ui/VariantShowcase";
+import CodeSnippet from "../ui/CodeSnippet";
+import { neobrutalismJsx, shadcnJsx, flowbiteJsx } from "./snippets";
 
 const meta = {
   title: "Components/Modal",
@@ -419,5 +425,134 @@ export const MultiStepModal: Story = {
         </Modal.Dialog>
       </Modal.Overlay>
     </Modal>
+  ),
+};
+
+export const Neobrutalism: Story = {
+  args: { children: null },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24, alignItems: "center" }}>
+      <NeobrutalismModal>
+        <NeobrutalismModal.Trigger>Open Neobrutalism Modal</NeobrutalismModal.Trigger>
+        <NeobrutalismModal.Overlay>
+          <NeobrutalismModal.Dialog>
+            <NeobrutalismModal.Title>Neobrutalism Modal</NeobrutalismModal.Title>
+            <NeobrutalismModal.Content>
+              <p className="text-sm mb-4">Bold borders, flat shadow, and yellow accents define this design language.</p>
+            </NeobrutalismModal.Content>
+            <div className="px-6 pb-6 flex justify-end">
+              <NeobrutalismModal.Close>Close</NeobrutalismModal.Close>
+            </div>
+          </NeobrutalismModal.Dialog>
+        </NeobrutalismModal.Overlay>
+      </NeobrutalismModal>
+      <CodeSnippet react={neobrutalismJsx} defaultTab="react" title="Neobrutalism — JSX / Tailwind" />
+    </div>
+  ),
+};
+
+export const Shadcn: Story = {
+  args: { children: null },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24, alignItems: "center" }}>
+      <ShadcnModal>
+        <ShadcnModal.Trigger>Open Shadcn Modal</ShadcnModal.Trigger>
+        <ShadcnModal.Overlay>
+          <ShadcnModal.Dialog>
+            <ShadcnModal.Title>Shadcn Modal</ShadcnModal.Title>
+            <ShadcnModal.Content>
+              <p className="text-sm text-zinc-600 mb-4">Clean zinc palette, soft shadow, rounded corners.</p>
+            </ShadcnModal.Content>
+            <div className="px-6 pb-6 flex justify-end">
+              <ShadcnModal.Close>Close</ShadcnModal.Close>
+            </div>
+          </ShadcnModal.Dialog>
+        </ShadcnModal.Overlay>
+      </ShadcnModal>
+      <CodeSnippet react={shadcnJsx} defaultTab="react" title="Shadcn — JSX / Tailwind" />
+    </div>
+  ),
+};
+
+export const Flowbite: Story = {
+  args: { children: null },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24, alignItems: "center" }}>
+      <FlowbiteModal>
+        <FlowbiteModal.Trigger>Open Flowbite Modal</FlowbiteModal.Trigger>
+        <FlowbiteModal.Overlay>
+          <FlowbiteModal.Dialog>
+            <FlowbiteModal.Title>Flowbite Modal</FlowbiteModal.Title>
+            <FlowbiteModal.Content>
+              <p className="text-sm text-gray-600 mb-4">Gray border, blue trigger, rounded-lg container.</p>
+            </FlowbiteModal.Content>
+            <div className="px-6 pb-6 flex justify-end">
+              <FlowbiteModal.Close>Close</FlowbiteModal.Close>
+            </div>
+          </FlowbiteModal.Dialog>
+        </FlowbiteModal.Overlay>
+      </FlowbiteModal>
+      <CodeSnippet react={flowbiteJsx} defaultTab="react" title="Flowbite — JSX / Tailwind" />
+    </div>
+  ),
+};
+
+export const CompareAll: Story = {
+  args: { children: null },
+  parameters: { layout: "padded" },
+  render: () => (
+    <VariantShowcase
+      title="Modal — all design languages"
+      variants={[
+        {
+          label: "Neobrutalism",
+          designLanguage: "neobrutalism",
+          children: (
+            <NeobrutalismModal>
+              <NeobrutalismModal.Trigger>Open Modal</NeobrutalismModal.Trigger>
+              <NeobrutalismModal.Overlay>
+                <NeobrutalismModal.Dialog>
+                  <NeobrutalismModal.Title>Neobrutalism</NeobrutalismModal.Title>
+                  <NeobrutalismModal.Content><p className="text-sm">Bold, flat, high contrast.</p></NeobrutalismModal.Content>
+                  <div className="px-6 pb-6 flex justify-end"><NeobrutalismModal.Close /></div>
+                </NeobrutalismModal.Dialog>
+              </NeobrutalismModal.Overlay>
+            </NeobrutalismModal>
+          ),
+        },
+        {
+          label: "Shadcn",
+          designLanguage: "shadcn",
+          children: (
+            <ShadcnModal>
+              <ShadcnModal.Trigger>Open Modal</ShadcnModal.Trigger>
+              <ShadcnModal.Overlay>
+                <ShadcnModal.Dialog>
+                  <ShadcnModal.Title>Shadcn</ShadcnModal.Title>
+                  <ShadcnModal.Content><p className="text-sm text-zinc-600">Clean and minimal.</p></ShadcnModal.Content>
+                  <div className="px-6 pb-6 flex justify-end"><ShadcnModal.Close /></div>
+                </ShadcnModal.Dialog>
+              </ShadcnModal.Overlay>
+            </ShadcnModal>
+          ),
+        },
+        {
+          label: "Flowbite",
+          designLanguage: "flowbite",
+          children: (
+            <FlowbiteModal>
+              <FlowbiteModal.Trigger>Open Modal</FlowbiteModal.Trigger>
+              <FlowbiteModal.Overlay>
+                <FlowbiteModal.Dialog>
+                  <FlowbiteModal.Title>Flowbite</FlowbiteModal.Title>
+                  <FlowbiteModal.Content><p className="text-sm text-gray-600">Light and accessible.</p></FlowbiteModal.Content>
+                  <div className="px-6 pb-6 flex justify-end"><FlowbiteModal.Close /></div>
+                </FlowbiteModal.Dialog>
+              </FlowbiteModal.Overlay>
+            </FlowbiteModal>
+          ),
+        },
+      ]}
+    />
   ),
 };

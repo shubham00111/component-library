@@ -1,0 +1,128 @@
+export const neobrutalismJsx = `const ICON_STYLE = {
+  success: "bg-green-200 text-green-800",
+  error:   "bg-red-100 text-red-800",
+  warning: "bg-yellow-100 text-yellow-800",
+  info:    "bg-blue-100 text-blue-800",
+};
+const POSITION = {
+  "top-left": "top-4 left-4", "top-right": "top-4 right-4",
+  "bottom-left": "bottom-4 left-4", "bottom-right": "bottom-4 right-4",
+};
+
+const NeobrutalismToast = ({ iconType = "info", children, onClose, position = "bottom-right", timer }) => {
+  const [show, setShow] = useState(true);
+  useEffect(() => {
+    if (!timer) return;
+    const id = setTimeout(() => setShow(false), timer);
+    return () => clearTimeout(id);
+  }, [timer]);
+  if (!show) return null;
+
+  return (
+    <div
+      className={[
+        "fixed z-50 flex items-center gap-2 py-2 px-3 min-w-[280px] max-w-[420px]",
+        "bg-white border-[3px] border-black rounded-[2px] shadow-[4px_4px_0_#000] hover:shadow-[6px_6px_0_#000]",
+        "font-sans text-[0.9375rem] text-black",
+        POSITION[position],
+      ].join(" ")}
+    >
+      <div className={\`flex items-center justify-center w-8 h-8 rounded-[2px] border-[2px] border-black flex-shrink-0 \${ICON_STYLE[iconType]}\`}>
+        <Icon size={16} />
+      </div>
+      <div className="flex-1 font-normal text-black">{children}</div>
+      <button
+        className="flex items-center justify-center p-1 border-[2px] border-transparent rounded-[2px] bg-transparent cursor-pointer hover:bg-yellow-400 hover:border-black"
+        onClick={() => { setShow(false); onClose?.(); }}
+      >
+        <X size={16} />
+      </button>
+    </div>
+  );
+};`;
+
+export const shadcnJsx = `const ICON_STYLE = {
+  success: "bg-green-50 text-green-600",
+  error:   "bg-red-50 text-red-500",
+  warning: "bg-amber-50 text-amber-600",
+  info:    "bg-blue-50 text-blue-600",
+};
+const POSITION = {
+  "top-left": "top-4 left-4", "top-right": "top-4 right-4",
+  "bottom-left": "bottom-4 left-4", "bottom-right": "bottom-4 right-4",
+};
+
+const ShadcnToast = ({ iconType = "info", children, onClose, position = "bottom-right", timer }) => {
+  const [show, setShow] = useState(true);
+  useEffect(() => {
+    if (!timer) return;
+    const id = setTimeout(() => setShow(false), timer);
+    return () => clearTimeout(id);
+  }, [timer]);
+  if (!show) return null;
+
+  return (
+    <div
+      className={[
+        "fixed z-50 flex items-center gap-3 py-3 px-4 min-w-[280px] max-w-[420px]",
+        "bg-white border border-zinc-200 rounded-[6px] shadow hover:shadow-md transition-shadow duration-150",
+        "font-sans text-[0.9375rem] text-zinc-900",
+        POSITION[position],
+      ].join(" ")}
+    >
+      <div className={\`flex items-center justify-center w-7 h-7 rounded-full flex-shrink-0 \${ICON_STYLE[iconType]}\`}>
+        <Icon size={14} />
+      </div>
+      <div className="flex-1 text-sm text-zinc-900">{children}</div>
+      <button
+        className="flex items-center justify-center p-1 rounded-[4px] bg-transparent cursor-pointer text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900"
+        onClick={() => { setShow(false); onClose?.(); }}
+      >
+        <X size={14} />
+      </button>
+    </div>
+  );
+};`;
+
+export const flowbiteJsx = `const ICON_STYLE = {
+  success: "bg-green-100 text-emerald-900",
+  error:   "bg-red-100 text-red-800",
+  warning: "bg-amber-100 text-amber-800",
+  info:    "bg-blue-50 text-[#1c64f2]",
+};
+const POSITION = {
+  "top-left": "top-4 left-4", "top-right": "top-4 right-4",
+  "bottom-left": "bottom-4 left-4", "bottom-right": "bottom-4 right-4",
+};
+
+const FlowbiteToast = ({ iconType = "info", children, onClose, position = "bottom-right", timer }) => {
+  const [show, setShow] = useState(true);
+  useEffect(() => {
+    if (!timer) return;
+    const id = setTimeout(() => setShow(false), timer);
+    return () => clearTimeout(id);
+  }, [timer]);
+  if (!show) return null;
+
+  return (
+    <div
+      className={[
+        "fixed z-50 flex items-center gap-3 py-3 px-4 min-w-[280px] max-w-[420px]",
+        "bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200",
+        "font-sans text-[0.9375rem] text-gray-900",
+        POSITION[position],
+      ].join(" ")}
+    >
+      <div className={\`flex items-center justify-center w-8 h-8 rounded-lg flex-shrink-0 \${ICON_STYLE[iconType]}\`}>
+        <Icon size={16} />
+      </div>
+      <div className="flex-1 text-sm text-gray-900">{children}</div>
+      <button
+        className="flex items-center justify-center p-1 rounded-lg bg-transparent cursor-pointer text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200"
+        onClick={() => { setShow(false); onClose?.(); }}
+      >
+        <X size={16} />
+      </button>
+    </div>
+  );
+};`;

@@ -2,27 +2,58 @@
 title: Accordion
 ---
 
-import { AccordionDemo } from "../../components/AccordionDemo";
+import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import {
+  NeobrutalismAccordionPreview,
+  ShadcnAccordionPreview,
+  FlowbiteAccordionPreview,
+} from "../../components/AccordionVariants";
+
+export const snippets = loadSnippets("Accordion");
 
 # Accordion
 
-Collapsible content sections with `Item`, `Title`, and `Description` sub-components. Built with Tailwind CSS.
+Collapsible content sections with `Item`, `Title`, and `Description` sub-components. Supports `defaultOpen` and `disabled` per item.
 
-> This component uses a single Tailwind-based implementation. Multi-design-language variants are planned for a future release.
+## Design Language Comparison
 
-## Preview
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: <NeobrutalismAccordionPreview />,
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: <ShadcnAccordionPreview />,
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: <FlowbiteAccordionPreview />,
+    },
+  ]}
+  layout="column"
+/>
 
-<AccordionDemo />
+## Neobrutalism
 
-## Usage
+Thick border, flat box shadow, yellow active hover on title.
 
-```tsx
-import { Accordion } from "ui-variants";
+<SnippetViewer react={snippets.neobrutalism.react} />
 
-<Accordion>
-  <Accordion.Item>
-    <Accordion.Title>Question?</Accordion.Title>
-    <Accordion.Description>Answer goes here.</Accordion.Description>
-  </Accordion.Item>
-</Accordion>
-```
+## Shadcn-inspired
+
+Zinc border, underline hover on title, minimal radius.
+
+<SnippetViewer react={snippets.shadcn.react} />
+
+## Flowbite-inspired
+
+Gray border, soft shadow, gray-50 description panel.
+
+<SnippetViewer react={snippets.flowbite.react} />

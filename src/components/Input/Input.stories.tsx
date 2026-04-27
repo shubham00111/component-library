@@ -5,13 +5,7 @@ import FlowbiteInput from "./variants/FlowbiteInput";
 import VariantShowcase from "../ui/VariantShowcase";
 import CodeSnippet from "../ui/CodeSnippet";
 import type { InputProps } from "./types";
-
-import nbHtml from "./snippets/neobrutalism.html?raw";
-import nbCss from "./snippets/neobrutalism.css?raw";
-import shadcnHtml from "./snippets/shadcn.html?raw";
-import shadcnCss from "./snippets/shadcn.css?raw";
-import fbHtml from "./snippets/flowbite.html?raw";
-import fbCss from "./snippets/flowbite.css?raw";
+import { neobrutalismJsx, shadcnJsx, flowbiteJsx } from "./snippets";
 
 const meta = {
   title: "Components/Input",
@@ -28,7 +22,7 @@ export const Neobrutalism: Story = {
       <NeobrutalismInput label="With helper" placeholder="Enter email…" helperText="We'll never share your email." />
       <NeobrutalismInput label="With error" placeholder="Enter text…" error="This field is required" />
       <NeobrutalismInput label="Disabled" placeholder="Disabled" disabled />
-      <CodeSnippet html={nbHtml} css={nbCss} defaultTab="html" title="Neobrutalism — HTML/CSS snippet" />
+      <CodeSnippet react={neobrutalismJsx} defaultTab="react" title="Neobrutalism — JSX / Tailwind" />
     </div>
   ),
   args: {},
@@ -41,7 +35,7 @@ export const Shadcn: Story = {
       <ShadcnInput label="With helper" placeholder="Enter text…" helperText="Some hint text." />
       <ShadcnInput label="With error" placeholder="Enter text…" error="This field is required" />
       <ShadcnInput label="Disabled" placeholder="Disabled" disabled />
-      <CodeSnippet html={shadcnHtml} css={shadcnCss} defaultTab="html" title="Shadcn — HTML/CSS snippet" />
+      <CodeSnippet react={shadcnJsx} defaultTab="react" title="Shadcn — JSX / Tailwind" />
     </div>
   ),
   args: {},
@@ -54,7 +48,7 @@ export const Flowbite: Story = {
       <FlowbiteInput label="With helper" placeholder="Enter text…" helperText="Some hint text." />
       <FlowbiteInput label="With error" placeholder="Enter text…" error="This field is required" />
       <FlowbiteInput label="Disabled" placeholder="Disabled" disabled />
-      <CodeSnippet html={fbHtml} css={fbCss} defaultTab="html" title="Flowbite — HTML/CSS snippet" />
+      <CodeSnippet react={flowbiteJsx} defaultTab="react" title="Flowbite — JSX / Tailwind" />
     </div>
   ),
   args: {},

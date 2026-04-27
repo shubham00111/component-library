@@ -2,32 +2,57 @@
 title: Modal
 ---
 
-import { LivePreview } from "../../components/LivePreview";
-import { ModalDemo } from "../../components/ModalDemo";
+import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import {
+  NeobrutalismModalPreview,
+  ShadcnModalPreview,
+  FlowbiteModalPreview,
+} from "../../components/ModalVariants";
+
+export const snippets = loadSnippets("Modal");
 
 # Modal
 
-Dialog overlay with `Trigger`, `Overlay`, `Dialog`, `Content`, `Title`, and `Close` sub-components. Built with Tailwind CSS.
+Dialog overlay with `Trigger`, `Overlay`, `Dialog`, `Content`, `Title`, and `Close` sub-components. Click outside or the X to dismiss.
 
-> This component uses a single Tailwind-based implementation. Multi-design-language variants are planned for a future release.
+## Design Language Comparison
 
-## Preview
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: <NeobrutalismModalPreview />,
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: <ShadcnModalPreview />,
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: <FlowbiteModalPreview />,
+    },
+  ]}
+/>
 
-<ModalDemo />
+## Neobrutalism
 
-## Usage
+Bold border, flat `6px` shadow, yellow hover on close button.
 
-```tsx
-import { Modal } from "ui-variants";
+<SnippetViewer react={snippets.neobrutalism.react} />
 
-<Modal>
-  <Modal.Trigger>Open dialog</Modal.Trigger>
-  <Modal.Overlay>
-    <Modal.Dialog>
-      <Modal.Title>Dialog title</Modal.Title>
-      <Modal.Content>Content goes here.</Modal.Content>
-      <Modal.Close />
-    </Modal.Dialog>
-  </Modal.Overlay>
-</Modal>
-```
+## Shadcn-inspired
+
+Zinc border, `shadow-lg`, subtle hover states.
+
+<SnippetViewer react={snippets.shadcn.react} />
+
+## Flowbite-inspired
+
+Gray border, blue trigger button, `rounded-lg` container.
+
+<SnippetViewer react={snippets.flowbite.react} />

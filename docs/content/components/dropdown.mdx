@@ -2,30 +2,57 @@
 title: Dropdown
 ---
 
-import { DropdownDemo } from "../../components/DropdownDemo";
+import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
+import { SnippetViewer } from "../../components/SnippetViewer";
+import {
+  NeobrutalismDropdownPreview,
+  ShadcnDropdownPreview,
+  FlowbiteDropdownPreview,
+} from "../../components/DropdownVariants";
+
+export const snippets = loadSnippets("Dropdown");
 
 # Dropdown
 
-Select input with keyboard navigation and click-outside dismissal. Built with Tailwind CSS.
+Select input with keyboard navigation (↑↓ Enter Escape) and click-outside dismissal. Compound sub-components: `Trigger`, `Menu`, `Item`.
 
-> This component uses a single Tailwind-based implementation. Multi-design-language variants are planned for a future release.
+## Design Language Comparison
 
-## Preview
-
-<DropdownDemo />
-
-## Usage
-
-```tsx
-import { Dropdown } from "ui-variants";
-
-<Dropdown
-  options={[
-    { id: "1", label: "Option 1" },
-    { id: "2", label: "Option 2" },
-    { id: "3", label: "Option 3" },
+<ComponentShowcase
+  variants={[
+    {
+      label: "Neobrutalism",
+      designLanguage: "neobrutalism",
+      children: <NeobrutalismDropdownPreview />,
+    },
+    {
+      label: "Shadcn-inspired",
+      designLanguage: "shadcn",
+      children: <ShadcnDropdownPreview />,
+    },
+    {
+      label: "Flowbite-inspired",
+      designLanguage: "flowbite",
+      children: <FlowbiteDropdownPreview />,
+    },
   ]}
-  placeholder="Select an option"
-  onChange={(option) => console.log(option)}
 />
-```
+
+## Neobrutalism
+
+Bold border, flat shadow, yellow hover on trigger and items.
+
+<SnippetViewer react={snippets.neobrutalism.react} />
+
+## Shadcn-inspired
+
+Zinc border, soft shadow, rounded items with zinc hover.
+
+<SnippetViewer react={snippets.shadcn.react} />
+
+## Flowbite-inspired
+
+Gray border, `rounded-lg`, subtle gray hover.
+
+<SnippetViewer react={snippets.flowbite.react} />

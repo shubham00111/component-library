@@ -6,13 +6,7 @@ import FlowbiteToast from "./variants/FlowbiteToast";
 import VariantShowcase from "../ui/VariantShowcase";
 import CodeSnippet from "../ui/CodeSnippet";
 import type { ToastProps } from "./types";
-
-import nbHtml from "./snippets/neobrutalism.html?raw";
-import nbCss from "./snippets/neobrutalism.css?raw";
-import shadcnHtml from "./snippets/shadcn.html?raw";
-import shadcnCss from "./snippets/shadcn.css?raw";
-import fbHtml from "./snippets/flowbite.html?raw";
-import fbCss from "./snippets/flowbite.css?raw";
+import { neobrutalismJsx, shadcnJsx, flowbiteJsx } from "./snippets";
 
 const meta = {
   title: "Components/Toast",
@@ -51,7 +45,7 @@ export const Neobrutalism: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
       <ToastDemo Component={NeobrutalismToast} />
-      <CodeSnippet html={nbHtml} css={nbCss} defaultTab="html" title="Neobrutalism — HTML/CSS snippet" />
+      <CodeSnippet react={neobrutalismJsx} defaultTab="react" title="Neobrutalism — JSX / Tailwind" />
     </div>
   ),
   args: {},
@@ -61,7 +55,7 @@ export const Shadcn: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
       <ToastDemo Component={ShadcnToast} />
-      <CodeSnippet html={shadcnHtml} css={shadcnCss} defaultTab="html" title="Shadcn — HTML/CSS snippet" />
+      <CodeSnippet react={shadcnJsx} defaultTab="react" title="Shadcn — JSX / Tailwind" />
     </div>
   ),
   args: {},
@@ -71,7 +65,7 @@ export const Flowbite: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
       <ToastDemo Component={FlowbiteToast} />
-      <CodeSnippet html={fbHtml} css={fbCss} defaultTab="html" title="Flowbite — HTML/CSS snippet" />
+      <CodeSnippet react={flowbiteJsx} defaultTab="react" title="Flowbite — JSX / Tailwind" />
     </div>
   ),
   args: {},

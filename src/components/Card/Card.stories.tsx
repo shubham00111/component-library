@@ -5,13 +5,7 @@ import FlowbiteCard from "./variants/FlowbiteCard";
 import VariantShowcase from "../ui/VariantShowcase";
 import CodeSnippet from "../ui/CodeSnippet";
 import type { CardProps } from "./types";
-
-import nbHtml from "./snippets/neobrutalism.html?raw";
-import nbCss from "./snippets/neobrutalism.css?raw";
-import shadcnHtml from "./snippets/shadcn.html?raw";
-import shadcnCss from "./snippets/shadcn.css?raw";
-import fbHtml from "./snippets/flowbite.html?raw";
-import fbCss from "./snippets/flowbite.css?raw";
+import { neobrutalismJsx, shadcnJsx, flowbiteJsx } from "./snippets";
 
 const meta = {
   title: "Components/Card",
@@ -30,7 +24,7 @@ export const Neobrutalism: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 24, width: 300 }}>
       <NeobrutalismCard {...sampleCard} footer={<span>Footer action</span>} />
-      <CodeSnippet html={nbHtml} css={nbCss} defaultTab="html" title="Neobrutalism — HTML/CSS snippet" />
+      <CodeSnippet react={neobrutalismJsx} defaultTab="react" title="Neobrutalism — JSX / Tailwind" />
     </div>
   ),
   args: {},
@@ -40,7 +34,7 @@ export const Shadcn: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 24, width: 300 }}>
       <ShadcnCard {...sampleCard} footer={<span>Footer action</span>} />
-      <CodeSnippet html={shadcnHtml} css={shadcnCss} defaultTab="html" title="Shadcn — HTML/CSS snippet" />
+      <CodeSnippet react={shadcnJsx} defaultTab="react" title="Shadcn — JSX / Tailwind" />
     </div>
   ),
   args: {},
@@ -50,7 +44,7 @@ export const Flowbite: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 24, width: 300 }}>
       <FlowbiteCard {...sampleCard} footer={<span>Footer action</span>} />
-      <CodeSnippet html={fbHtml} css={fbCss} defaultTab="html" title="Flowbite — HTML/CSS snippet" />
+      <CodeSnippet react={flowbiteJsx} defaultTab="react" title="Flowbite — JSX / Tailwind" />
     </div>
   ),
   args: {},
