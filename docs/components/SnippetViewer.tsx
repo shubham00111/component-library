@@ -52,19 +52,7 @@ export function SnippetViewer({ html, css, react, js, title, preview }: SnippetV
   return (
     <div style={{ margin: "1rem 0" }}>
       {preview && (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "32px 24px",
-            marginBottom: "16px",
-            border: "1px solid #e4e4e7",
-            borderRadius: "8px",
-            background: "#fff",
-            minHeight: "100px",
-          }}
-        >
+        <div className="snippet-preview">
           {preview}
         </div>
       )}
