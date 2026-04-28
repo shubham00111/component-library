@@ -24,15 +24,15 @@ const NeobrutalismTable = ({ columns, data, className = "" }: TableProps) => {
     : data;
 
   return (
-    <div className={["w-full overflow-x-auto border-[3px] border-black shadow-[4px_4px_0_#000] rounded-[2px] font-sans", className].filter(Boolean).join(" ")}>
+    <div className={["w-full overflow-x-auto border-[3px] border-black dark:border-white shadow-[4px_4px_0_#000] dark:shadow-[4px_4px_0_rgba(255,255,255,0.3)] rounded-[2px] font-sans", className].filter(Boolean).join(" ")}>
       <table className="w-full border-collapse text-sm">
         <thead>
-          <tr className="bg-yellow-400 border-b-[3px] border-black">
+          <tr className="bg-yellow-400 border-b-[3px] border-black dark:border-white">
             {columns.map((col) => (
               <th
                 key={col.key}
                 onClick={col.sortable ? () => handleSort(col.key) : undefined}
-                className={["px-4 py-3 text-left text-[0.9375rem] font-extrabold text-black border-r-[3px] border-black last:border-r-0", col.sortable ? "cursor-pointer hover:bg-yellow-300 select-none" : ""].filter(Boolean).join(" ")}
+                className={["px-4 py-3 text-left text-[0.9375rem] font-extrabold text-black border-r-[3px] border-black dark:border-white last:border-r-0", col.sortable ? "cursor-pointer hover:bg-yellow-300 select-none" : ""].filter(Boolean).join(" ")}
               >
                 <span className="flex items-center gap-1">
                   {col.label}
@@ -48,10 +48,10 @@ const NeobrutalismTable = ({ columns, data, className = "" }: TableProps) => {
           {sorted.map((row, rowIdx) => (
             <tr
               key={rowIdx}
-              className={["border-b-[2px] border-black last:border-b-0", rowIdx % 2 === 1 ? "bg-yellow-50" : "bg-white"].join(" ")}
+              className={["border-b-[2px] border-black dark:border-white last:border-b-0", rowIdx % 2 === 1 ? "bg-yellow-50 dark:bg-yellow-900/10" : "bg-white dark:bg-zinc-900"].join(" ")}
             >
               {columns.map((col) => (
-                <td key={col.key} className="px-4 py-3 text-sm text-black font-medium border-r-[2px] border-black last:border-r-0">
+                <td key={col.key} className="px-4 py-3 text-sm text-black dark:text-white font-medium border-r-[2px] border-black dark:border-white last:border-r-0">
                   {row[col.key]}
                 </td>
               ))}

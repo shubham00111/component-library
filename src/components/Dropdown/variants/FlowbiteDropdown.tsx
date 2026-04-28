@@ -26,15 +26,17 @@ const Trigger = () => {
   const { show, setShow, selectedOption, disabled, placeholder } = useDropdown();
   return (
     <div
-      className={`flex items-center justify-between px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium shadow-sm bg-white cursor-pointer select-none hover:bg-gray-50 transition-colors ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""}`}
+      className={`flex items-center justify-between px-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-sm font-medium shadow-sm bg-white dark:bg-gray-800 cursor-pointer select-none hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""}`}
       onClick={() => !disabled && setShow(!show)}
       role="button"
       tabIndex={disabled ? -1 : 0}
     >
-      <span className={selectedOption ? "text-gray-800" : "text-gray-500"}>
+      <span className={selectedOption ? "text-gray-800 dark:text-gray-100" : "text-gray-500 dark:text-gray-400"}>
         {selectedOption ? selectedOption.label : placeholder}
       </span>
-      {show ? <ChevronUp size={16} className="text-gray-500" /> : <ChevronDown size={16} className="text-gray-500" />}
+      {show
+        ? <ChevronUp size={16} className="text-gray-500 dark:text-gray-400" />
+        : <ChevronDown size={16} className="text-gray-500 dark:text-gray-400" />}
     </div>
   );
 };
@@ -43,7 +45,7 @@ const Menu = ({ children }: { children: React.ReactNode }) => {
   const { show, disabled } = useDropdown();
   if (!show || disabled) return null;
   return (
-    <div className="absolute z-10 mt-1 w-full border border-gray-200 rounded-lg shadow-md bg-white py-1">
+    <div className="absolute z-10 mt-1 w-full border border-gray-200 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-800 py-1">
       {children}
     </div>
   );
@@ -62,7 +64,7 @@ const Item = ({
   const isHighlighted = highlightedIndex === index;
   return (
     <div
-      className={`px-4 py-2 text-sm cursor-pointer transition-colors ${isHighlighted ? "bg-gray-100" : "hover:bg-gray-100"}`}
+      className={`px-4 py-2 text-sm cursor-pointer transition-colors text-gray-800 dark:text-gray-200 ${isHighlighted ? "bg-gray-100 dark:bg-gray-700" : "hover:bg-gray-100 dark:hover:bg-gray-700"}`}
       onClick={() => handleChange(option, index)}
       role="option"
       aria-selected={isHighlighted}

@@ -26,7 +26,7 @@ const Trigger = () => {
   const { show, setShow, selectedOption, disabled, placeholder } = useDropdown();
   return (
     <div
-      className={`flex items-center justify-between px-4 py-2 border-[3px] border-black shadow-[4px_4px_0_#000] rounded-[2px] font-bold bg-white cursor-pointer select-none hover:bg-yellow-400 transition-colors ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""}`}
+      className={`flex items-center justify-between px-4 py-2 border-[3px] border-black dark:border-white shadow-[4px_4px_0_#000] dark:shadow-[4px_4px_0_rgba(255,255,255,0.3)] rounded-[2px] font-bold bg-white dark:bg-zinc-900 text-black dark:text-white cursor-pointer select-none hover:bg-yellow-400 dark:hover:bg-yellow-400 dark:hover:text-black transition-colors ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""}`}
       onClick={() => !disabled && setShow(!show)}
       role="button"
       tabIndex={disabled ? -1 : 0}
@@ -41,7 +41,7 @@ const Menu = ({ children }: { children: React.ReactNode }) => {
   const { show, disabled } = useDropdown();
   if (!show || disabled) return null;
   return (
-    <div className="absolute z-10 mt-1 w-full border-[3px] border-black shadow-[4px_4px_0_#000] bg-white rounded-[2px]">
+    <div className="absolute z-10 mt-1 w-full border-[3px] border-black dark:border-white shadow-[4px_4px_0_#000] dark:shadow-[4px_4px_0_rgba(255,255,255,0.3)] bg-white dark:bg-zinc-900 rounded-[2px]">
       {children}
     </div>
   );
@@ -60,7 +60,7 @@ const Item = ({
   const isHighlighted = highlightedIndex === index;
   return (
     <div
-      className={`px-4 py-2 text-sm font-medium cursor-pointer transition-colors ${isHighlighted ? "bg-yellow-400" : "hover:bg-yellow-400"}`}
+      className={`px-4 py-2 text-sm font-medium text-black dark:text-white cursor-pointer transition-colors ${isHighlighted ? "bg-yellow-400 dark:bg-yellow-400 dark:text-black" : "hover:bg-yellow-400 dark:hover:bg-yellow-400 dark:hover:text-black"}`}
       onClick={() => handleChange(option, index)}
       role="option"
       aria-selected={isHighlighted}

@@ -17,7 +17,7 @@ const Trigger = ({ children, className = "" }: PopoverTriggerProps) => {
       type="button"
       onClick={() => setOpen(!open)}
       aria-expanded={open}
-      className={["inline-flex items-center px-4 py-2 border-[3px] border-black shadow-[4px_4px_0_#000] rounded-[2px] font-extrabold bg-white hover:bg-yellow-400 transition-colors cursor-pointer font-sans text-sm", className].filter(Boolean).join(" ")}
+      className={["inline-flex items-center px-4 py-2 border-[3px] border-black dark:border-white shadow-[4px_4px_0_#000] dark:shadow-[4px_4px_0_rgba(255,255,255,0.3)] rounded-[2px] font-extrabold bg-white dark:bg-zinc-900 text-black dark:text-white hover:bg-yellow-400 dark:hover:bg-yellow-400 dark:hover:text-black transition-colors cursor-pointer font-sans text-sm", className].filter(Boolean).join(" ")}
     >
       {children}
     </button>
@@ -29,7 +29,7 @@ const Content = ({ children, className = "" }: PopoverContentProps) => {
   if (!open) return null;
   return (
     <div
-      className={["absolute z-50 top-full left-0 mt-2 min-w-[200px] bg-white border-[3px] border-black shadow-[4px_4px_0_#000] rounded-[2px] p-4 font-sans", className].filter(Boolean).join(" ")}
+      className={["absolute z-50 top-full left-0 mt-2 min-w-[200px] bg-white dark:bg-zinc-900 border-[3px] border-black dark:border-white shadow-[4px_4px_0_#000] dark:shadow-[4px_4px_0_rgba(255,255,255,0.3)] rounded-[2px] p-4 font-sans text-black dark:text-white", className].filter(Boolean).join(" ")}
     >
       {children}
     </div>

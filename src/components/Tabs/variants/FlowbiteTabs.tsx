@@ -14,7 +14,7 @@ const FlowbiteTabs = ({
 
   return (
     <div className="w-full">
-      <div className="flex border-b border-gray-200 gap-1">
+      <div className="flex border-b border-gray-200 dark:border-gray-600 gap-1">
         {items.map((item) => {
           const isActive = item.id === activeTab.id;
           return (
@@ -24,8 +24,8 @@ const FlowbiteTabs = ({
               onClick={() => !item.disabled && setActiveTab(item)}
               className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors disabled:opacity-40 disabled:cursor-not-allowed ${
                 isActive
-                  ? "border-[#1c64f2] text-[#1c64f2]"
-                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                  ? "border-[#1c64f2] text-[#1c64f2] dark:border-blue-400 dark:text-blue-400"
+                  : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-500"
               }`}
             >
               {item.label}
@@ -33,7 +33,7 @@ const FlowbiteTabs = ({
           );
         })}
       </div>
-      <div className="pt-4 text-sm text-gray-700">{activeTab.content}</div>
+      <div className="pt-4 text-sm text-gray-700 dark:text-gray-300">{activeTab.content}</div>
     </div>
   );
 };

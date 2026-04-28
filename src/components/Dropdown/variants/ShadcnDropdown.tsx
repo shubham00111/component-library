@@ -26,15 +26,17 @@ const Trigger = () => {
   const { show, setShow, selectedOption, disabled, placeholder } = useDropdown();
   return (
     <div
-      className={`flex items-center justify-between px-4 py-2 border border-zinc-200 rounded-[6px] text-sm font-medium shadow-sm bg-white cursor-pointer select-none hover:bg-zinc-50 transition-colors ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""}`}
+      className={`flex items-center justify-between px-4 py-2 border border-zinc-200 dark:border-zinc-700 rounded-[6px] text-sm font-medium shadow-sm bg-white dark:bg-zinc-900 cursor-pointer select-none hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""}`}
       onClick={() => !disabled && setShow(!show)}
       role="button"
       tabIndex={disabled ? -1 : 0}
     >
-      <span className={selectedOption ? "text-zinc-900" : "text-zinc-500"}>
+      <span className={selectedOption ? "text-zinc-900 dark:text-zinc-100" : "text-zinc-500 dark:text-zinc-400"}>
         {selectedOption ? selectedOption.label : placeholder}
       </span>
-      {show ? <ChevronUp size={16} className="text-zinc-500" /> : <ChevronDown size={16} className="text-zinc-500" />}
+      {show
+        ? <ChevronUp size={16} className="text-zinc-500 dark:text-zinc-400" />
+        : <ChevronDown size={16} className="text-zinc-500 dark:text-zinc-400" />}
     </div>
   );
 };
@@ -43,7 +45,7 @@ const Menu = ({ children }: { children: React.ReactNode }) => {
   const { show, disabled } = useDropdown();
   if (!show || disabled) return null;
   return (
-    <div className="absolute z-10 mt-1 w-full border border-zinc-200 rounded-[6px] shadow-md bg-white py-1">
+    <div className="absolute z-10 mt-1 w-full border border-zinc-200 dark:border-zinc-700 rounded-[6px] shadow-md bg-white dark:bg-zinc-900 py-1">
       {children}
     </div>
   );
@@ -62,7 +64,7 @@ const Item = ({
   const isHighlighted = highlightedIndex === index;
   return (
     <div
-      className={`mx-1 px-3 py-1.5 text-sm rounded-[4px] cursor-pointer transition-colors ${isHighlighted ? "bg-zinc-100" : "hover:bg-zinc-100"}`}
+      className={`mx-1 px-3 py-1.5 text-sm rounded-[4px] cursor-pointer transition-colors text-zinc-900 dark:text-zinc-100 ${isHighlighted ? "bg-zinc-100 dark:bg-zinc-800" : "hover:bg-zinc-100 dark:hover:bg-zinc-800"}`}
       onClick={() => handleChange(option, index)}
       role="option"
       aria-selected={isHighlighted}

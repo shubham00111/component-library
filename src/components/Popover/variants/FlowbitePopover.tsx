@@ -29,7 +29,7 @@ const Content = ({ children, className = "" }: PopoverContentProps) => {
   if (!open) return null;
   return (
     <div
-      className={["absolute z-50 top-full left-0 mt-2 min-w-[200px] bg-white border border-gray-200 shadow-lg rounded-lg p-4 font-sans", className].filter(Boolean).join(" ")}
+      className={["absolute z-50 top-full left-0 mt-2 min-w-[200px] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 shadow-lg rounded-lg p-4 font-sans text-gray-900 dark:text-gray-100", className].filter(Boolean).join(" ")}
     >
       {children}
     </div>

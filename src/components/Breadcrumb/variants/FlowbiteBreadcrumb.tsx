@@ -6,12 +6,12 @@ const Item = ({ label, href, className = "" }: BreadcrumbItemProps) => {
   return href ? (
     <a
       href={href}
-      className={["text-sm font-medium text-[#1c64f2] hover:text-[#1a56db] transition-colors duration-200", className].filter(Boolean).join(" ")}
+      className={["text-sm font-medium text-[#1c64f2] dark:text-blue-400 hover:text-[#1a56db] dark:hover:text-blue-300 transition-colors duration-200", className].filter(Boolean).join(" ")}
     >
       {label}
     </a>
   ) : (
-    <span className={["text-sm font-medium text-gray-500", className].filter(Boolean).join(" ")} aria-current="page">
+    <span className={["text-sm font-medium text-gray-500 dark:text-gray-400", className].filter(Boolean).join(" ")} aria-current="page">
       {label}
     </span>
   );
@@ -27,7 +27,7 @@ const FlowbiteBreadcrumb = ({ children, className = "" }: BreadcrumbProps) => {
           <li key={index} className="flex items-center">
             {child}
             {index < items.length - 1 && (
-              <span className="mx-2 text-sm text-gray-400 select-none">›</span>
+              <span className="mx-2 text-sm text-gray-400 dark:text-gray-500 select-none">›</span>
             )}
           </li>
         ))}

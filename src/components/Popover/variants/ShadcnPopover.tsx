@@ -17,7 +17,7 @@ const Trigger = ({ children, className = "" }: PopoverTriggerProps) => {
       type="button"
       onClick={() => setOpen(!open)}
       aria-expanded={open}
-      className={["inline-flex items-center px-3 py-2 border border-zinc-200 rounded-[6px] shadow-sm font-medium bg-white hover:bg-zinc-50 transition-colors duration-150 cursor-pointer font-sans text-sm text-zinc-900", className].filter(Boolean).join(" ")}
+      className={["inline-flex items-center px-3 py-2 border border-zinc-200 dark:border-zinc-700 rounded-[6px] shadow-sm font-medium bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors duration-150 cursor-pointer font-sans text-sm text-zinc-900 dark:text-zinc-100", className].filter(Boolean).join(" ")}
     >
       {children}
     </button>
@@ -29,7 +29,7 @@ const Content = ({ children, className = "" }: PopoverContentProps) => {
   if (!open) return null;
   return (
     <div
-      className={["absolute z-50 top-full left-0 mt-2 min-w-[200px] bg-white border border-zinc-200 shadow-md rounded-[6px] p-4 font-sans", className].filter(Boolean).join(" ")}
+      className={["absolute z-50 top-full left-0 mt-2 min-w-[200px] bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 shadow-md rounded-[6px] p-4 font-sans text-zinc-900 dark:text-zinc-100", className].filter(Boolean).join(" ")}
     >
       {children}
     </div>

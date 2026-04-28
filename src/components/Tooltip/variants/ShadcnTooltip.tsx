@@ -30,7 +30,7 @@ const ShadcnTooltip = ({
         <span
           role="tooltip"
           className={[
-            "absolute z-50 px-2.5 py-1.5 text-xs font-medium font-sans text-white bg-zinc-900 rounded-[6px] shadow-md whitespace-nowrap pointer-events-none",
+            "absolute z-50 px-2.5 py-1.5 text-xs font-medium font-sans text-white bg-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 rounded-[6px] shadow-md whitespace-nowrap pointer-events-none",
             PLACEMENT_CLASSES[placement],
           ].join(" ")}
         >

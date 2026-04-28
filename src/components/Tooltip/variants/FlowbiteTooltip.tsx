@@ -30,7 +30,7 @@ const FlowbiteTooltip = ({
         <span
           role="tooltip"
           className={[
-            "absolute z-50 px-3 py-2 text-xs font-medium font-sans text-white bg-gray-800 rounded-lg shadow-lg whitespace-nowrap pointer-events-none transition-opacity duration-200",
+            "absolute z-50 px-3 py-2 text-xs font-medium font-sans text-white bg-gray-800 dark:bg-gray-200 dark:text-gray-900 rounded-lg shadow-lg whitespace-nowrap pointer-events-none transition-opacity duration-200",
             PLACEMENT_CLASSES[placement],
           ].join(" ")}
         >

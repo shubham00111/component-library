@@ -30,7 +30,7 @@ const NeobrutalismTooltip = ({
         <span
           role="tooltip"
           className={[
-            "absolute z-50 px-2.5 py-1.5 text-xs font-extrabold font-sans text-white bg-black border-[2px] border-black shadow-[3px_3px_0_#555] whitespace-nowrap rounded-none pointer-events-none",
+            "absolute z-50 px-2.5 py-1.5 text-xs font-extrabold font-sans text-white bg-black dark:bg-white dark:text-black border-[2px] border-black dark:border-white shadow-[3px_3px_0_#555] dark:shadow-[3px_3px_0_rgba(0,0,0,0.4)] whitespace-nowrap rounded-none pointer-events-none",
             PLACEMENT_CLASSES[placement],
           ].join(" ")}
         >
