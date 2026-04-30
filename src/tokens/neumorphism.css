@@ -1,0 +1,26 @@
+/* Neumorphism (Soft UI) Design Tokens */
+:root {
+  --nm-bg: #e0e5ec;
+  --nm-text: #6c7a9c;
+  --nm-text-strong: #3d4f6e;
+  --nm-shadow-convex: -5px -5px 10px #ffffff, 5px 5px 10px rgba(163, 177, 198, 0.6);
+  --nm-shadow-concave: inset -5px -5px 10px #ffffff, inset 5px 5px 10px rgba(163, 177, 198, 0.6);
+  --nm-shadow-hover: -3px -3px 6px #ffffff, 3px 3px 6px rgba(163, 177, 198, 0.5);
+  --nm-shadow-flat: -2px -2px 5px #ffffff, 2px 2px 5px rgba(163, 177, 198, 0.4);
+  --nm-accent: #6c7a9c;
+  --nm-accent-active: #4a5a80;
+  --nm-radius: 12px;
+  --nm-transition: 150ms ease;
+}
+
+.dark {
+  --nm-bg: #2d2d3a;
+  --nm-text: #a0a8c0;
+  --nm-text-strong: #c5cde0;
+  --nm-shadow-convex: -5px -5px 10px #3d3d4e, 5px 5px 10px #1d1d28;
+  --nm-shadow-concave: inset -5px -5px 10px #3d3d4e, inset 5px 5px 10px #1d1d28;
+  --nm-shadow-hover: -3px -3px 6px #3d3d4e, 3px 3px 6px #1d1d28;
+  --nm-shadow-flat: -2px -2px 5px #3d3d4e, 2px 2px 5px #1d1d28;
+  --nm-accent: #a0a8c0;
+  --nm-accent-active: #c5cde0;
+}

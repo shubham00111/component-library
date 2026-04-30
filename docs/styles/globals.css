@@ -4,6 +4,9 @@
 @import "../../src/tokens/neobrutalism.css";
 @import "../../src/tokens/shadcn.css";
 @import "../../src/tokens/flowbite.css";
+@import "../../src/tokens/glassmorphism.css";
+@import "../../src/tokens/md3.css";
+@import "../../src/tokens/neumorphism.css";
 
 :root {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;

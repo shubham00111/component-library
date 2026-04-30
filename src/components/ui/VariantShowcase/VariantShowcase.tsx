@@ -3,7 +3,7 @@ import "./VariantShowcase.css";
 
 export interface VariantItem {
   label: string;
-  designLanguage: "neobrutalism" | "shadcn" | "flowbite";
+  designLanguage: "neobrutalism" | "shadcn" | "flowbite" | "glassmorphism" | "md3" | "neumorphism";
   children: React.ReactNode;
 }
 
@@ -23,7 +23,7 @@ const VariantShowcase = ({
       {title && <div className="vs-title">{title}</div>}
       <div className={`vs-grid vs-grid--${layout}`}>
         {variants.map((variant) => (
-          <div key={variant.label} className="vs-card">
+          <div key={variant.label} className={`vs-card vs-card--${variant.designLanguage}`}>
             <div className={`vs-label vs-label--${variant.designLanguage}`}>
               {variant.label}
             </div>

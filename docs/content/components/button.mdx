@@ -5,11 +5,14 @@ title: Button
 import { loadSnippets } from "../../lib/snippets";
 import { ComponentShowcase } from "../../components/ComponentShowcase";
 import { SnippetViewer } from "../../components/SnippetViewer";
-import { NeobrutalismButton, ShadcnButton, FlowbiteButton } from "@lib/components/Button";
+import { NeobrutalismButton, ShadcnButton, FlowbiteButton, GlassmorphismButton, Md3Button, NmButton } from "@lib/components/Button";
 import {
   NeobrutalismButtonPreview,
   ShadcnButtonPreview,
   FlowbiteButtonPreview,
+  GlassmorphismButtonPreview,
+  Md3ButtonPreview,
+  NmButtonPreview,
 } from "../../components/ButtonVariants";
 
 export const snippets = loadSnippets("Button");
@@ -37,6 +40,21 @@ A versatile action trigger available in three design languages, each with `prima
       designLanguage: "flowbite",
       children: <FlowbiteButton variant="primary">Click me</FlowbiteButton>,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismButton variant="primary">Click me</GlassmorphismButton>,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3Button variant="primary">Click me</Md3Button>,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmButton variant="primary">Click me</NmButton>,
+    },
   ]}
 />
 
@@ -57,3 +75,21 @@ Neutral zinc palette, subtle shadow, 6 px radius, accessible focus ring.
 Blue `#1c64f2` primary, 8 px radius, smooth hover transition, blue glow on focus.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteButtonPreview />} />
+
+## Glassmorphism
+
+Frosted-glass panels with `backdrop-blur`, semi-transparent whites, glowing borders. Place inside a gradient container for the full effect.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismButtonPreview />} />
+
+## Material Design 3
+
+Google's Material You system — purple `#6750A4` primary, tonal lavender container, pill-shaped `20px` radius, gentle elevation shadows.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3ButtonPreview />} />
+
+## Neumorphism
+
+Soft UI — elements appear to extrude from the background via dual-tone shadows. Place inside a `#e0e5ec` container for the effect to work.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmButtonPreview />} />

@@ -103,3 +103,53 @@
   background: #18181b;
 }
 
+/* Glassmorphism label */
+.vs-label--glassmorphism {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* MD3 label */
+.vs-label--md3 {
+  background: #eaddff;
+  color: #21005d;
+  border-color: #ccc2dc;
+}
+
+.dark .vs-label--md3 {
+  background: #4f378b;
+  color: #eaddff;
+  border-color: #6650a4;
+}
+
+/* Neumorphism label */
+.vs-label--neumorphism {
+  background: #e0e5ec;
+  color: #6c7a9c;
+  border-color: rgba(163, 177, 198, 0.5);
+}
+
+.dark .vs-label--neumorphism {
+  background: #2d2d3a;
+  color: #a0a8c0;
+  border-color: #3d3d4e;
+}
+
+/* Special preview backgrounds for design languages that need specific base colors */
+.vs-card--glassmorphism .vs-preview {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.dark .vs-card--glassmorphism .vs-preview {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.vs-card--neumorphism .vs-preview {
+  background: #e0e5ec;
+}
+
+.dark .vs-card--neumorphism .vs-preview {
+  background: #2d2d3a;
+}
+

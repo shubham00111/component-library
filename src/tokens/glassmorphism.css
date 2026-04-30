@@ -1,0 +1,19 @@
+/* Glassmorphism Design Tokens */
+:root {
+  --glass-blur: blur(12px) saturate(180%);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-bg-hover: rgba(255, 255, 255, 0.18);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-border-strong: rgba(255, 255, 255, 0.35);
+  --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  --glass-radius: 12px;
+  --glass-text: #ffffff;
+  --glass-text-muted: rgba(255, 255, 255, 0.7);
+  --glass-transition: 200ms ease;
+}
+
+.dark {
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-bg-hover: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
