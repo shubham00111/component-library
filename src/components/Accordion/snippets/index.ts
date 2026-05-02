@@ -180,3 +180,84 @@ FlowbiteAccordion.Description = Description;
     </FlowbiteAccordion.Description>
   </FlowbiteAccordion.Item>
 </FlowbiteAccordion>`;
+
+export const glassmorphismJsx = `const GlassmorphismAccordion = ({ items = [], allowMultiple = false }) => {
+  const [open, setOpen] = useState(new Set());
+  const toggle = (id) => setOpen((prev) => {
+    const next = new Set(allowMultiple ? prev : []);
+    prev.has(id) ? next.delete(id) : next.add(id);
+    return next;
+  });
+  return (
+    <div className="flex flex-col gap-2 font-sans">
+      {items.map((item) => (
+        <div key={item.id} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl overflow-hidden">
+          <button
+            onClick={() => toggle(item.id)}
+            className="w-full flex items-center justify-between px-4 py-3 text-left text-[0.9375rem] font-medium text-white hover:bg-white/10 transition-colors duration-200"
+          >
+            <span>{item.title}</span>
+            <span className={\`transition-transform duration-200 text-white/70 \${open.has(item.id) ? "rotate-180" : ""}\`}>▾</span>
+          </button>
+          {open.has(item.id) && (
+            <div className="px-4 pb-4 text-sm text-white/70 border-t border-white/10 pt-3">{item.content}</div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};`;
+
+export const md3Jsx = `const Md3Accordion = ({ items = [], allowMultiple = false }) => {
+  const [open, setOpen] = useState(new Set());
+  const toggle = (id) => setOpen((prev) => {
+    const next = new Set(allowMultiple ? prev : []);
+    prev.has(id) ? next.delete(id) : next.add(id);
+    return next;
+  });
+  return (
+    <div className="flex flex-col font-sans border border-[#e7e0ec] rounded-[12px] overflow-hidden">
+      {items.map((item, i) => (
+        <div key={item.id} className={\`\${i > 0 ? "border-t border-[#e7e0ec]" : ""}\`}>
+          <button
+            onClick={() => toggle(item.id)}
+            className={\`w-full flex items-center justify-between px-4 py-3 text-left text-[0.9375rem] font-medium transition-colors duration-200 \${open.has(item.id) ? "bg-[#f3edf7] text-[#6750a4]" : "bg-[#fffbfe] text-[#1c1b1f] hover:bg-[#f3edf7]"}\`}
+          >
+            <span>{item.title}</span>
+            <span className={\`transition-transform duration-200 \${open.has(item.id) ? "rotate-180 text-[#6750a4]" : "text-[#49454f]"}\`}>▾</span>
+          </button>
+          {open.has(item.id) && (
+            <div className="px-4 pb-4 text-sm text-[#49454f] bg-[#fffbfe] pt-3">{item.content}</div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};`;
+
+export const nmJsx = `const NmAccordion = ({ items = [], allowMultiple = false }) => {
+  const [open, setOpen] = useState(new Set());
+  const toggle = (id) => setOpen((prev) => {
+    const next = new Set(allowMultiple ? prev : []);
+    prev.has(id) ? next.delete(id) : next.add(id);
+    return next;
+  });
+  return (
+    <div className="flex flex-col gap-3 font-sans">
+      {items.map((item) => (
+        <div key={item.id} className="bg-[#e0e5ec] rounded-xl overflow-hidden shadow-[-5px_-5px_10px_#ffffff,_5px_5px_10px_rgba(163,177,198,0.6)]">
+          <button
+            onClick={() => toggle(item.id)}
+            className={\`w-full flex items-center justify-between px-4 py-3 text-left text-[0.9375rem] font-semibold text-[#6c7a9c] transition-all duration-150 \${open.has(item.id) ? "shadow-[inset_-2px_-2px_5px_#ffffff,_inset_2px_2px_5px_rgba(163,177,198,0.4)]" : ""}\`}
+          >
+            <span>{item.title}</span>
+            <span className={\`transition-transform duration-200 text-[#6c7a9c]/60 \${open.has(item.id) ? "rotate-180" : ""}\`}>▾</span>
+          </button>
+          {open.has(item.id) && (
+            <div className="px-4 pb-4 text-sm text-[#6c7a9c] border-t border-[rgba(163,177,198,0.3)] pt-3">{item.content}</div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};`;

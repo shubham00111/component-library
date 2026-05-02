@@ -3,9 +3,10 @@ title: Toast
 ---
 
 import { loadSnippets } from "../../lib/snippets";
+import { ComponentShowcase } from "../../components/ComponentShowcase";
 import { SnippetViewer } from "../../components/SnippetViewer";
 import { ToastPreview } from "../../components/ToastPreview";
-import { NeobrutalismToast, ShadcnToast, FlowbiteToast } from "@lib/components/Toast";
+import { NeobrutalismToast, ShadcnToast, FlowbiteToast, GlassmorphismToast, Md3Toast, NmToast } from "@lib/components/Toast";
 
 export const snippets = loadSnippets("Toast");
 
@@ -26,3 +27,21 @@ Fixed-position notification overlay. Variants: `success`, `error`, `warning`, `i
 ## Flowbite-inspired
 
 <SnippetViewer react={snippets.flowbite.react} preview={<ToastPreview><FlowbiteToast iconType="warning" position="bottom-right">Connection unstable.</FlowbiteToast></ToastPreview>} />
+
+## Glassmorphism
+
+Frosted glass notification with backdrop blur and translucent border.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<ToastPreview><GlassmorphismToast iconType="success" position="bottom-right">Changes saved successfully.</GlassmorphismToast></ToastPreview>} />
+
+## Material Design 3
+
+Dark surface `#313033` chip with icon and muted close button.
+
+<SnippetViewer react={snippets.md3.react} preview={<ToastPreview><Md3Toast iconType="info" position="bottom-right">Your session will expire in 5 minutes.</Md3Toast></ToastPreview>} />
+
+## Neumorphism
+
+Raised card on base background with dual-tone shadow and blue-gray text.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<ToastPreview><NmToast iconType="warning" position="bottom-right">Connection unstable.</NmToast></ToastPreview>} />

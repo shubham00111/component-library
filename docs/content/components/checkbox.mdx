@@ -9,6 +9,9 @@ import {
   NeobrutalismCheckboxPreview,
   ShadcnCheckboxPreview,
   FlowbiteCheckboxPreview,
+  GlassmorphismCheckboxPreview,
+  Md3CheckboxPreview,
+  NmCheckboxPreview,
 } from "../../components/CheckboxVariants";
 
 export const snippets = loadSnippets("Checkbox");
@@ -36,6 +39,21 @@ Square multi-select input with checked, unchecked, and indeterminate states. Dis
       designLanguage: "flowbite",
       children: <FlowbiteCheckboxPreview />,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismCheckboxPreview />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3CheckboxPreview />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmCheckboxPreview />,
+    },
   ]}
   layout="column"
 />
@@ -57,3 +75,21 @@ Zinc border, dark zinc fill, white checkmark, subtle focus ring.
 Blue fill (`#1c64f2`), `rounded-sm`, white checkmark, smooth transition.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteCheckboxPreview />} />
+
+## Glassmorphism
+
+Translucent frosted checkbox with white checkmark on gradient background.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismCheckboxPreview />} />
+
+## Material Design 3
+
+Purple filled square, white checkmark, smooth checked transition.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3CheckboxPreview />} />
+
+## Neumorphism
+
+Convex (raised) unchecked, concave (inset) when checked — shadow-only depth.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmCheckboxPreview />} />

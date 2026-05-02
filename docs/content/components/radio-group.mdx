@@ -9,6 +9,9 @@ import {
   NeobrutalismRadioGroupPreview,
   ShadcnRadioGroupPreview,
   FlowbiteRadioGroupPreview,
+  GlassmorphismRadioGroupPreview,
+  Md3RadioGroupPreview,
+  NmRadioGroupPreview,
 } from "../../components/RadioGroupVariants";
 
 export const snippets = loadSnippets("RadioGroup");
@@ -36,6 +39,21 @@ Mutually exclusive option selector. Compound sub-components: `RadioGroup` + `Rad
       designLanguage: "flowbite",
       children: <FlowbiteRadioGroupPreview />,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismRadioGroupPreview />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3RadioGroupPreview />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmRadioGroupPreview />,
+    },
   ]}
   layout="column"
 />
@@ -57,3 +75,21 @@ Thin zinc circle, dark filled dot, white center, muted label.
 Blue filled dot (`#1c64f2`), white center, smooth transition.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteRadioGroupPreview />} />
+
+## Glassmorphism
+
+Translucent frosted circle with white center dot on gradient background.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismRadioGroupPreview />} />
+
+## Material Design 3
+
+Purple bordered ring, filled dot on selection, smooth transition.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3RadioGroupPreview />} />
+
+## Neumorphism
+
+Convex (raised) unselected, concave (inset) when selected, blue-gray dot.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmRadioGroupPreview />} />

@@ -97,3 +97,66 @@ FlowbiteRadioGroup.Item = ({ value, label, disabled: itemDisabled = false }) => 
     </label>
   );
 };`;
+
+export const glassmorphismJsx = `const GlassmorphismRadioGroup = ({ options = [], value, defaultValue, onChange, name = "glass-radio", disabled = false }) => {
+  const [selected, setSelected] = useState(value ?? defaultValue ?? "");
+  return (
+    <fieldset className="flex flex-col gap-2 border-none p-0 m-0">
+      {options.map((opt) => (
+        <label key={opt.value} className={\`inline-flex items-center gap-2.5 font-sans cursor-pointer\${(disabled || opt.disabled) ? " cursor-not-allowed opacity-40" : ""}\`}>
+          <span className="relative flex-shrink-0 w-5 h-5">
+            <input type="radio" name={name} value={opt.value} checked={selected === opt.value} disabled={disabled || opt.disabled}
+              onChange={() => { setSelected(opt.value); onChange?.(opt.value); }}
+              className="absolute opacity-0 w-0 h-0" />
+            <span className={\`block w-5 h-5 rounded-full border backdrop-blur-md transition-all duration-200 \${selected === opt.value ? "bg-white/40 border-white/60" : "bg-white/10 border-white/30"}\`}>
+              {selected === opt.value && <span className="absolute inset-0 flex items-center justify-center"><span className="w-2 h-2 rounded-full bg-white" /></span>}
+            </span>
+          </span>
+          <span className="text-[0.9375rem] font-medium text-white">{opt.label}</span>
+        </label>
+      ))}
+    </fieldset>
+  );
+};`;
+
+export const md3Jsx = `const Md3RadioGroup = ({ options = [], value, defaultValue, onChange, name = "md3-radio", disabled = false }) => {
+  const [selected, setSelected] = useState(value ?? defaultValue ?? "");
+  return (
+    <fieldset className="flex flex-col gap-2 border-none p-0 m-0">
+      {options.map((opt) => (
+        <label key={opt.value} className={\`inline-flex items-center gap-2.5 font-sans cursor-pointer\${(disabled || opt.disabled) ? " cursor-not-allowed opacity-40" : ""}\`}>
+          <span className="relative flex-shrink-0 w-5 h-5">
+            <input type="radio" name={name} value={opt.value} checked={selected === opt.value} disabled={disabled || opt.disabled}
+              onChange={() => { setSelected(opt.value); onChange?.(opt.value); }}
+              className="absolute opacity-0 w-0 h-0" />
+            <span className={\`block w-5 h-5 rounded-full border-2 transition-all duration-200 \${selected === opt.value ? "border-[#6750a4]" : "border-[#79747e]"}\`}>
+              {selected === opt.value && <span className="absolute inset-0 flex items-center justify-center"><span className="w-2.5 h-2.5 rounded-full bg-[#6750a4]" /></span>}
+            </span>
+          </span>
+          <span className="text-[0.9375rem] font-medium text-[#1c1b1f]">{opt.label}</span>
+        </label>
+      ))}
+    </fieldset>
+  );
+};`;
+
+export const nmJsx = `const NmRadioGroup = ({ options = [], value, defaultValue, onChange, name = "nm-radio", disabled = false }) => {
+  const [selected, setSelected] = useState(value ?? defaultValue ?? "");
+  return (
+    <fieldset className="flex flex-col gap-2 border-none p-0 m-0">
+      {options.map((opt) => (
+        <label key={opt.value} className={\`inline-flex items-center gap-2.5 font-sans cursor-pointer\${(disabled || opt.disabled) ? " cursor-not-allowed opacity-50" : ""}\`}>
+          <span className="relative flex-shrink-0 w-5 h-5">
+            <input type="radio" name={name} value={opt.value} checked={selected === opt.value} disabled={disabled || opt.disabled}
+              onChange={() => { setSelected(opt.value); onChange?.(opt.value); }}
+              className="absolute opacity-0 w-0 h-0" />
+            <span className={\`block w-5 h-5 rounded-full bg-[#e0e5ec] transition-all duration-150 \${selected === opt.value ? "shadow-[inset_-3px_-3px_6px_#ffffff,_inset_3px_3px_6px_rgba(163,177,198,0.6)]" : "shadow-[-3px_-3px_6px_#ffffff,_3px_3px_6px_rgba(163,177,198,0.5)]"}\`}>
+              {selected === opt.value && <span className="absolute inset-0 flex items-center justify-center"><span className="w-2 h-2 rounded-full bg-[#6c7a9c]" /></span>}
+            </span>
+          </span>
+          <span className="text-[0.9375rem] font-semibold text-[#6c7a9c]">{opt.label}</span>
+        </label>
+      ))}
+    </fieldset>
+  );
+};`;

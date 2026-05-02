@@ -5,11 +5,14 @@ title: Badge
 import { loadSnippets } from "../../lib/snippets";
 import { ComponentShowcase } from "../../components/ComponentShowcase";
 import { SnippetViewer } from "../../components/SnippetViewer";
-import { NeobrutalismBadge, ShadcnBadge, FlowbiteBadge } from "@lib/components/Badge";
+import { NeobrutalismBadge, ShadcnBadge, FlowbiteBadge, GlassmorphismBadge, Md3Badge, NmBadge } from "@lib/components/Badge";
 import {
   NeobrutalismBadgePreview,
   ShadcnBadgePreview,
   FlowbiteBadgePreview,
+  GlassmorphismBadgePreview,
+  Md3BadgePreview,
+  NmBadgePreview,
 } from "../../components/BadgeVariants";
 
 export const snippets = loadSnippets("Badge");
@@ -58,6 +61,42 @@ Small inline label for status, count, or category. Variants: `default`, `success
         </div>
       ),
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: (
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          <GlassmorphismBadge variant="default">Default</GlassmorphismBadge>
+          <GlassmorphismBadge variant="success">Success</GlassmorphismBadge>
+          <GlassmorphismBadge variant="warning">Warning</GlassmorphismBadge>
+          <GlassmorphismBadge variant="destructive">Error</GlassmorphismBadge>
+        </div>
+      ),
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: (
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          <Md3Badge variant="default">Default</Md3Badge>
+          <Md3Badge variant="success">Success</Md3Badge>
+          <Md3Badge variant="warning">Warning</Md3Badge>
+          <Md3Badge variant="destructive">Error</Md3Badge>
+        </div>
+      ),
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: (
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          <NmBadge variant="default">Default</NmBadge>
+          <NmBadge variant="success">Success</NmBadge>
+          <NmBadge variant="warning">Warning</NmBadge>
+          <NmBadge variant="destructive">Error</NmBadge>
+        </div>
+      ),
+    },
   ]}
   layout="column"
 />
@@ -79,3 +118,21 @@ Muted tones, pill shape, lowercase text.
 Rounded, coloured background per variant.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteBadgePreview />} />
+
+## Glassmorphism
+
+Frosted glass pill with blur and translucent border.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismBadgePreview />} />
+
+## Material Design 3
+
+Tonal surface chip with rounded-full shape.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3BadgePreview />} />
+
+## Neumorphism
+
+Raised soft-shadow pill on the base background.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmBadgePreview />} />

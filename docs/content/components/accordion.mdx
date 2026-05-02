@@ -9,6 +9,9 @@ import {
   NeobrutalismAccordionPreview,
   ShadcnAccordionPreview,
   FlowbiteAccordionPreview,
+  GlassmorphismAccordionPreview,
+  Md3AccordionPreview,
+  NmAccordionPreview,
 } from "../../components/AccordionVariants";
 
 export const snippets = loadSnippets("Accordion");
@@ -36,6 +39,21 @@ Collapsible content sections with `Item`, `Title`, and `Description` sub-compone
       designLanguage: "flowbite",
       children: <FlowbiteAccordionPreview />,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismAccordionPreview />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3AccordionPreview />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmAccordionPreview />,
+    },
   ]}
   layout="column"
 />
@@ -57,3 +75,21 @@ Zinc border, underline hover on title, minimal radius.
 Gray border, soft shadow, gray-50 description panel.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteAccordionPreview />} />
+
+## Glassmorphism
+
+Glass panels with backdrop blur and translucent chevron on gradient background.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismAccordionPreview />} />
+
+## Material Design 3
+
+Tonal header fill when open, purple chevron, clean dividers.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3AccordionPreview />} />
+
+## Neumorphism
+
+Raised panel; active header gets concave inset, no border.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmAccordionPreview />} />

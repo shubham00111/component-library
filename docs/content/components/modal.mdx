@@ -9,6 +9,9 @@ import {
   NeobrutalismModalPreview,
   ShadcnModalPreview,
   FlowbiteModalPreview,
+  GlassmorphismModalPreview,
+  Md3ModalPreview,
+  NmModalPreview,
 } from "../../components/ModalVariants";
 
 export const snippets = loadSnippets("Modal");
@@ -36,6 +39,21 @@ Dialog overlay with `Trigger`, `Overlay`, `Dialog`, `Content`, `Title`, and `Clo
       designLanguage: "flowbite",
       children: <FlowbiteModalPreview />,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismModalPreview />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3ModalPreview />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmModalPreview />,
+    },
   ]}
 />
 
@@ -56,3 +74,21 @@ Zinc border, `shadow-lg`, subtle hover states.
 Gray border, blue trigger button, `rounded-lg` container.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteModalPreview />} />
+
+## Glassmorphism
+
+Frosted glass dialog with blurred overlay and translucent border.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismModalPreview />} />
+
+## Material Design 3
+
+28 px radius dialog, dark scrim backdrop, MD3 elevation shadow.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3ModalPreview />} />
+
+## Neumorphism
+
+Raised panel on base background with dual-tone soft shadow.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmModalPreview />} />

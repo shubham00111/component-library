@@ -9,6 +9,9 @@ import {
   NeobrutalismDropdownPreview,
   ShadcnDropdownPreview,
   FlowbiteDropdownPreview,
+  GlassmorphismDropdownPreview,
+  Md3DropdownPreview,
+  NmDropdownPreview,
 } from "../../components/DropdownVariants";
 
 export const snippets = loadSnippets("Dropdown");
@@ -36,6 +39,21 @@ Select input with keyboard navigation (↑↓ Enter Escape) and click-outside di
       designLanguage: "flowbite",
       children: <FlowbiteDropdownPreview />,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismDropdownPreview />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3DropdownPreview />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmDropdownPreview />,
+    },
   ]}
 />
 
@@ -56,3 +74,21 @@ Zinc border, soft shadow, rounded items with zinc hover.
 Gray border, `rounded-lg`, subtle gray hover.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteDropdownPreview />} />
+
+## Glassmorphism
+
+Frosted glass trigger and menu panel on gradient background.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismDropdownPreview />} />
+
+## Material Design 3
+
+Tonal surface menu, 4 px radius, MD3 elevation shadow.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3DropdownPreview />} />
+
+## Neumorphism
+
+Raised trigger and menu on base background with dual-tone shadows.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmDropdownPreview />} />

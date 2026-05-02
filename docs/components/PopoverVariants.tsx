@@ -1,5 +1,5 @@
 "use client";
-import { NeobrutalismPopover, ShadcnPopover, FlowbitePopover } from "@lib/components/Popover";
+import { NeobrutalismPopover, ShadcnPopover, FlowbitePopover, GlassmorphismPopover, Md3Popover, NmPopover } from "@lib/components/Popover";
 
 export function NeobrutalismPopoverPreview() {
   return (
@@ -34,5 +34,45 @@ export function FlowbitePopoverPreview() {
         <p className="text-xs text-gray-500">Gray border, rounded-lg, shadow-lg.</p>
       </FlowbitePopover.Content>
     </FlowbitePopover>
+  );
+}
+
+export function GlassmorphismPopoverPreview() {
+  return (
+    <div style={{ padding: "16px", background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", borderRadius: "8px" }}>
+      <GlassmorphismPopover>
+        <GlassmorphismPopover.Trigger>Open Popover</GlassmorphismPopover.Trigger>
+        <GlassmorphismPopover.Content>
+          <p className="text-sm font-semibold text-white mb-1">Glassmorphism Popover</p>
+          <p className="text-xs text-white/70">Frosted glass panel with backdrop blur.</p>
+        </GlassmorphismPopover.Content>
+      </GlassmorphismPopover>
+    </div>
+  );
+}
+
+export function Md3PopoverPreview() {
+  return (
+    <Md3Popover>
+      <Md3Popover.Trigger>Open Popover</Md3Popover.Trigger>
+      <Md3Popover.Content>
+        <p className="text-sm font-semibold text-[#1c1b1f] mb-1">MD3 Popover</p>
+        <p className="text-xs text-[#49454f]">Rounded surface, soft elevation shadow.</p>
+      </Md3Popover.Content>
+    </Md3Popover>
+  );
+}
+
+export function NmPopoverPreview() {
+  return (
+    <div style={{ padding: "16px", background: "#e0e5ec", borderRadius: "8px" }}>
+      <NmPopover>
+        <NmPopover.Trigger>Open Popover</NmPopover.Trigger>
+        <NmPopover.Content>
+          <p className="text-sm font-semibold text-[#3d4f6e] mb-1">Neumorphism Popover</p>
+          <p className="text-xs text-[#6c7a9c]">Raised card with dual-tone shadows.</p>
+        </NmPopover.Content>
+      </NmPopover>
+    </div>
   );
 }

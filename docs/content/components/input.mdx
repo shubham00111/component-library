@@ -5,11 +5,14 @@ title: Input
 import { loadSnippets } from "../../lib/snippets";
 import { ComponentShowcase } from "../../components/ComponentShowcase";
 import { SnippetViewer } from "../../components/SnippetViewer";
-import { NeobrutalismInput, ShadcnInput, FlowbiteInput } from "@lib/components/Input";
+import { NeobrutalismInput, ShadcnInput, FlowbiteInput, GlassmorphismInput, Md3Input, NmInput } from "@lib/components/Input";
 import {
   NeobrutalismInputPreview,
   ShadcnInputPreview,
   FlowbiteInputPreview,
+  GlassmorphismInputPreview,
+  Md3InputPreview,
+  NmInputPreview,
 } from "../../components/InputVariants";
 
 export const snippets = loadSnippets("Input");
@@ -37,6 +40,21 @@ Text input field with optional label, helper text, and error state. Supports all
       designLanguage: "flowbite",
       children: <FlowbiteInput label="Email address" placeholder="you@example.com" />,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismInput label="Email address" placeholder="you@example.com" />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3Input label="Email address" placeholder="you@example.com" />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmInput label="Email address" placeholder="you@example.com" />,
+    },
   ]}
 />
 
@@ -57,3 +75,21 @@ Zinc border, 6 px radius, ring-offset focus style.
 Blue focus ring, 8 px radius, smooth transition.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteInputPreview />} />
+
+## Glassmorphism
+
+Translucent input on gradient background with blur effect.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismInputPreview />} />
+
+## Material Design 3
+
+Bottom-border outlined field with label colour transition on focus.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3InputPreview />} />
+
+## Neumorphism
+
+Concave inset shadow gives the field a pressed-in appearance.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmInputPreview />} />

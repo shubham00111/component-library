@@ -9,6 +9,9 @@ import {
   NeobrutalismTextareaPreview,
   ShadcnTextareaPreview,
   FlowbiteTextareaPreview,
+  GlassmorphismTextareaPreview,
+  Md3TextareaPreview,
+  NmTextareaPreview,
 } from "../../components/TextareaVariants";
 
 export const snippets = loadSnippets("Textarea");
@@ -36,6 +39,21 @@ Multi-line text input with optional label, helper text, and error state. Mirrors
       designLanguage: "flowbite",
       children: <FlowbiteTextareaPreview />,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismTextareaPreview />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3TextareaPreview />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmTextareaPreview />,
+    },
   ]}
 />
 
@@ -56,3 +74,21 @@ Zinc border, 6 px radius, ring-offset focus style.
 Blue focus ring, `rounded-lg`, smooth transition.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteTextareaPreview />} />
+
+## Glassmorphism
+
+Translucent textarea on gradient background with backdrop blur.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismTextareaPreview />} />
+
+## Material Design 3
+
+Bottom-border outlined field with animated label colour on focus.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3TextareaPreview />} />
+
+## Neumorphism
+
+Concave inset shadow gives the textarea a pressed-in appearance.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmTextareaPreview />} />

@@ -3,6 +3,9 @@
 import NeobrutalismAccordion from "@lib/components/Accordion/variants/NeobrutalismAccordion";
 import ShadcnAccordion from "@lib/components/Accordion/variants/ShadcnAccordion";
 import FlowbiteAccordion from "@lib/components/Accordion/variants/FlowbiteAccordion";
+import GlassmorphismAccordion from "@lib/components/Accordion/variants/GlassmorphismAccordion";
+import Md3Accordion from "@lib/components/Accordion/variants/Md3Accordion";
+import NmAccordion from "@lib/components/Accordion/variants/NmAccordion";
 
 export function NeobrutalismAccordionPreview() {
   return (
@@ -58,5 +61,66 @@ export function FlowbiteAccordionPreview() {
         </FlowbiteAccordion.Description>
       </FlowbiteAccordion.Item>
     </FlowbiteAccordion>
+  );
+}
+
+export function GlassmorphismAccordionPreview() {
+  return (
+    <div style={{ padding: "16px", background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", borderRadius: "8px" }}>
+      <GlassmorphismAccordion>
+        <GlassmorphismAccordion.Item defaultOpen>
+          <GlassmorphismAccordion.Title>Glass design language</GlassmorphismAccordion.Title>
+          <GlassmorphismAccordion.Description>
+            Translucent blur panels with subtle white borders.
+          </GlassmorphismAccordion.Description>
+        </GlassmorphismAccordion.Item>
+        <GlassmorphismAccordion.Item>
+          <GlassmorphismAccordion.Title>How does blur work?</GlassmorphismAccordion.Title>
+          <GlassmorphismAccordion.Description>
+            backdrop-blur-md requires a colourful background behind the element.
+          </GlassmorphismAccordion.Description>
+        </GlassmorphismAccordion.Item>
+      </GlassmorphismAccordion>
+    </div>
+  );
+}
+
+export function Md3AccordionPreview() {
+  return (
+    <Md3Accordion>
+      <Md3Accordion.Item defaultOpen>
+        <Md3Accordion.Title>Material Design 3</Md3Accordion.Title>
+        <Md3Accordion.Description>
+          Purple tonal surfaces, pill radius, soft elevation.
+        </Md3Accordion.Description>
+      </Md3Accordion.Item>
+      <Md3Accordion.Item>
+        <Md3Accordion.Title>What is a tonal container?</Md3Accordion.Title>
+        <Md3Accordion.Description>
+          A lavender-tinted background derived from the primary colour.
+        </Md3Accordion.Description>
+      </Md3Accordion.Item>
+    </Md3Accordion>
+  );
+}
+
+export function NmAccordionPreview() {
+  return (
+    <div style={{ padding: "16px", background: "#e0e5ec", borderRadius: "8px" }}>
+      <NmAccordion>
+        <NmAccordion.Item defaultOpen>
+          <NmAccordion.Title>Neumorphism</NmAccordion.Title>
+          <NmAccordion.Description>
+            Soft dual-tone shadows on a matching background.
+          </NmAccordion.Description>
+        </NmAccordion.Item>
+        <NmAccordion.Item>
+          <NmAccordion.Title>Why must backgrounds match?</NmAccordion.Title>
+          <NmAccordion.Description>
+            The shadow effect needs the component colour to blend with its container.
+          </NmAccordion.Description>
+        </NmAccordion.Item>
+      </NmAccordion>
+    </div>
   );
 }

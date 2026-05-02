@@ -126,3 +126,41 @@ const FlowbiteToast = ({ iconType = "info", children, onClose, position = "botto
     </div>
   );
 };`;
+
+export const glassmorphismJsx = `const VARIANT = {
+  default: "bg-white/15 border-white/20 text-white",
+  success: "bg-emerald-400/20 border-emerald-300/30 text-white",
+  warning: "bg-amber-400/20 border-amber-300/30 text-white",
+  error:   "bg-red-400/20 border-red-300/30 text-white",
+};
+
+const GlassmorphismToast = ({ message, variant = "default", onClose }) => (
+  <div className={\`inline-flex items-center gap-3 px-4 py-3 rounded-xl border backdrop-blur-md shadow-[0_8px_32px_rgba(31,38,135,0.15)] font-sans text-sm font-medium \${VARIANT[variant]}\`}>
+    <span className="flex-1">{message}</span>
+    {onClose && <button onClick={onClose} className="text-white/60 hover:text-white transition-colors leading-none text-base">×</button>}
+  </div>
+);`;
+
+export const md3Jsx = `const ICON = { default: "ℹ", success: "✓", warning: "⚠", error: "✕" };
+
+const Md3Toast = ({ message, variant = "default", onClose }) => (
+  <div className="inline-flex items-center gap-3 px-4 py-3.5 rounded-[4px] bg-[#313033] text-[#e6e1e5] font-sans text-sm shadow-[0_3px_5px_rgba(0,0,0,0.2),0_6px_10px_rgba(0,0,0,0.14)]">
+    <span className="text-base">{ICON[variant]}</span>
+    <span className="flex-1">{message}</span>
+    {onClose && <button onClick={onClose} className="text-[#cac4d0] hover:text-white transition-colors leading-none text-base ml-2">×</button>}
+  </div>
+);`;
+
+export const nmJsx = `const VARIANT = {
+  default: "text-[#6c7a9c]",
+  success: "text-emerald-600",
+  warning: "text-amber-600",
+  error:   "text-red-500",
+};
+
+const NmToast = ({ message, variant = "default", onClose }) => (
+  <div className={\`inline-flex items-center gap-3 px-4 py-3 rounded-xl bg-[#e0e5ec] shadow-[-5px_-5px_10px_#ffffff,_5px_5px_10px_rgba(163,177,198,0.6)] font-sans text-sm font-semibold \${VARIANT[variant]}\`}>
+    <span className="flex-1">{message}</span>
+    {onClose && <button onClick={onClose} className="text-[#6c7a9c]/60 hover:text-[#3d4f6e] transition-colors leading-none text-base">×</button>}
+  </div>
+);`;

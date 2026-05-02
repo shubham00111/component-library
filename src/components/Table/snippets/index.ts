@@ -137,3 +137,96 @@ export const flowbiteJsx = `const FlowbiteTable = ({ columns, data }) => {
     </div>
   );
 };`;
+
+export const glassmorphismJsx = `const GlassmorphismTable = ({ columns, data }) => {
+  const [sortKey, setSortKey] = useState(null);
+  const [sortAsc, setSortAsc] = useState(true);
+  const handleSort = (key) => { if (sortKey === key) setSortAsc(!sortAsc); else { setSortKey(key); setSortAsc(true); } };
+  const sorted = sortKey ? [...data].sort((a, b) => sortAsc ? String(a[sortKey] ?? "").localeCompare(String(b[sortKey] ?? "")) : String(b[sortKey] ?? "").localeCompare(String(a[sortKey] ?? ""))) : data;
+
+  return (
+    <div className="w-full overflow-x-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-[0_8px_32px_rgba(31,38,135,0.15)] font-sans">
+      <table className="w-full border-collapse text-sm">
+        <thead>
+          <tr className="border-b border-white/15">
+            {columns.map((col) => (
+              <th key={col.key} onClick={col.sortable ? () => handleSort(col.key) : undefined}
+                className={\`px-4 py-3 text-left text-xs font-semibold text-white/80 uppercase tracking-wide \${col.sortable ? "cursor-pointer hover:text-white select-none" : ""}\`}>
+                {col.label} {col.sortable && <span className="text-white/40">{sortKey === col.key ? (sortAsc ? "↑" : "↓") : "↕"}</span>}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {sorted.map((row, i) => (
+            <tr key={i} className="border-b border-white/10 last:border-b-0 hover:bg-white/5 transition-colors">
+              {columns.map((col) => <td key={col.key} className="px-4 py-3 text-sm text-white/80">{row[col.key]}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};`;
+
+export const md3Jsx = `const Md3Table = ({ columns, data }) => {
+  const [sortKey, setSortKey] = useState(null);
+  const [sortAsc, setSortAsc] = useState(true);
+  const handleSort = (key) => { if (sortKey === key) setSortAsc(!sortAsc); else { setSortKey(key); setSortAsc(true); } };
+  const sorted = sortKey ? [...data].sort((a, b) => sortAsc ? String(a[sortKey] ?? "").localeCompare(String(b[sortKey] ?? "")) : String(b[sortKey] ?? "").localeCompare(String(a[sortKey] ?? ""))) : data;
+
+  return (
+    <div className="w-full overflow-x-auto bg-[#fffbfe] border border-[#e7e0ec] rounded-[12px] shadow-[0_1px_2px_rgba(0,0,0,0.1)] font-sans">
+      <table className="w-full border-collapse text-sm">
+        <thead>
+          <tr className="bg-[#f3edf7] border-b border-[#e7e0ec]">
+            {columns.map((col) => (
+              <th key={col.key} onClick={col.sortable ? () => handleSort(col.key) : undefined}
+                className={\`px-4 py-3 text-left text-xs font-semibold text-[#49454f] uppercase tracking-wide \${col.sortable ? "cursor-pointer hover:text-[#6750a4] select-none transition-colors" : ""}\`}>
+                {col.label} {col.sortable && <span className="text-[#79747e]">{sortKey === col.key ? (sortAsc ? "↑" : "↓") : "↕"}</span>}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-[#e7e0ec]">
+          {sorted.map((row, i) => (
+            <tr key={i} className="hover:bg-[#6750a4]/8 transition-colors">
+              {columns.map((col) => <td key={col.key} className="px-4 py-3 text-sm text-[#1c1b1f]">{row[col.key]}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};`;
+
+export const nmJsx = `const NmTable = ({ columns, data }) => {
+  const [sortKey, setSortKey] = useState(null);
+  const [sortAsc, setSortAsc] = useState(true);
+  const handleSort = (key) => { if (sortKey === key) setSortAsc(!sortAsc); else { setSortKey(key); setSortAsc(true); } };
+  const sorted = sortKey ? [...data].sort((a, b) => sortAsc ? String(a[sortKey] ?? "").localeCompare(String(b[sortKey] ?? "")) : String(b[sortKey] ?? "").localeCompare(String(a[sortKey] ?? ""))) : data;
+
+  return (
+    <div className="w-full overflow-x-auto bg-[#e0e5ec] rounded-xl font-sans shadow-[-5px_-5px_10px_#ffffff,_5px_5px_10px_rgba(163,177,198,0.6)]">
+      <table className="w-full border-collapse text-sm">
+        <thead>
+          <tr className="border-b border-[rgba(163,177,198,0.3)]">
+            {columns.map((col) => (
+              <th key={col.key} onClick={col.sortable ? () => handleSort(col.key) : undefined}
+                className={\`px-4 py-3 text-left text-xs font-semibold text-[#6c7a9c] uppercase tracking-wide \${col.sortable ? "cursor-pointer hover:text-[#3d4f6e] select-none transition-colors" : ""}\`}>
+                {col.label} {col.sortable && <span className="text-[#6c7a9c]/50">{sortKey === col.key ? (sortAsc ? "↑" : "↓") : "↕"}</span>}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {sorted.map((row, i) => (
+            <tr key={i} className="border-b border-[rgba(163,177,198,0.2)] last:border-b-0 hover:shadow-[inset_-2px_-2px_4px_#ffffff,_inset_2px_2px_4px_rgba(163,177,198,0.3)] transition-all duration-150">
+              {columns.map((col) => <td key={col.key} className="px-4 py-3 text-sm text-[#3d4f6e]">{row[col.key]}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};`;

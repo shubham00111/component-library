@@ -5,11 +5,14 @@ title: Card
 import { loadSnippets } from "../../lib/snippets";
 import { ComponentShowcase } from "../../components/ComponentShowcase";
 import { SnippetViewer } from "../../components/SnippetViewer";
-import { NeobrutalismCard, ShadcnCard, FlowbiteCard } from "@lib/components/Card";
+import { NeobrutalismCard, ShadcnCard, FlowbiteCard, GlassmorphismCard, Md3Card, NmCard } from "@lib/components/Card";
 import {
   NeobrutalismCardPreview,
   ShadcnCardPreview,
   FlowbiteCardPreview,
+  GlassmorphismCardPreview,
+  Md3CardPreview,
+  NmCardPreview,
 } from "../../components/CardVariants";
 
 export const snippets = loadSnippets("Card");
@@ -52,6 +55,21 @@ Content container with optional image, title, description, body, and footer slot
         />
       ),
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismCard title="Card Title" description="A short description for this card." />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3Card title="Card Title" description="A short description for this card." />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmCard title="Card Title" description="A short description for this card." />,
+    },
   ]}
 />
 
@@ -72,3 +90,21 @@ Soft shadow, 6 px radius, neutral surface.
 Minimal border, 8 px radius, hover shadow lift.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteCardPreview />} />
+
+## Glassmorphism
+
+Frosted glass panel with backdrop blur and translucent border.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismCardPreview />} />
+
+## Material Design 3
+
+Rounded surface card with tonal footer and soft elevation shadow.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3CardPreview />} />
+
+## Neumorphism
+
+Raised card with dual-tone shadows on matching base background.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmCardPreview />} />

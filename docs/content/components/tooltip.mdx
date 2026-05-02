@@ -9,6 +9,9 @@ import {
   NeobrutalismTooltipPreview,
   ShadcnTooltipPreview,
   FlowbiteTooltipPreview,
+  GlassmorphismTooltipPreview,
+  Md3TooltipPreview,
+  NmTooltipPreview,
 } from "../../components/TooltipVariants";
 
 export const snippets = loadSnippets("Tooltip");
@@ -36,6 +39,21 @@ Helper text shown on hover or focus of a trigger element. Wrap any element with 
       designLanguage: "flowbite",
       children: <FlowbiteTooltipPreview />,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismTooltipPreview />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3TooltipPreview />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmTooltipPreview />,
+    },
   ]}
 />
 
@@ -56,3 +74,21 @@ Zinc-900 background, white text, 6 px radius, `shadow-md`.
 Gray-800 background, white text, `rounded-lg`, `shadow-lg`.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteTooltipPreview />} />
+
+## Glassmorphism
+
+Frosted glass bubble with translucent border on gradient background.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismTooltipPreview />} />
+
+## Material Design 3
+
+Dark `#313033` chip, muted text, 4 px radius, minimal shadow.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3TooltipPreview />} />
+
+## Neumorphism
+
+Raised soft-shadow bubble matching base background colour.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmTooltipPreview />} />

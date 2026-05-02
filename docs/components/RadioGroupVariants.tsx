@@ -1,5 +1,5 @@
 "use client";
-import { NeobrutalismRadioGroup, ShadcnRadioGroup, FlowbiteRadioGroup } from "@lib/components/RadioGroup";
+import { NeobrutalismRadioGroup, ShadcnRadioGroup, FlowbiteRadioGroup, GlassmorphismRadioGroup, Md3RadioGroup, NmRadioGroup } from "@lib/components/RadioGroup";
 
 export function NeobrutalismRadioGroupPreview() {
   return (
@@ -28,5 +28,39 @@ export function FlowbiteRadioGroupPreview() {
       <FlowbiteRadioGroup.Item value="banana" label="Banana" />
       <FlowbiteRadioGroup.Item value="orange" label="Orange" />
     </FlowbiteRadioGroup>
+  );
+}
+
+export function GlassmorphismRadioGroupPreview() {
+  return (
+    <div style={{ padding: "16px", background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", borderRadius: "8px" }}>
+      <GlassmorphismRadioGroup name="glass-prev" defaultValue="apple">
+        <GlassmorphismRadioGroup.Item value="apple" label="Apple" />
+        <GlassmorphismRadioGroup.Item value="banana" label="Banana" />
+        <GlassmorphismRadioGroup.Item value="orange" label="Orange" />
+      </GlassmorphismRadioGroup>
+    </div>
+  );
+}
+
+export function Md3RadioGroupPreview() {
+  return (
+    <Md3RadioGroup name="md3-prev" defaultValue="apple">
+      <Md3RadioGroup.Item value="apple" label="Apple" />
+      <Md3RadioGroup.Item value="banana" label="Banana" />
+      <Md3RadioGroup.Item value="orange" label="Orange" />
+    </Md3RadioGroup>
+  );
+}
+
+export function NmRadioGroupPreview() {
+  return (
+    <div style={{ padding: "16px", background: "#e0e5ec", borderRadius: "8px" }}>
+      <NmRadioGroup name="nm-prev" defaultValue="apple">
+        <NmRadioGroup.Item value="apple" label="Apple" />
+        <NmRadioGroup.Item value="banana" label="Banana" />
+        <NmRadioGroup.Item value="orange" label="Orange" />
+      </NmRadioGroup>
+    </div>
   );
 }

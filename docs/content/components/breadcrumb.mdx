@@ -9,6 +9,9 @@ import {
   NeobrutalismBreadcrumbPreview,
   ShadcnBreadcrumbPreview,
   FlowbiteBreadcrumbPreview,
+  GlassmorphismBreadcrumbPreview,
+  Md3BreadcrumbPreview,
+  NmBreadcrumbPreview,
 } from "../../components/BreadcrumbVariants";
 
 export const snippets = loadSnippets("Breadcrumb");
@@ -36,6 +39,21 @@ Navigation hierarchy trail. Compound sub-components: `Breadcrumb` + `Breadcrumb.
       designLanguage: "flowbite",
       children: <FlowbiteBreadcrumbPreview />,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismBreadcrumbPreview />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3BreadcrumbPreview />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmBreadcrumbPreview />,
+    },
   ]}
   layout="column"
 />
@@ -57,3 +75,21 @@ Zinc muted link text, `/` separator, zinc-900 current item.
 Blue links (`#1c64f2`), `›` separator, gray current item.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteBreadcrumbPreview />} />
+
+## Glassmorphism
+
+Translucent white links, `/` separator, white current item on gradient background.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismBreadcrumbPreview />} />
+
+## Material Design 3
+
+Purple tinted links with hover tonal pill, `›` separator, on-surface current item.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3BreadcrumbPreview />} />
+
+## Neumorphism
+
+Blue-gray semibold links, faded `/` separator, darker current item.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmBreadcrumbPreview />} />

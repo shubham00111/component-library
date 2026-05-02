@@ -93,3 +93,72 @@ const FlowbiteToggle = ({ checked, defaultChecked = false, onChange, disabled = 
     </label>
   );
 };`;
+
+export const glassmorphismJsx = `const TRACK_SIZE = { sm: "w-9 h-[18px]", md: "w-11 h-[22px]", lg: "w-14 h-7" };
+const THUMB_SIZE = { sm: "w-3 h-3", md: "w-[15px] h-[15px]", lg: "w-5 h-5" };
+const THUMB_CHECKED = { sm: "translate-x-[18px]", md: "translate-x-[22px]", lg: "translate-x-7" };
+
+const GlassmorphismToggle = ({ checked, defaultChecked = false, onChange, disabled = false, label, size = "md", id }) => {
+  const [isChecked, setIsChecked] = useState(checked ?? defaultChecked);
+  const toggleId = id ?? (label ? label.toLowerCase().replace(/\\s+/g, "-") + "-toggle" : "glass-toggle");
+
+  return (
+    <label htmlFor={toggleId} className={\`inline-flex items-center gap-2 font-sans cursor-pointer\${disabled ? " cursor-not-allowed opacity-40" : ""}\`}>
+      <span className="relative inline-block flex-shrink-0">
+        <input id={toggleId} type="checkbox" role="switch" checked={isChecked} disabled={disabled}
+          onChange={(e) => { setIsChecked(e.target.checked); onChange?.(e.target.checked); }}
+          className="absolute opacity-0 w-0 h-0" />
+        <span className={\`block backdrop-blur-md border border-white/30 rounded-full relative transition-all duration-200 \${isChecked ? "bg-white/40" : "bg-white/10"} \${TRACK_SIZE[size]}\`}>
+          <span className={\`absolute top-[2px] left-[2px] bg-white rounded-full shadow-[0_2px_8px_rgba(31,38,135,0.2)] transition-transform duration-200 \${isChecked ? THUMB_CHECKED[size] : ""} \${THUMB_SIZE[size]}\`} />
+        </span>
+      </span>
+      {label && <span className="text-[0.9375rem] font-medium text-white select-none">{label}</span>}
+    </label>
+  );
+};`;
+
+export const md3Jsx = `const TRACK_SIZE = { sm: "w-9 h-[18px]", md: "w-11 h-[22px]", lg: "w-14 h-7" };
+const THUMB_SIZE = { sm: "w-3 h-3", md: "w-[15px] h-[15px]", lg: "w-5 h-5" };
+const THUMB_CHECKED = { sm: "translate-x-[18px]", md: "translate-x-[22px]", lg: "translate-x-7" };
+
+const Md3Toggle = ({ checked, defaultChecked = false, onChange, disabled = false, label, size = "md", id }) => {
+  const [isChecked, setIsChecked] = useState(checked ?? defaultChecked);
+  const toggleId = id ?? (label ? label.toLowerCase().replace(/\\s+/g, "-") + "-toggle" : "md3-toggle");
+
+  return (
+    <label htmlFor={toggleId} className={\`inline-flex items-center gap-2 font-sans cursor-pointer\${disabled ? " cursor-not-allowed opacity-40" : ""}\`}>
+      <span className="relative inline-block flex-shrink-0">
+        <input id={toggleId} type="checkbox" role="switch" checked={isChecked} disabled={disabled}
+          onChange={(e) => { setIsChecked(e.target.checked); onChange?.(e.target.checked); }}
+          className="absolute opacity-0 w-0 h-0" />
+        <span className={\`block rounded-full relative transition-all duration-200 border-2 \${isChecked ? "bg-[#6750a4] border-[#6750a4]" : "bg-[#e7e0ec] border-[#79747e]"} \${TRACK_SIZE[size]}\`}>
+          <span className={\`absolute top-[2px] left-[2px] rounded-full transition-all duration-200 \${isChecked ? "bg-white " + THUMB_CHECKED[size] : "bg-[#79747e]"} \${THUMB_SIZE[size]}\`} />
+        </span>
+      </span>
+      {label && <span className="text-[0.9375rem] font-medium text-[#1c1b1f] select-none">{label}</span>}
+    </label>
+  );
+};`;
+
+export const nmJsx = `const TRACK_SIZE = { sm: "w-9 h-[18px]", md: "w-11 h-[22px]", lg: "w-14 h-7" };
+const THUMB_SIZE = { sm: "w-3 h-3", md: "w-[15px] h-[15px]", lg: "w-5 h-5" };
+const THUMB_CHECKED = { sm: "translate-x-[18px]", md: "translate-x-[22px]", lg: "translate-x-7" };
+
+const NmToggle = ({ checked, defaultChecked = false, onChange, disabled = false, label, size = "md", id }) => {
+  const [isChecked, setIsChecked] = useState(checked ?? defaultChecked);
+  const toggleId = id ?? (label ? label.toLowerCase().replace(/\\s+/g, "-") + "-toggle" : "nm-toggle");
+
+  return (
+    <label htmlFor={toggleId} className={\`inline-flex items-center gap-2 font-sans cursor-pointer\${disabled ? " cursor-not-allowed opacity-50" : ""}\`}>
+      <span className="relative inline-block flex-shrink-0">
+        <input id={toggleId} type="checkbox" role="switch" checked={isChecked} disabled={disabled}
+          onChange={(e) => { setIsChecked(e.target.checked); onChange?.(e.target.checked); }}
+          className="absolute opacity-0 w-0 h-0" />
+        <span className={\`block bg-[#e0e5ec] rounded-full relative transition-colors duration-200 shadow-[inset_-3px_-3px_6px_#ffffff,_inset_3px_3px_6px_rgba(163,177,198,0.5)] \${TRACK_SIZE[size]}\`}>
+          <span className={\`absolute top-[2px] left-[2px] rounded-full transition-all duration-200 shadow-[-2px_-2px_4px_#ffffff,_2px_2px_4px_rgba(163,177,198,0.5)] \${isChecked ? "bg-[#6c7a9c] " + THUMB_CHECKED[size] : "bg-[#e0e5ec]"} \${THUMB_SIZE[size]}\`} />
+        </span>
+      </span>
+      {label && <span className="text-[0.9375rem] font-semibold text-[#6c7a9c] select-none">{label}</span>}
+    </label>
+  );
+};`;

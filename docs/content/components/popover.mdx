@@ -9,6 +9,9 @@ import {
   NeobrutalismPopoverPreview,
   ShadcnPopoverPreview,
   FlowbitePopoverPreview,
+  GlassmorphismPopoverPreview,
+  Md3PopoverPreview,
+  NmPopoverPreview,
 } from "../../components/PopoverVariants";
 
 export const snippets = loadSnippets("Popover");
@@ -36,6 +39,21 @@ Click-toggled floating panel anchored to a trigger button. Compound sub-componen
       designLanguage: "flowbite",
       children: <FlowbitePopoverPreview />,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismPopoverPreview />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3PopoverPreview />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmPopoverPreview />,
+    },
   ]}
 />
 
@@ -56,3 +74,21 @@ White panel, zinc border, `shadow-md`, 6 px radius.
 White panel, gray border, `shadow-lg`, `rounded-lg`, blue trigger button.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbitePopoverPreview />} />
+
+## Glassmorphism
+
+Frosted glass panel with backdrop blur and translucent trigger button.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismPopoverPreview />} />
+
+## Material Design 3
+
+Surface panel with 12 px radius, MD3 soft elevation, tonal trigger.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3PopoverPreview />} />
+
+## Neumorphism
+
+Raised panel matching base background with dual-tone outset shadow.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmPopoverPreview />} />

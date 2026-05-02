@@ -134,3 +134,66 @@ FlowbitePopover.Content = ({ children }) => {
     </div>
   );
 };`;
+
+export const glassmorphismJsx = `const GlassmorphismPopover = ({ trigger, content, placement = "bottom" }) => {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+  const pos = { bottom: "top-full left-0 mt-2", top: "bottom-full left-0 mb-2", left: "right-full top-0 mr-2", right: "left-full top-0 ml-2" };
+  return (
+    <div ref={ref} className="relative inline-block font-sans">
+      <div onClick={() => setOpen(!open)} className="cursor-pointer">{trigger}</div>
+      {open && (
+        <div className={\`absolute z-10 min-w-[200px] bg-white/15 backdrop-blur-md border border-white/20 rounded-xl shadow-[0_8px_32px_rgba(31,38,135,0.2)] p-4 \${pos[placement]}\`}>
+          <div className="text-sm text-white/90">{content}</div>
+        </div>
+      )}
+    </div>
+  );
+};`;
+
+export const md3Jsx = `const Md3Popover = ({ trigger, content, placement = "bottom" }) => {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+  const pos = { bottom: "top-full left-0 mt-1", top: "bottom-full left-0 mb-1", left: "right-full top-0 mr-1", right: "left-full top-0 ml-1" };
+  return (
+    <div ref={ref} className="relative inline-block font-sans">
+      <div onClick={() => setOpen(!open)} className="cursor-pointer">{trigger}</div>
+      {open && (
+        <div className={\`absolute z-10 min-w-[200px] bg-[#fffbfe] border border-[#e7e0ec] rounded-[12px] shadow-[0_2px_6px_rgba(0,0,0,0.15),0_4px_8px_rgba(0,0,0,0.1)] p-4 \${pos[placement]}\`}>
+          <div className="text-sm text-[#1c1b1f]">{content}</div>
+        </div>
+      )}
+    </div>
+  );
+};`;
+
+export const nmJsx = `const NmPopover = ({ trigger, content, placement = "bottom" }) => {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+  const pos = { bottom: "top-full left-0 mt-2", top: "bottom-full left-0 mb-2", left: "right-full top-0 mr-2", right: "left-full top-0 ml-2" };
+  return (
+    <div ref={ref} className="relative inline-block font-sans">
+      <div onClick={() => setOpen(!open)} className="cursor-pointer">{trigger}</div>
+      {open && (
+        <div className={\`absolute z-10 min-w-[200px] bg-[#e0e5ec] rounded-xl shadow-[-5px_-5px_10px_#ffffff,_5px_5px_10px_rgba(163,177,198,0.6)] p-4 \${pos[placement]}\`}>
+          <div className="text-sm text-[#6c7a9c]">{content}</div>
+        </div>
+      )}
+    </div>
+  );
+};`;

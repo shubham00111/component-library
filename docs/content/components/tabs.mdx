@@ -9,6 +9,9 @@ import {
   NeobrutalismTabsPreview,
   ShadcnTabsPreview,
   FlowbiteTabsPreview,
+  GlassmorphismTabsPreview,
+  Md3TabsPreview,
+  NmTabsPreview,
 } from "../../components/TabsVariants";
 
 export const snippets = loadSnippets("Tabs");
@@ -36,6 +39,21 @@ Horizontal tab navigation with active underline indicator. Supports `disabled` t
       designLanguage: "flowbite",
       children: <FlowbiteTabsPreview />,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismTabsPreview />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3TabsPreview />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmTabsPreview />,
+    },
   ]}
   layout="column"
 />
@@ -57,3 +75,21 @@ Zinc underline, minimal styling, clean transitions.
 Blue `#1c64f2` underline active state, gray inactive text.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteTabsPreview />} />
+
+## Glassmorphism
+
+Glass pill container with highlighted active tab on gradient background.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismTabsPreview />} />
+
+## Material Design 3
+
+Bottom-border underline indicator, purple active tab, clean divider.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3TabsPreview />} />
+
+## Neumorphism
+
+Concave container, active tab pops with convex shadow on base background.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmTabsPreview />} />

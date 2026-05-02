@@ -5,11 +5,14 @@ title: Toggle
 import { loadSnippets } from "../../lib/snippets";
 import { ComponentShowcase } from "../../components/ComponentShowcase";
 import { SnippetViewer } from "../../components/SnippetViewer";
-import { NeobrutalismToggle, ShadcnToggle, FlowbiteToggle } from "@lib/components/Toggle";
+import { NeobrutalismToggle, ShadcnToggle, FlowbiteToggle, GlassmorphismToggle, Md3Toggle, NmToggle } from "@lib/components/Toggle";
 import {
   NeobrutalismTogglePreview,
   ShadcnTogglePreview,
   FlowbiteTogglePreview,
+  GlassmorphismTogglePreview,
+  Md3TogglePreview,
+  NmTogglePreview,
 } from "../../components/ToggleVariants";
 
 export const snippets = loadSnippets("Toggle");
@@ -37,6 +40,21 @@ An accessible switch/toggle with `sm`, `md`, and `lg` sizes. Supports controlled
       designLanguage: "flowbite",
       children: <FlowbiteToggle defaultChecked label="Enable notifications" />,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismToggle defaultChecked label="Enable notifications" />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3Toggle defaultChecked label="Enable notifications" />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmToggle defaultChecked label="Enable notifications" />,
+    },
   ]}
   layout="column"
 />
@@ -58,3 +76,21 @@ Pill track, zinc active state, smooth transition.
 Pill track, blue active state, smooth transition.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteTogglePreview />} />
+
+## Glassmorphism
+
+Translucent track with frosted thumb on gradient background.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismTogglePreview />} />
+
+## Material Design 3
+
+Rounded track with filled thumb, purple checked state.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3TogglePreview />} />
+
+## Neumorphism
+
+Concave track, convex thumb — depth achieved through dual shadows.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmTogglePreview />} />

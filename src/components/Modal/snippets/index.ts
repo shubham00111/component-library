@@ -243,3 +243,52 @@ FlowbiteModal.Close = Close;
     </FlowbiteModal.Dialog>
   </FlowbiteModal.Overlay>
 </FlowbiteModal>`;
+
+export const glassmorphismJsx = `const GlassmorphismModal = ({ isOpen, onClose, title, children, footer }) => {
+  if (!isOpen) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+      <div className="relative bg-white/15 backdrop-blur-md border border-white/20 rounded-xl shadow-[0_8px_32px_rgba(31,38,135,0.25)] w-full max-w-md font-sans">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
+          <h2 className="text-base font-semibold text-white m-0">{title}</h2>
+          <button onClick={onClose} className="text-white/60 hover:text-white text-xl leading-none transition-colors">×</button>
+        </div>
+        <div className="px-5 py-4 text-sm text-white/80">{children}</div>
+        {footer && <div className="px-5 py-4 border-t border-white/10 flex justify-end gap-2">{footer}</div>}
+      </div>
+    </div>
+  );
+};`;
+
+export const md3Jsx = `const Md3Modal = ({ isOpen, onClose, title, children, footer }) => {
+  if (!isOpen) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div className="absolute inset-0 bg-[#1c1b1f]/40" />
+      <div className="relative bg-[#fffbfe] rounded-[28px] shadow-[0_6px_10px_rgba(0,0,0,0.14),0_1px_18px_rgba(0,0,0,0.12)] w-full max-w-md font-sans">
+        <div className="px-6 pt-6 pb-4">
+          <h2 className="text-xl font-semibold text-[#1c1b1f] m-0 mb-2">{title}</h2>
+          <div className="text-sm text-[#49454f]">{children}</div>
+        </div>
+        {footer && <div className="px-6 pb-6 flex justify-end gap-2">{footer}</div>}
+      </div>
+    </div>
+  );
+};`;
+
+export const nmJsx = `const NmModal = ({ isOpen, onClose, title, children, footer }) => {
+  if (!isOpen) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#e0e5ec]/80" onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div className="bg-[#e0e5ec] rounded-xl shadow-[-10px_-10px_20px_#ffffff,_10px_10px_20px_rgba(163,177,198,0.6)] w-full max-w-md font-sans">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-[rgba(163,177,198,0.3)]">
+          <h2 className="text-base font-semibold text-[#3d4f6e] m-0">{title}</h2>
+          <button onClick={onClose} className="text-[#6c7a9c] hover:text-[#3d4f6e] text-xl leading-none transition-colors">×</button>
+        </div>
+        <div className="px-5 py-4 text-sm text-[#6c7a9c]">{children}</div>
+        {footer && <div className="px-5 py-4 border-t border-[rgba(163,177,198,0.3)] flex justify-end gap-2">{footer}</div>}
+      </div>
+    </div>
+  );
+};`;

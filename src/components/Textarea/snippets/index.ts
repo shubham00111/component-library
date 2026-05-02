@@ -87,3 +87,61 @@ export const flowbiteJsx = `const FlowbiteTextarea = ({ value, onChange, placeho
     </div>
   );
 };`;
+
+export const glassmorphismJsx = `const GlassmorphismTextarea = ({ value, onChange, placeholder = "", disabled = false, label, error, helperText, rows = 4, id }) => {
+  const [val, setVal] = useState(value ?? "");
+  const taId = id ?? (label ? label.toLowerCase().replace(/\\s+/g, "-") : undefined);
+
+  return (
+    <div className="flex flex-col gap-1.5 font-sans">
+      {label && <label htmlFor={taId} className="text-sm font-medium text-white/90">{label}</label>}
+      <textarea
+        id={taId} rows={rows} value={val} placeholder={placeholder} disabled={disabled}
+        onChange={(e) => { setVal(e.target.value); onChange?.(e); }}
+        className={["py-2 px-3 text-[0.9375rem] text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-xl outline-none w-full resize-y transition-all duration-200 placeholder:text-white/50 focus:border-white/50 focus:bg-white/20 disabled:opacity-40 disabled:cursor-not-allowed", error ? "border-red-400/60" : ""].filter(Boolean).join(" ")}
+      />
+      {error && <span className="text-sm text-red-300">{error}</span>}
+      {helperText && !error && <span className="text-sm text-white/60">{helperText}</span>}
+    </div>
+  );
+};`;
+
+export const md3Jsx = `const Md3Textarea = ({ value, onChange, placeholder = "", disabled = false, label, error, helperText, rows = 4, id }) => {
+  const [val, setVal] = useState(value ?? "");
+  const [focused, setFocused] = useState(false);
+  const taId = id ?? (label ? label.toLowerCase().replace(/\\s+/g, "-") : undefined);
+
+  return (
+    <div className="flex flex-col gap-1 font-sans">
+      {label && (
+        <label htmlFor={taId} className={\`text-xs font-medium \${error ? "text-[#b3261e]" : focused ? "text-[#6750a4]" : "text-[#49454f]"}\`}>{label}</label>
+      )}
+      <textarea
+        id={taId} rows={rows} value={val} placeholder={placeholder} disabled={disabled}
+        onChange={(e) => { setVal(e.target.value); onChange?.(e); }}
+        onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
+        className={["py-2 px-4 text-[0.9375rem] text-[#1c1b1f] bg-[#fffbfe] border rounded-[4px] outline-none w-full resize-y transition-all duration-200 placeholder:text-[#49454f] disabled:opacity-40 disabled:cursor-not-allowed", error ? "border-[#b3261e] border-b-2" : focused ? "border-[#6750a4] border-b-2" : "border-[#79747e]"].join(" ")}
+      />
+      {error && <span className="text-xs text-[#b3261e]">{error}</span>}
+      {helperText && !error && <span className="text-xs text-[#49454f]">{helperText}</span>}
+    </div>
+  );
+};`;
+
+export const nmJsx = `const NmTextarea = ({ value, onChange, placeholder = "", disabled = false, label, error, helperText, rows = 4, id }) => {
+  const [val, setVal] = useState(value ?? "");
+  const taId = id ?? (label ? label.toLowerCase().replace(/\\s+/g, "-") : undefined);
+
+  return (
+    <div className="flex flex-col gap-1.5 font-sans">
+      {label && <label htmlFor={taId} className="text-sm font-semibold text-[#6c7a9c]">{label}</label>}
+      <textarea
+        id={taId} rows={rows} value={val} placeholder={placeholder} disabled={disabled}
+        onChange={(e) => { setVal(e.target.value); onChange?.(e); }}
+        className="py-2.5 px-4 text-[0.9375rem] text-[#3d4f6e] rounded-xl outline-none w-full resize-y border-none bg-[#e0e5ec] shadow-[inset_-5px_-5px_10px_#ffffff,_inset_5px_5px_10px_rgba(163,177,198,0.6)] placeholder:text-[#6c7a9c]/60 focus:shadow-[inset_-3px_-3px_7px_#ffffff,_inset_3px_3px_7px_rgba(163,177,198,0.5)] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-150"
+      />
+      {error && <span className="text-sm text-red-500">{error}</span>}
+      {helperText && !error && <span className="text-sm text-[#6c7a9c]">{helperText}</span>}
+    </div>
+  );
+};`;

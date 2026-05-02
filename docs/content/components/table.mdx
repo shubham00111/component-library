@@ -9,6 +9,9 @@ import {
   NeobrutalismTablePreview,
   ShadcnTablePreview,
   FlowbiteTablePreview,
+  GlassmorphismTablePreview,
+  Md3TablePreview,
+  NmTablePreview,
 } from "../../components/TableVariants";
 
 export const snippets = loadSnippets("Table");
@@ -36,6 +39,21 @@ Data table with optional column sorting. Pass `columns` (array of `{ key, label,
       designLanguage: "flowbite",
       children: <FlowbiteTablePreview />,
     },
+    {
+      label: "Glassmorphism",
+      designLanguage: "glassmorphism",
+      children: <GlassmorphismTablePreview />,
+    },
+    {
+      label: "Material Design 3",
+      designLanguage: "md3",
+      children: <Md3TablePreview />,
+    },
+    {
+      label: "Neumorphism",
+      designLanguage: "neumorphism",
+      children: <NmTablePreview />,
+    },
   ]}
   layout="column"
 />
@@ -57,3 +75,21 @@ Zinc border, `bg-zinc-50` header with uppercase tracking, hover row highlight.
 Gray border, `bg-gray-50` header, `rounded-lg` outer container, subtle hover transition.
 
 <SnippetViewer react={snippets.flowbite.react} preview={<FlowbiteTablePreview />} />
+
+## Glassmorphism
+
+Frosted glass container with translucent borders and white header text.
+
+<SnippetViewer react={snippets.glassmorphism.react} preview={<GlassmorphismTablePreview />} />
+
+## Material Design 3
+
+Lavender tonal header, surface container, purple sort indicators.
+
+<SnippetViewer react={snippets.md3.react} preview={<Md3TablePreview />} />
+
+## Neumorphism
+
+Raised container with inset row hover effect on base background.
+
+<SnippetViewer react={snippets.neumorphism.react} preview={<NmTablePreview />} />
